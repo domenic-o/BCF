@@ -1,0 +1,928 @@
+\documentclass[12pt]{scrartcl}
+%\usepackage{refcheck} 
+\usepackage{a4}   
+\usepackage{amsmath}    
+\usepackage{paralist}
+\usepackage{amssymb} 
+\usepackage{amsfonts}  
+\usepackage{mathrsfs}  
+\usepackage{dsfont}
+\usepackage{latexsym} 
+\usepackage{xcolor}
+\usepackage{bbm,exscale}
+\definecolor{Myblue}{rgb}{0,0,0.6}  
+\usepackage[colorlinks,citecolor=Myblue,linkcolor=Myblue,urlcolor=Myblue,pdfpagemode=None]{hyperref}
+\usepackage{amsthm}
+\usepackage{accents}
+\usepackage[square,numbers,sort&compress]{natbib} 
+\usepackage[all,cmtip]{xy}
+\usepackage{ifthen} 
+\usepackage{bbding}
+\usepackage{stmaryrd}  
+\usepackage{wasysym}
+\usepackage{verbatim}
+\usepackage{bbding} 
+\usepackage{soul}  %allow linebreak for underlined with \ul
+\usepackage[yyyymmdd,hhmmss]{datetime}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+	\pgfplotsset{width=7cm,compat=1.8}
+	%%External
+%	 \usetikzlibrary{external}\tikzexternalize
+%	\usetikzlibrary{decorations.pathmorphing}
+%	\usetikzlibrary{decorations.pathreplacing}
+	\usetikzlibrary{decorations.markings}
+%	\usetikzlibrary{calc}
+%	\usetikzlibrary{fadings}
+%	\usetikzlibrary{matrix} 
+	\usetikzlibrary{patterns}
+%	\usetikzlibrary{shapes.geometric}
+%	\usetikzlibrary{shadows}
+
+%\pgfplotsset{compat=1.11}            
+            
+
+\tikzset{
+    string/.style={draw=#1, postaction={decorate}, decoration={markings,mark=at position .51 with {\arrow[color=#1]{>}}}},
+    costring/.style={draw=#1, postaction={decorate}, decoration={markings,mark=at position .51 with {\arrow[draw=#1]{<}}}},
+    ostring/.style={draw=#1, postaction={decorate}, decoration={markings,mark=at position .47 with {\arrow[draw=#1]{>}}}},
+    ustring/.style={draw=#1, postaction={decorate}, decoration={markings,mark=at position .56 with {\arrow[draw=#1]{>}}}},
+    oostring/.style={draw=#1, postaction={decorate}, decoration={markings,mark=at position .43 with {\arrow[draw=#1]{>}}}},
+    uustring/.style={draw=#1, postaction={decorate}, decoration={markings,mark=at position .59 with {\arrow[draw=#1]{>}}}},
+    directed/.style={string=blue!50!black}, 
+    odirected/.style={ostring=blue!50!black}, 
+    udirected/.style={ustring=blue!50!black}, 
+    oodirected/.style={oostring=blue!50!black}, 
+    uudirected/.style={uustring=blue!50!black},     
+    redirected/.style={costring= blue!50!black},
+    redirectedgreen/.style={costring= green!50!black},
+    directedgreen/.style={string= green!50!black},
+    redirectedlightgreen/.style={costring= green!65!black},
+    directedlightgreen/.style={string= green!65!black},
+}
+
+\tikzset{-dot-/.style={decoration={
+  markings,
+  mark=at position 0.5 with {\fill circle (1.875pt);}},postaction={decorate}}}
+
+\tikzset{
+	Fdot/.style={circle, draw, fill, inner sep=0pt}, 
+	Odot/.style={circle, draw, inner sep=0.1pt, minimum size=0.1cm}
+	}
+
+\def\nicedashedcolourscheme{\shadedraw[top color=blue!22, bottom color=blue!22, draw=gray, dashed]}
+\def\nicedashedpalecolourscheme{\shadedraw[top color=blue!12, bottom color=blue!12, draw=gray, dashed]}
+\def\nicehalfpalecolourscheme{\shadedraw[top color=blue!22, bottom color=blue!22, draw=white]}
+\def\nicenotpalecolourscheme{\shadedraw[top color=blue!32, bottom color=blue!32, draw=white]}
+\def\nicecolourscheme{\shadedraw[top color=blue!22, bottom color=blue!22, draw=blue!22]}
+\def\nicepalecolourscheme{\shadedraw[top color=blue!12, bottom color=blue!12, draw=white]}
+\def\nicenocolourscheme{\shadedraw[top color=gray!2, bottom color=gray!25, draw=white]}
+\def\nicereallynocolourscheme{\shadedraw[top color=white!2, bottom color=white!25, draw=white]}
+\def\boringcolourscheme{\draw[fill=blue!20, dashed]}
+
+\newcommand\tikzzbox[1]
+%{pic}% 
+{#1}%#1
+
+  \tolerance 1414
+  \hbadness 1414
+  \hfuzz 0.3pt
+  \widowpenalty=10000
+  \vfuzz \hfuzz
+  \raggedbottom
+  
+\makeatletter
+\newcommand{\raisemath}[1]{\mathpalette{\raisem@th{#1}}}
+\newcommand{\raisem@th}[3]{\raisebox{#1}{$#2#3$}}
+\makeatother
+
+\renewcommand{\H}{\mathcal H}
+\newcommand{\Ccal}{\mathcal C}
+\newcommand{\boldB}{\boldsymbol{B}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\orb}{\mathcal{A}}
+\newcommand{\sgn}{\mathrm{sgn}}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+\newcommand{\E}{\text{e}} 
+\newcommand{\I}{\text{i}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\Borb}{\B_{\mathrm{orb}}}
+\newcommand{\Beq}{\B_{\mathrm{eq}}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\D}{\mathds{D}}
+\newcommand{\Ee}{\mathds{E}}
+\newcommand{\K}{\mathds{K}}
+\newcommand{\M}{\mathds{M}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\Q}{\mathds{Q}}
+\newcommand{\R}{\mathds{R}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\IP}{\mathds{P}}
+\def\1{\ifmmode\mathrm{1\!l}\else\mbox{\(\mathrm{1\!l}\)}\fi}
+\newcommand{\one}{\mathbbm{1}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bes}{\begin{equation*}}
+\newcommand{\ees}{\end{equation*}}
+\newcommand{\cc}[1] {\overline{#1}}
+\newcommand{\inv}[0]{{-1}}
+
+\newcommand{\inver}[0]{\times}%{\mathrm{inv}}
+\newcommand{\chirel}[0]{\chi_{\mathrm{sym}}}%{\chi_{\frac{1}{2}}}
+\newcommand{\Dec}[0]{\mathrm{Dec}}
+\newcommand{\interior}[1]{%
+  {\kern0pt#1}^{\mathrm{o}}%
+}
+\newcommand{\Strat}[0]{\mathrm{Strat}}
+\newcommand{\Stratdef}[0]{\mathrm{Strat}^{\mathrm{def}}}
+
+
+\newcommand{\sVir}{\mathsf{sVir}}
+\newcommand{\MF}{\operatorname{MF}_{\operatorname{bi}}}
+\newcommand{\MFW}{\operatorname{MF}_{\operatorname{bi}}(W)}
+\newcommand{\MFR}{\operatorname{MF}^\text{R}_{\operatorname{bi}}}
+\newcommand{\DG}{\operatorname{DG}_{\operatorname{bi}}}
+\newcommand{\DGW}{\operatorname{DG}_{\text{bi}}(W)}
+\newcommand{\DGR}{\operatorname{DG}^\text{R}_{\text{bi}}}
+\newcommand{\id}{\text{id}}
+\newcommand{\KMF}{K_{0}(\operatorname{MF}_{\text{bi}}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\modu}{\operatorname{mod}}
+\def\LG{\mathcal{LG}}
+\def\LGgr{\mathcal{LG}^{\mathrm{gr}}}
+\def\LGgrs{\mathcal{LG}'^{\mathrm{gr}}}
+\def\LGgrso{\mathcal{LG}'^{\mathrm{gr}}_{\mathrm{orb}}}
+\def\LGs{\mathcal{LG}'}
+\def\LGsorb{\mathcal{LG}'_{\mathrm{orb}}}
+\def\LGorb{\mathcal{LG}_{\mathrm{orb}}}
+\def\LGeq{\mathcal{LG}_{\mathrm{eq}}}
+\newcommand{\hmf}{\operatorname{hmf}}
+\newcommand{\HMF}{\operatorname{HMF}}
+\newcommand{\ev}{\operatorname{ev}}
+\newcommand{\eval}{\operatorname{eval}}
+\newcommand{\tev}{\widetilde{\operatorname{ev}}}
+\newcommand{\coev}{\operatorname{coev}}
+\newcommand{\tcoev}{\widetilde{\operatorname{coev}}}
+\def\lra{\longrightarrow}
+% \def\lra{%
+% \;%
+% %%%%%%%%%%%%%%%%%%%%%% 
+% \tikzzbox{\begin{tikzpicture}[scale=1.0,color=black, >=stealth, color=black, baseline=-0.1cm]
+% \draw[-{stealth[length=1.6mm, scale width=1.1]}, line width=0.15mm] (0,0) -- (0.7,0);
+% \end{tikzpicture}}%%popende
+% %%%%%%%%%%%%%%%%%%%%%% 
+% \;%
+% }
+\def\lmt{\longmapsto}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\str}{str}
+\DeclareMathOperator{\Jac}{Jac}
+\def\Re{R^{\operatorname{e}}}
+\DeclareMathOperator{\Res}{Res}
+\newcommand*{\longhookrightarrow}{\ensuremath{\lhook\joinrel\relbar\joinrel\rightarrow}}
+\newcommand*{\twoheadlongrightarrow}{\ensuremath{\relbar\joinrel\twoheadrightarrow}}
+\newcommand{\Ga}[1]{\Gamma_{\hspace{-2pt}#1}}
+\newcommand{\HIA}{\Hom(I,A)}
+\newcommand{\ZA}{Z_A(\Hom(I,A))}
+\newcommand{\gZA}{\!Z_A^\gamma(\Hom(I,A))}
+\newcommand{\gA}{{}_{\gamma_A}A}
+\newcommand{\Aginv}{A_{\gamma_A^{-1}}}
+\newcommand{\picc}{\pi^{(\text{c,c})}_A}
+\newcommand{\pirr}{\pi^{\text{RR}}_A}
+\newcommand{\tpirr}{{\widetilde\pi}^{\text{RR}}} 
+\newcommand{\im}{\operatorname{im}}
+\DeclareMathOperator*{\eq}{=}
+\DeclareMathOperator*{\congscript}{\cong}
+\newcommand{\specflow}{\mathcal U_{-\frac{1}{2},-\frac{1}{2}}}
+\newcommand{\Hil}{\mathcal{H}}
+\newcommand{\Hpcc}{\mathcal{H}'_{\text{(c,c)}}}
+\newcommand{\Hprr}{\mathcal{H}'_{\text{RR}}}
+\newcommand{\Hcc}{\mathcal{H}_{\text{(c,c)}}^A}
+\newcommand{\Hrr}{\mathcal{H}_{\text{RR}}^A}
+\newcommand{\HccnoA}{\mathcal{H}_{\text{(c,c)}}}
+\newcommand{\HrrnoA}{\mathcal{H}_{\text{RR}}}
+\newcommand{\Hrrbo}{\Hom_A(X,{}_{\gamma_A}X)}
+\newcommand{\buboorb}{\beta_X^{\text{orb}}}
+\newcommand{\bobuorb}{\beta^X_{\text{orb}}} 
+\def\Cong{C_g}
+\def\Centg{N_g}
+\def\alphaKK{\alpha^{\{K\}}}
+\def\alphagKg{\alpha_g^{K(g)}}
+\newcommand{\AGC}{A_G^c}
+
+\newcommand{\Bord}{\operatorname{Bord}}
+\newcommand{\Bordor}{\operatorname{Bord}_{n}^{\mathrm{or}}}
+\newcommand{\Borddef}{\operatorname{Bord}^{\mathrm{def}}}
+\newcommand{\Borddefn}[1] {\operatorname{Bord}^{\mathrm{def}}_{#1}}
+\newcommand{\Bordoc}[1] {\operatorname{Bord}^{\mathrm{oc}}_{#1}}
+\newcommand{\Bords}{\operatorname{Bord}_{3}^{\APLstar}}
+\newcommand{\Sphere}{\operatorname{Sphere}^{\mathrm{def}}}
+\newcommand{\Nbh}{\operatorname{\mathcal{N}}}
+\newcommand{\Cube}{\operatorname{Cube}}
+\newcommand{\Cubed}{\operatorname{Cube}_{3}^{\mathrm{def}}(\mathds{D})}
+\newcommand{\Fradj}{\operatorname{\mathcal C_{\mathds D}^{adj}}}
+\newcommand{\Bordstrat}{\operatorname{Bord}^{\mathrm{strat}}}
+\newcommand{\Bordstratn}[1]  {\operatorname{Bord}^{\mathrm{strat}}_{#1}}
+\newcommand{\Borddlong}{\operatorname{Bord}_{3}^{\mathrm{def}}(D_3,D_2,D_1)_{s,t,f}}
+\newcommand{\Bordd[1]}{\operatorname{Bord}_{#1}^{\mathrm{def}}(\mathds{D})}
+\newcommand{\Strator}{\operatorname{Strat}_{n}^{\mathrm{or}}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\tz}{\mathcal T_\zz}
+\newcommand{\dz}{\mathcal D_\zz}
+\newcommand{\tzp}{\mathcal T_{\mathcal Z'}}
+\newcommand{\Data}{\mathds{D}}
+\newcommand{\Obj}{\mathrm{Obj}}
+\newcommand{\zz}{\mathcal{Z}}
+\newcommand{\Fdp}{\operatorname{\mathcal F}_{\textrm{d}}^{\textrm{p}}}
+\newcommand{\zzd}{\mathcal{Z}^{\mathrm{def}}}
+\newcommand{\zztriv}{\mathcal{Z}^{\mathrm{triv}}} 
+\newcommand{\zzAtriv}{\mathcal{Z}_{\mathrm{triv}}^{\Cat{A}}} 
+\newcommand{\euc}{\odot}
+\newcommand{\euctwo}{\odot_{\geq 2}}
+\newcommand{\ieuc}{\iota^\euc}
+\newcommand{\peuc}{\pi^\euc}
+
+\newcommand{\zzTVA}{\mathcal{Z}^{TV}_{\Cat{A}}} 
+\newcommand{\zzRTC}{\mathcal{Z}^{RT}_{\Cat{C}}}
+\newcommand{\tzztriv}{\mathcal{T}_{{\mathcal{Z}^{triv}}}}
+
+\newcommand{\tzGamma}{\mathcal{T}_{{\mathcal{Z}^{\Gamma}}}}
+\newcommand{\unit}{\operatorname{\mathbf{1}}}  
+\newcommand{\bigslant}[2]{{\raisebox{.0em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+\newcommand{\Cubedp}{\operatorname{Cube}_{3}^{\mathrm{def}}(\mathds{D}')}
+\newcommand{\Borddp}{\operatorname{Bord}_{3}^{\mathrm{def}}(\mathds{D}')}
+\newcommand{\Vect}{\operatorname{Vect}}
+\newcommand{\Vectk}{\operatorname{Vect}_\Bbbk}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\al}{\alpha}
+\newcommand{\alb}{\overline{\alpha}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\Ss}{\mathcal{S}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\Y}{\mathcal{Y}}
+\newcommand{\sta}{\boxempty}
+\newcommand{\fus}{\otimes}
+\newcommand{\sd}{^{\star}}
+\newcommand{\dagg}{^{\dagger}}
+\newcommand{\hash}{^{\#}}
+\newcommand{\Set}{\mathrm{Set}}
+\newcommand{\Ball}{\mathrm{Ball}}
+\newcommand{\Sph}{\mathsf{Sph}}
+\newcommand{\fork}{\pitchfork }
+\newcommand{\Cat}[1]         {\operatorname{\mathcal{#1}}}
+\newcommand{\Catpre}[1]         {\operatorname{\mathcal{#1}^{\mathrm{pre}}}}
+
+\newcommand{\dX}{{}^\dagger\hspace{-1.8pt}X}
+\newcommand{\dA}{{}^\dagger\hspace{-1.8pt}A}
+\newcommand{\dsX}{{}^\dagger\hspace{-1.8pt}\mathcal{X}}
+\newcommand{\deqX}{{}^\star\hspace{-1.8pt}X} 
+\newcommand{\dseqX}{{}^\star\hspace{-1.8pt}\mathcal{X}} 
+\newcommand{\dY}{{}^\dagger\hspace{-0.3pt}Y}
+\newcommand{\dphi}{{}^\dagger\hspace{-0.9pt}\phi}
+\newcommand{\dPhi}{{}^\dagger\hspace{-0.9pt}\Phi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\newcommand{\opp}             {{\mathrm{op}}} 
+
+\newcommand{\Alg}        {\operatorname{\mathsf{Alg}}}
+\newcommand{\Frob}        {\operatorname{\mathsf{Frob}}}
+\newcommand{\Lincat}        {\operatorname{\mathsf{Cat}^{ses}}}
+\newcommand{\Deftqft}{\operatorname{TQFT}^{\mathrm{def}}}
+
+\newcommand{\KVvect}   {\operatorname{KV-2Vect}}
+\newcommand{\CYvect}   {\operatorname{CY-2Vect}}
+
+\newcommand{\evx}[1]   {\operatorname{\mathsf{ev}}_{#1}}
+% coevaluation
+\newcommand{\coevx}[1]   {\operatorname{\mathsf{coev}}_{#1}}
+% p evaluation
+\newcommand{\evp}[1]   {\operatorname{\mathsf{ev}}_{#1}^{\prime}}
+% p coevaluation
+\newcommand{\coevp}[1]   {\operatorname{\mathsf{coev}}_{#1}^{\prime}}
+
+\newcommand{\evc}[1]   {\operatorname{\mathsf{c-ev}}_{#1}}
+% coevaluation
+\newcommand{\coevc}[1]   {\operatorname{\mathsf{c-coev}}_{#1}}
+% p evaluation
+\newcommand{\evpc}[1]   {\operatorname{\mathsf{c-ev}}_{#1}^{\prime}}
+% p coevaluation
+\newcommand{\coevpc}[1]   {\operatorname{\mathsf{c-coev}}_{#1}^{\prime}}
+
+\def\la               {{\rm l.a.}}
+\def\ra               {{\rm r.a.}}
+\def\rra              {{\rm r.r.a.}}
+\def\lla               {{\rm l.l.a.}}
+\def\Fun              {{\mathsf{Fun}}}
+\def\Funbilin              {{\mathsf{Fun}^{\mathsf{bilin}}}}
+
+\usepackage{color}
+
+\newcommand{\rrr}[1]{{\color{red}{#1}}}
+\newcommand{\rrR}[1]{{\color{red3}{#1}}}
+\newcommand{\bbb}[1]{{\color{blue}{#1}}}
+\definecolor{DarkViolet} {rgb}{0.580392,0.000000,0.827450}
+\newcommand{\vio}[1]{{\color{DarkViolet}{#1}}}
+\newcommand{\green}[1]{{\color{green}{#1}}}
+
+
+
+\newcommand{\ques} [1] {\marginpar\textbf{qu}\textbf{{#1} ?}} 
+\newcommand{\chn}[1]{\marginpar\textbf{changed}\textbf{{#1}}}
+\newcommand{\note} [1] {\marginpar\textbf{note}\textbf{{#1}}}
+
+\newcommand{\todo} [1] {\marginpar\textbf{todo} {\bbb{#1}  } }
+\newcommand{\plan} [1] {\marginpar\textbf{Plan} { \bbb{#1}  } }
+%comments
+\newcommand{\GS} [1] {\marginpar{\small \vio{modified\\ by GS:} {}}{ \vio{#1} }} 
+\newcommand{\GSC}[1] {\marginpar{\small \vio{comment \\ by GS:} {}}{ ~\\ \it \vio{#1} \\ }} 
+\newcommand{\GSQ}[1] {\marginpar{\small \vio{question\\ by GS:} {}}{ ~\\ \it \vio{#1} \\ }} 
+\newcommand{\IR} [1] {\marginpar{\small \rrr{modified\\ by IR:} {}}{ \rrr{#1} }} 
+\newcommand{\IRC}[1] {\marginpar{\small \rrr{comment \\ by IR:} {}}{ ~\\ \it \rrr{#1} \\ }} 
+\newcommand{\IRQ}[1] {\marginpar{\small \rrr{question\\ by IR:} {}}{ ~\\ \it \rrr{#1} \\ }} 
+\newcommand{\NCMod} [1] {\marginpar{\small \vio{modified\\ by NC:} {}}{ \vio{#1} }} 
+\newcommand{\NCC}[1] {\marginpar{\small \vio{comment \\ by NC:} {}}{ ~\\ \it \vio{#1} \\ }} 
+\newcommand{\NCQ}[1] {\marginpar{\small \vio{question\\ by NC:} {}}{ ~\\ \it \vio{#1} \\ }} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+
+\newcommand\nxt{\noindent\raisebox{.08em}{\rule{.44em}{.44em}}\hspace{.4em}}
+\newcommand\arxiv[2]      {\href{http://arXiv.org/abs/#1}{#2}}
+\newcommand\doi[2]        {\href{http://dx.doi.org/#1}{#2}}
+\newcommand\httpurl[2]    {\href{http://#1}{#2}}
+
+\renewcommand{\labelenumi}{(\roman{enumi})}
+
+\allowdisplaybreaks
+
+\deffootnote[1em]{1em}{1em}{\textsuperscript{\thefootnotemark}}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{theoremdefinition}[definition]{Theorem and Definition}
+\newtheorem{definitionlemma}[definition]{Definition and Lemma}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{remarks}[definition]{Remarks}
+\newtheorem{conjecture}[definition]{Conjecture}
+\newtheorem{example}[definition]{Example}
+\newtheorem{construction}[definition]{Construction}
+
+\numberwithin{equation}{section}
+\numberwithin{definition}{section}
+\numberwithin{figure}{section}
+
+\newcommand\void[1]{}
+
+
+
+\begin{document}
+
+\title{Boundaries in finite gauge theory}
+
+\author{%
+\!\!\!\!\!\!\!Ilka Brunner \quad
+Nils Carqueville \quad
+Domenico Fiorenza \quad
+}
+
+\date{}
+\maketitle
+
+\tableofcontents
+
+
+
+\section{Introduction}
+\label{sec:intro}
+
+Let 
+\begin{itemize}
+\item
+$G$ be a finite group, 
+\item
+$[\omega] \in H^n(G,\C^\times)$, 
+\item
+and $\Ccal$ a symmetric monoidal $(\infty,n)$-category for some $n\in \Z_+$.
+\end{itemize}
+On the one hand, \cite{FHLT} sketches the construction of a fullly extended TQFT
+\be
+\label{eq:TQFTfactored}
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[
+			     baseline=(current bounding box.base), 
+			     %>=stealth,
+			     descr/.style={fill=white,inner sep=3.5pt}, 
+			     normal line/.style={->}
+			     ] 
+\matrix (m) [matrix of math nodes, row sep=3.5em, column sep=5.0em, text height=1.5ex, text depth=0.1ex] {%
+\Bord_n  &  \textrm{Fam}_n(\Ccal)  &  \Ccal 
+\\
+};
+\path[font=\footnotesize] (m-1-1) edge[->] node[above] {$I$} (m-1-2);
+\path[font=\scriptsize] (m-1-1) edge[->] node[below] {$\textrm{``classical''}$} (m-1-2);
+\path[font=\footnotesize] (m-1-2) edge[->] node[above] {$\textrm{Sum}_n$} (m-1-3);
+\path[font=\scriptsize] (m-1-2) edge[->] node[below] {$\textrm{``quantum''}$} (m-1-3);
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%% 
+\ee
+based on the data $(G,\omega)$, which is viewed as a fully extended version of Dijkgraaf-Witten theory. 
+On the other hand, in \cite{WittenParity2016, WWW} a class of boundary conditions for (classical!?) DW theory is proposed in terms of group extensions. 
+
+\medskip
+
+\noindent
+\textbf{Goal. }
+We want to reformulate the general aspects of the work \cite{WittenParity2016, WWW} in the setting of fully extended TQFT. 
+More precisely, we view the bulk theories of \cite{WittenParity2016, WWW} as the classical part~$I$ in \eqref{eq:TQFTfactored} with $\Ccal = \boldB^n \C^\times$ (the $n$-fold delooping of the group~$\C^\times$) and then 
+\begin{enumerate}
+\item
+identify \textsl{classical} boundary conditions as 1-morphisms with source $*$ in $\textrm{Fam}_n(\boldB^n \C^\times)$, 
+\item
+subsume the boundary conditions of \cite{WittenParity2016, WWW} as special cases, 
+\item
+map classical boundary conditions to quantum ones via $\textrm{Sum}_n$, and connect them to the known quantum boundary conditions, following the work of Ostrik and Fuchs--Schweigert--Valentino in the case $n=3$, 
+\item 
+do the above not only for framed, but also for oriented, spin,\dots TQFTs. 
+\end{enumerate}
+
+\medskip
+
+Since \cite{FHLT} is very light on details, we first will work out explicitly how \eqref{eq:TQFTfactored} recovers the known bulk theory for $n \in \{1,2\}$ and hopefully also $n=3$. 
+We also want to explain in detail how $(G,\omega)$ gives rise to an object in $\textrm{Fam}_n(\boldB^n \C^\times)$, and how group extensions $1 \to K \to H \stackrel{r}{\to} G \to 1$ give rise to 1-morphisms $\textrm{Fam}_n(\boldB^n \C^\times)(*, \boldB G)$. 
+\\
+(A more conceptual approach to boundary conditions and defects would be to start with a bordism category ``with singularities'' \cite[Sect.\,4.3]{l0905.0465} instead of $\Bord_n$, but we leave that for another project.)
+
+
+\section{Special objects and 1-morphisms in $\textrm{Fam}_n(\boldB^n \C^\times)$}
+\label{sec:FamBnC}
+
+TODO: 
+\begin{itemize}
+\item 
+spell out definition of $\textrm{Fam}_n(\Ccal)$
+\item
+check that $n$-functor $\boldB G \to \boldB^n \C^\times$ is precisely an $n$-cocycle
+\\
+\underline{\textbf{Issue}}: For $n>3$, what is a weak $n$-functor, i.\,e.~precisely what data and constraints are needed?
+\\
+\underline{\textbf{Idea}}: Since both $n$-categories in $\boldB G \to \boldB^n \C^\times$ are close to trivial, most data of the functor will be trivial, and the constraints (whatever they are) will be trivially satisfied. 
+For $n \in \{1,2,3\}$ this is true, see Section~\ref{sec:bulk}. 
+\item 
+clarify precisely how $\boldB G \to \boldB^n \C^\times$ induces an $n$-functor $\boldB G \to n$-Vect, at least for $n \in \{1,2,3\}$
+\item 
+check whether natural transformation from trivial $n$-functor to $\omega \circ r$ is trivialisation of $r^* \omega$
+\\
+\underline{\textbf{Issue}}: induced from issue in second item
+\end{itemize}
+
+
+\section{Bulk theory}
+\label{sec:bulk}
+
+\subsection{$n=1$}
+
+Since we take the action of~$G$ on~$\C^\times$ to be trivial, the cocycle 
+\be
+\omega = [\omega] \in H^1(G,\C^\times) = \Hom_{\text{Grp}}(G,\C^\times)
+\ee
+is just a group homomorphism. 
+We consider $\boldB^1 \C^\times$ as a subcategory of $\Vect_\C$, and we will use the pair $(G,\omega)$ to construct a functor
+\be
+\label{eq:TQFTfactored1}
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[
+			     baseline=(current bounding box.base), 
+			     %>=stealth,
+			     descr/.style={fill=white,inner sep=3.5pt}, 
+			     normal line/.style={->}
+			     ] 
+\matrix (m) [matrix of math nodes, row sep=3.5em, column sep=4.0em, text height=1.5ex, text depth=0.1ex] {%
+\Bord_1  &  \textrm{Fam}_1(\Vect_\C)  &  \Vect_\C \, . 
+\\
+};
+\path[font=\footnotesize] (m-1-1) edge[->] node[above] {$I$} (m-1-2);
+\path[font=\footnotesize] (m-1-2) edge[->] node[above] {$\textrm{Sum}_1$} (m-1-3);
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%% 
+\ee
+
+According to the cobordism hypothesis, the composite $\textrm{Sum}_1 \circ I$ is determined by its value on the point $\text{pt}_+$, so we only need to specify $I(\text{pt}_+)$ and then compute $\textrm{Sum}_1(I(\text{pt}_+))$. 
+Note that $\boldB^1 G = */\!\!/ G$ is the classical action groupoid. 
+We set $I(\text{pt}_+)$ to be the functor
+\be
+\chi^\omega \colon */\!\!/ G \lra \Vect_\C 
+\, , \qquad 
+* \lmt \C
+\, , \quad 
+g \lmt \omega(g) \in \text{Aut}(\C)
+\ee
+%which sends~$*$ to~$\C$ and~$g$ to $\omega(g) \in \text{Aut}(\C)$ 
+for all $g \in G$. 
+Then \eqref{eq:TQFTfactored1} recovers the known result reviewed in \cite[Sect.\,1]{FHLT}: 
+
+\begin{lemma}
+$\text{Sum}_1(\chi^\omega) = \C$ if $\omega(g) = 1$ for all $g\in G$, and $\text{Sum}_1(\chi^\omega) = 0$ otherwise. 
+\end{lemma}
+
+\begin{proof}
+By definition $\text{Sum}_1(\chi^\omega)$ is the universal cocone of $\chi^\omega$, viewed as a diagram of shape $*/\!\!/ G$ in $\Vect_\C$. 
+Hence $\text{Sum}_1(\chi^\omega)$ is in particular a cocone of $\chi^\omega$, i.\,e.~a vector space~$V$ together with a linear map $f\colon \chi^\omega(*) = \C \to V$ such that 
+\be
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[
+			     baseline=(current bounding box.base), 
+			     %>=stealth,
+			     descr/.style={fill=white,inner sep=3.5pt}, 
+			     normal line/.style={->}
+			     ] 
+\matrix (m) [matrix of math nodes, row sep=3.5em, column sep=3.0em, text height=1.5ex, text depth=0.1ex] {%
+  &  V  &  
+\\
+\chi^\omega(*) = \C  &    &  \C = \chi^\omega(*)
+\\
+};
+\path[font=\footnotesize] (m-2-1) edge[->] node[above] {$f$} (m-1-2);
+\path[font=\footnotesize] (m-2-1) edge[->] node[below] {$\chi^\omega(g) = \omega(g)$} (m-2-3);
+\path[font=\footnotesize] (m-2-3) edge[->] node[above] {$f$} (m-1-2);
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%% 
+\ee
+commutes for all $g\in G$. 
+If $\omega(g) \neq 1$ for some~$g$, then this forces $f=0$, and the colimit is trivial: 
+\be
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[
+			     baseline=(current bounding box.base), 
+			     %>=stealth,
+			     descr/.style={fill=white,inner sep=3.5pt}, 
+			     normal line/.style={->}
+			     ] 
+\matrix (m) [matrix of math nodes, row sep=3.5em, column sep=3.0em, text height=1.5ex, text depth=0.1ex] {%
+  &  0  &  
+\\
+  &  V  &  
+\\
+\C  &    &  \C
+\\
+};
+\path[font=\footnotesize] (m-3-1) edge[->] node[above] {$f$} (m-2-2);
+\path[font=\footnotesize] (m-3-1) edge[->] node[below] {$\omega(g)$} (m-3-3);
+\path[font=\footnotesize] (m-3-3) edge[->] node[above] {$f$} (m-2-2);
+%
+\path[font=\footnotesize] (m-3-1) edge[->, out= 80, in= 220] node[left] {$0$} (m-1-2);
+\path[font=\footnotesize] (m-3-3) edge[->, out= 100, in= -40] node[right] {$0$} (m-1-2);
+%
+\path[font=\footnotesize, densely dashed] (m-2-2) edge[->] node[right] {$\exists !$} (m-1-2);
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%% 
+\ee
+On the other hand, if~$\omega$ is trivial, every pair $(V,f)$ is a cocone, but the universal cocone is $(\C,1)$. 
+\end{proof}
+
+
+
+\subsection{$n=2$}
+
+TODO: 
+\begin{itemize}
+\item
+The only non-trivial part of the 2-functor $\chi^\omega \colon \boldB^2 G \to \text{Alg}_\C$ is the coherence 2-morphism $\chi_{g,h}^\omega \colon \chi^\omega(g) \otimes  \chi^\omega(h) \to \chi^\omega(gh)$, and the constraints (see e.\,g.~\cite[Sect.\,1.1]{LeinsterBasic2} for the definitions) on the $\chi_{g,h}^\omega$ precisely say that they are the components of a 2-cocycle. 
+So we can take $\chi_{g,h}^\omega = \omega(g,h)$. 
+\item 
+compute 2-colimit $\text{Sum}_2(\chi)$ for $\chi$ as above, obtain twisted group algebra $\C^\omega[G]$
+\end{itemize}
+
+
+\subsection{$n=3$}
+
+TODO:
+\begin{itemize}
+\item
+The only non-trivial part of the 3-functor $\chi^\omega \colon \boldB^3 G \to \text{TC}_\C$ are the coherence 3-morphisms which assemble into the modification (also) called~$\omega$ in \cite[Def.\,A.4.3]{GregorDiss}, and the constraints on $\omega$ (see \cite[Page~219]{GregorDiss}) seem to be precisely the 3-cocycle condition. 
+\item
+\underline{\textbf{Issue}}: The notion of a 3-colimit (to really compute $\text{Sum}_3$) is scary. 
+At least we should make some hand-wavy arguments\dots
+\end{itemize}
+
+
+\section{Boundary conditions}
+
+\subsection{$n=2$}
+
+TODO
+
+\subsection{$n=3$}
+
+TODO
+
+
+
+
+
+
+\begin{thebibliography}{BDSPV}
+
+\bibitem[FHLT]{FHLT}
+D.~Freed, M.~Hopkins, J.~Lurie, and C.~Teleman,
+\textsl{Topological Quantum Field Theories from Compact Lie Groups}, 
+\href{http://arxiv.org/abs/0905.0731}{[\mbox{arXiv:}0905.0731]}. 
+
+\bibitem[Le]{LeinsterBasic2}
+T.~Leinster, 
+\textsl{Basic Bicategories}, 
+\href{http://arxiv.org/abs/math/9810017}{[math/9810017]}.
+
+\bibitem[Lu]{l0905.0465}
+J.~Lurie, 
+\textsl{On the Classification of Topological Field Theories},
+\href{https://projecteuclid.org/euclid.cdm/1254748657}{Current Developments in Mathematics \textbf{2008} (2009), 129--280}, 
+\arxiv{0905.0465}{[arXiv:0905.0465]}.
+
+\bibitem[Sc]{GregorDiss}
+G.~Schaumann, 
+\textsl{Duals in tricategories and in the tricategory of bimodule categories}, 
+PhD thesis, 
+Friedrich-Alexander-Universit\"at Erlangen-N\"urnberg (2013), 
+% \url{http://opus4.kobv.de/opus4-fau/frontdoor/index/index/docId/3732}.
+%\newline
+%\href{http://opus4.kobv.de/opus4-fau/frontdoor/index/index/docId/3732}{http://opus4.kobv.de/opus4-fau/frontdoor/index/index/docId/3732}.
+\href{http://nbn-resolving.de/urn/resolver.pl?urn:nbn:de:bvb:29-opus4-37321}{urn:nbn:de:bvb:29-opus4-37321}.
+
+\bibitem[Wi]{WittenParity2016}
+E.~Witten, 
+\textsl{The ``Parity'' Anomaly On An Unorientable Manifold}, 
+\href{http://arxiv.org/abs/1605.02391}{[arXiv:1605.02391]}.  
+
+\bibitem[WWW]{WWW}
+J.~Wang, X.-G.~Wen and E.~Witten, 
+\textsl{Symmetric Gapped Interfaces of SPT and SET States: Systematic Constructions}, 
+\href{http://arxiv.org/abs/1705.06728}{[arXiv:1705.06728]}.  
+
+
+
+
+
+\bibitem[BaeW]{Baezlecturenotes}
+J.~Baez and D.~Wise, 
+Quantum Gravity Seminar at University of California, Riverside, 2005, 
+\url{http://math.ucr.edu/home/baez/qg-winter2005}.
+
+\bibitem[BalK]{bk1004.1533}
+B.~Balsam and A.~Kirillov, Jr., 
+\textsl{Turaev-Viro invariants as an extended TQFT}, 
+\href{http://www.arxiv.org/abs/1004.1533}{[arXiv:1004.1533]}.
+
+\bibitem[BBCW]{BBCW1410.4540}
+M.~Barkeshli, P.~Bonderson, M.~Cheng, and Z.~Wang, 
+\textsl{Symmetry, Defects, and Gauging of Topological Phases}, 
+\href{http://www.arxiv.org/abs/1410.4540}{[arXiv:1410.4540]}.
+
+\bibitem[BCP1]{DanielIlkaNils}
+I.~Brunner, N.~Carqueville, and D.~Plencner, 
+\textsl{Orbifolds and topological defects}, 
+\doi{10.1007/s00220-014-2056-3}{Comm.~Math.~Phys. \textbf{315} (2012) 739--769}, 
+\href{http://arxiv.org/abs/1307.3141}{[\mbox{arXiv:}1307.3141]}. 
+
+\bibitem[BCP2]{BCP2}
+I.~Brunner, N.~Carqueville, and D.~Plencner, 
+\textsl{Discrete torsion defects}, 
+\doi{10.1007/s00220-015-2297-9}{Comm. Math. Phys. \textbf{337} (2015), 429--453}, 
+\href{http://arxiv.org/abs/1404.7497}{[arXiv:1404.7497]}.
+
+\bibitem[BJQ]{BJQ}
+M.~Barkeshli, C.-M.~Jian, and X.-L.~Qi, 
+\textsl{Genons, twist defects, and projective non-Abelian braiding statistics}, 
+\doi{10.1103/PhysRevB.87.045130}{Phys. Rev. B \textbf{87} (2013), 045130}, 
+\href{http://www.arxiv.org/abs/1208.4834}{[arXiv:1208.4834]}.
+
+\bibitem[BMS]{BMS}
+J.~Barrett, C.~Meusburger, and G.~Schaumann, 
+\textsl{Gray categories with duals and their diagrams},
+\href{http://arxiv.org/abs/1211.0529}{[arXiv:1211.0529]}.
+
+\bibitem[BP]{bp9205031}
+C.~Bachas and M.~Petropoulos, 
+\textsl{Topological Models on the Lattice and a Remark on String Theory Cloning}, 
+\doi{10.1007/BF02097063}{Commun.~Math.~Phys.~\textbf{152} (1993),191--202}, 
+\href{http://www.arxiv.org/abs/hep-th/9205031}{[hep-th/9205031]}.
+
+\bibitem[BW1]{bwTV2}
+J.~Barrett and B.~Westbury, 
+\textsl{Spherical Categories}, 
+\doi{10.1006/aima.1998.1800}{Adv. Math. \textbf{143} (1999), 357--375}, 
+\href{http://arxiv.org/abs/hep-th/9310164}{[hep-th/9310164]}.
+
+\bibitem[BW2]{BarWes}
+J.~Barrett and B.~Westbury, 
+\textsl{Invariants of piecewise-linear 3-manifolds}, 
+\doi{10.1090/S0002-9947-96-01660-1}{Trans. Amer. Math. Soc. \textbf{348} (1996), 3997--4022}, 
+\href{http://arxiv.org/abs/hep-th/9311155}{[hep-th/9311155]}.
+
+\bibitem[Ca]{2ddTQFTreview}
+N.~Carqueville, 
+\textsl{Lecture notes on 2-dimensional defect TQFT}, 
+\href{http://arxiv.org/abs/1607.05747}{[arXiv:1607.05747]}.
+
+\bibitem[CGPW]{CGPW}
+S.~X. Cui, C.~Galindo, J.~Yael Plavnik, and Z.~Wang, 
+\textsl{On Gauging Symmetry of Modular Categories}, 
+\doi{10.1007/s00220-016-2633-8}{Communications in Mathematical Physics \textbf{348}:3 (2016), 1043--1064}, 
+\href{http://arxiv.org/abs/1510.03475}{[arXiv:1510.03475]}.
+
+\bibitem[CMS]{CMS}
+N.~Carqueville, C.~Meusburger, and G.~Schaumann, 
+\textsl{3-dimensional defect TQFTs and their tricategories}, 
+\href{http://arxiv.org/abs/1603.01171}{[arXiv:1603.01171]}.
+
+\bibitem[CQV]{cqv2015}
+N.~Carqueville and A.~Quintero~V\'elez, \
+\textsl{Calabi-Yau completion and orbifold equivalence}, 
+\href{http://arxiv.org/abs/1509.00880}{[arXiv:1509.00880]}.
+
+\bibitem[CRCR]{CRCR}
+N.~Carqueville, A.~Ros Camacho, and I.~Runkel, 
+\textsl{Orbifold equivalent potentials}, 
+\doi{10.1016/j.jpaa.2015.07.015}{Journal of Pure and Applied Algebra \textbf{220} (2016), 759--781}, 
+\arxiv{1311.3354}{[arXiv:1311.3354]}.
+
+\bibitem[CR1]{cr1210.6363}
+N.~Carqueville and I.~Runkel, 
+\textsl{Orbifold completion of defect bicategories}, 
+\doi{10.4171/QT/76}{Quantum Topology \textbf{7}:2 (2016) 203--279}, 
+\href{http://arxiv.org/abs/1210.6363}{[arXiv:1210.6363]}.
+
+\bibitem[CR2]{CRlecturenotes}
+N.~Carqueville and I.~Runkel, 
+\textsl{Introductory lectures on topological quantum field theory}, 
+\href{http://arxiv.org/abs/1705.05734}{[arXiv:1705.05734]}.
+
+\bibitem[CRS]{CRS2}
+N.~Carqueville, I.~Runkel, and G.~Schaumann, 
+in preparation.
+
+\bibitem[DKR]{dkr1107.0495}
+A.~Davydov, L.~Kong, and I.~Runkel, 
+\textsl{Field theories with defects and the centre functor}, 
+\href{http://www.ams.org/bookstore?fn=20&arg1=pspumseries&ikey=PSPUM-83}{Mathematical Foundations of Quantum Field Theory and Perturbative String Theory, Proceedings of Symposia in Pure Mathematics, AMS, 2011}, \href{http://arxiv.org/abs/1107.0495}{[arXiv:1107.0495]}. 
+
+\bibitem[ENO]{eno0909.3140}
+P.~Etingof, D.~Nikshych, and V.~Ostrik, 
+\textsl{Fusion categories and homotopy theory}, 
+\doi{10.4171/QT/6}{Quantum Topology \textbf{1} (2010) 209--273},
+\href{http://www.arxiv.org/abs/0909.3140}{[arXiv:0909.3140]}.
+
+\bibitem[FFRS]{ffrs0909.5013}
+J.~Fr\"ohlich, J.~Fuchs, I.~Runkel, and C.~Schweigert,
+\textsl{Defect lines, dualities, and generalised orbifolds}, 
+\doi{10.1142/9789814304634_0056}{Proceedings of the XVI International Congress on Mathematical Physics, Prague, August 3--8, 2009}, \href{http://arxiv.org/abs/0909.5013}{[arXiv:0909.5013]}.
+
+\bibitem[FHK]{FHK}
+M.~Fukuma, S.~Hosono, and H.~Kawai, 
+\textsl{Lattice Topological Field Theory in Two Dimensions}, 
+\doi{10.1007/BF02099416}{Comm. Math. Phys.~\textbf{161} (1994), 157--176},
+\href{http://www.arxiv.org/abs/hep-th/9212154}{[hep-th/9212154]}.
+
+\bibitem[FPSV]{fpsv1404.6646}
+J.~Fuchs, J.~Priel, C.~Schweigert, and A.~Valentino,
+\textsl{On the Brauer groups of symmetries of abelian Dijkgraaf-Witten theories}, 
+\doi{10.1007/s00220-015-2420-y}{Communications in Mathematical Physics \textbf{339}:2 (2015), 385--405}, 
+\href{http://arxiv.org/abs/1404.6646}{[arXiv:1404.6646]}.
+
+\bibitem[FRS]{frs0403157}
+J.~Fuchs, I.~Runkel, and C.~Schweigert,
+\textsl{TFT construction of RCFT correlators. 3. Simple currents}, 
+\doi{10.1016/j.nuclphysb.2004.05.014}{Nucl.\ Phys.\ B \textbf{694} (2004) 277--353}, 
+\href{http://arxiv.org/abs/hep-th/0403157}{[hep-th/0403157]}.
+
+\bibitem[FS1]{fs0106050}
+J.~Fuchs and C.~Schweigert,
+\textsl{Category theory for conformal boundary conditions}, 
+\doi{10.1090/fic/039/03}{Fields Institute Communications \textbf{39} (2003), 25--71}, 
+\href{http://www.arxiv.org/abs/math/0106050}{[math/0106050]}.
+
+\bibitem[FS2]{fs1310.1329}
+J.~Fuchs and C.~Schweigert,
+\textsl{A note on permutation twist defects in topological bilayer phases}, 
+\doi{10.1007/s11005-014-0719-9}{Letters in Mathematical Physics \textbf{104}:11 (2014), 1385--1405}, 
+\href{http://arxiv.org/abs/1310.1329}{[arXiv:1310.1329]}.
+
+\bibitem[FSV]{fsv1203.4568}
+J.~Fuchs, C.~Schweigert, and A.~Valentino,
+\textsl{Bicategories for boundary conditions and for surface defects in 3-d TFT}, 
+\doi{10.1007/s00220-013-1723-0}{Communications in Mathematical Physics \textbf{321}:2 (2013), 543--575}, 
+\href{http://arxiv.org/abs/1203.4568}{[arXiv:1203.4568]}.
+
+\bibitem[Gu]{Gurskibook}
+N.~Gurski, 
+\textsl{\doi{10.1017/CBO9781139542333}{Coherence in Three-Dimensional Category Theory}}, 
+\textsl{Cambridge Tracts in Mathematics} \textbf{201}, Cambridge University Press, 2013.
+
+\bibitem[Hi]{Hirsch}
+M.~W.~Hirsch, 
+\textsl{\doi{10.1007/978-1-4684-9449-5}{Differential topology}}, 
+Springer Graduate Texts in Mathematics \textbf{33}, Springer, 1976. 
+
+\bibitem[KK]{KK1104.5047}
+A.~Kitaev and L.~Kong, 
+\textsl{Models for gapped boundaries and domain walls},
+\doi{10.1007/s00220-012-1500-5}{Commun.\ Math.\ Phys.\ \textbf{313} (2012) 351--373},
+\href{http://arxiv.org/abs/1104.5047}{[arXiv:1104.5047]}.
+
+\bibitem[KR]{KR0909.3643}
+A.~Kapustin and L.~Rozansky, 
+\textsl{Three-dimensional topological field theory and symplectic algebraic geometry II}, 
+\doi{10.4310/CNTP.2010.v4.n3.a1}{Communications of Number Theory and Physics \textbf{4} (2010), 463--549}, 
+\href{http://arxiv.org/abs/0909.3643}{[arXiv:0909.3643]}.
+
+\bibitem[KRS]{KRS}
+A.~Kapustin, L.~Rozansky, and N.~Saulina, 
+\textsl{Three-dimensional topological field theory and symplectic algebraic geometry I}, 
+\doi{10.1016/j.nuclphysb.2009.01.027}{Nuclear Physics B \textbf{816} (2009), 295--355}, 
+\href{http://arxiv.org/abs/0810.5415}{[arXiv:0810.5415]}.
+
+\bibitem[KS]{ks1012.0911}
+A.~Kapustin and N.~Saulina, 
+\textsl{Surface operators in 3d Topological Field Theory and 2d Rational Conformal Field Theory}, 
+Mathematical Foundations of Quantum Field Theory and Perturbative String Theory, 
+Proceedings of Symposia in Pure Mathematics \textbf{83}, 175--198, 
+American Mathematical Society, 2011, 
+\href{http://arxiv.org/abs/1012.0911}{[arXiv:1012.0911]}.
+
+\bibitem[La]{LawrenceIntro}
+R.~J.~Lawrence, 
+\textsl{An Introduction to Topological Field Theory}, 
+\doi{10.1090/psapm/051}{Proc. Symp. Appl. Math., \textbf{51} (1996), 89--128}. 
+
+\bibitem[MW]{blobcomplex}
+S.~Morrison and K.~Walker, 
+\textsl{Blob homology}, 
+\doi{10.2140/gt.2012.16.1481}{Geometry \& Topology \textbf{16} (2012), 1481--1607}, 
+\href{http://arxiv.org/abs/1009.5025}{[arXiv:1009.5025]}.  
+
+\bibitem[Mu]{Munkres} 
+J.~R.~Munkres, 
+\textsl{Elementary Differential Topology}, 
+Annals of Mathematics Studies~\textbf{54}, 
+Princeton University Press, 
+1967.
+
+\bibitem[NS]{NSHFS}
+S.-H.~Ng and P.~Schauenburg, 
+\textsl{Higher Frobenius-Schur indicators for pivotal categories}, 
+\doi{10.1090/conm/441/08500}{Contemporary Mathematics \textbf{441} (2007), 63--90}, 
+\href{http://arxiv.org/abs/math/0503167}{[math.QA/0503167]}.
+
+\bibitem[Pa]{Pachpaper}
+U.~Pachner, 
+\textsl{P.L.~Homeomorphic Manifolds are Equivalent by Elementary Shellings}, 
+\doi{10.1016/S0195-6698(13)80080-7}{European Journal of Combinatorics \textbf{12}:2 (1991), 129--145}. 
+
+\bibitem[Qu]{Quinnlectures}
+F.~Quinn, 
+\textsl{Lectures on axiomatic topological quantum field theory}, 
+IAS/Park City Mathematics Series \textbf{1} (1995), 325--433.
+
+\bibitem[Sc]{GregorDiss}
+G.~Schaumann, 
+\textsl{Duals in tricategories and in the tricategory of bimodule categories}, 
+PhD thesis, 
+Friedrich-Alexander-Universit\"at Erlangen-N\"urnberg (2013), 
+% \url{http://opus4.kobv.de/opus4-fau/frontdoor/index/index/docId/3732}.
+%\newline
+%\href{http://opus4.kobv.de/opus4-fau/frontdoor/index/index/docId/3732}{http://opus4.kobv.de/opus4-fau/frontdoor/index/index/docId/3732}.
+\href{http://nbn-resolving.de/urn/resolver.pl?urn:nbn:de:bvb:29-opus4-37321}{urn:nbn:de:bvb:29-opus4-37321}.
+
+\bibitem[SW]{sw1705.05171}
+C.~Schweigert and L.~Woike,
+\textsl{Orbifold Construction for Topological Field Theories}, 
+\href{http://arxiv.org/abs/1705.05171}{[arXiv:1705.05171]}.
+
+\bibitem[TV]{TurVir}
+V.~Turaev and O.~Viro, 
+\textsl{State sum invariants of 3-manifolds and quantum $6j$-symbols}, 
+\doi{10.1016/0040-9383(92)90015-A}{Topology \textbf{31}:4 (1992), 865--902}.
+
+\end{thebibliography}
+
+
+
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
