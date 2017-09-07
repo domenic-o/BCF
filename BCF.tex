@@ -533,13 +533,24 @@ g \lmt \omega(g) \in \text{Aut}(\C)
 for all $g \in G$. 
 Then \eqref{eq:TQFTfactored1} recovers the known result reviewed in \cite[Sect.\,1]{FHLT}: 
 
-\begin{lemma}
+\begin{lemma}\label{lemma:cocone-is-coinvariants}
 $\text{Sum}_1(\chi^\omega) = \C$ if $\omega(g) = 1$ for all $g\in G$, and $\text{Sum}_1(\chi^\omega) = 0$ otherwise. 
 \end{lemma}
 
 \begin{proof}
-By definition $\text{Sum}_1(\chi^\omega)$ is the universal cocone of $\chi^\omega$, viewed as a diagram of shape $*/\!\!/ G$ in $\Vect_\C$. 
-Hence $\text{Sum}_1(\chi^\omega)$ is in particular a cocone of $\chi^\omega$, i.\,e.~a vector space~$V$ together with a linear map $f\colon \chi^\omega(*) = \C \to V$ such that 
+The statement is a particular case of this more general one: let $(V,\rho)$ be a linear representation of the group $G$, seen as the functor
+\be
+\chi^\rho \colon */\!\!/ G \lra \Vect_\C 
+\, , \qquad 
+* \lmt V
+\, , \quad 
+g \lmt \rho(g) \in \text{Aut}(V).
+\ee
+Then the universal cocone of $\chi^\rho$, viewed as a diagram of shape $*/\!\!/ G$ in $\Vect_\C$ is the pair $(V_G,\pi)$, where $V_G$ is the vector space of coinvariants for the representation $\rho$, i.e., 
+\[
+V_G=V/\langle v-\rho(g)v\rangle_{g\in G, v\in V}
+\]
+and $\pi\colon V\to V_G$ is the projection to the quotient. Namely, let $(W,f)$ be a cocone for $\chi^\rho$, i.e., a pair consisting of a vector space $W$ together with a linear map $f\colon \chi^\omega(*) = V \to W$ such that 
 \be
 %%%%%%%%%%%%%%%%%%%%%%%
 \begin{tikzpicture}[
@@ -549,19 +560,18 @@ Hence $\text{Sum}_1(\chi^\omega)$ is in particular a cocone of $\chi^\omega$, i.
 			     normal line/.style={->}
 			     ] 
 \matrix (m) [matrix of math nodes, row sep=3.5em, column sep=3.0em, text height=1.5ex, text depth=0.1ex] {%
-  &  V  &  
+  &  W  &  
 \\
-\chi^\omega(*) = \C  &    &  \C = \chi^\omega(*)
+\chi^\omega(*) = V &    &  V = \chi^\omega(*)
 \\
 };
 \path[font=\footnotesize] (m-2-1) edge[->] node[above] {$f$} (m-1-2);
-\path[font=\footnotesize] (m-2-1) edge[->] node[below] {$\chi^\omega(g) = \omega(g)$} (m-2-3);
+\path[font=\footnotesize] (m-2-1) edge[->] node[below] {$\chi^\rho(g) = \rho(g)$} (m-2-3);
 \path[font=\footnotesize] (m-2-3) edge[->] node[above] {$f$} (m-1-2);
 \end{tikzpicture}
 %%%%%%%%%%%%%%%%%%%%%%% 
 \ee
-commutes for all $g\in G$. 
-If $\omega(g) \neq 1$ for some~$g$, then this forces $f=0$, and the colimit is trivial: 
+Then, by definition of $V_G$, the morphism $f$ uniquely factors through $V_G$ and so we have a commutative diagram
 \be
 %%%%%%%%%%%%%%%%%%%%%%%
 \begin{tikzpicture}[
@@ -571,27 +581,121 @@ If $\omega(g) \neq 1$ for some~$g$, then this forces $f=0$, and the colimit is t
 			     normal line/.style={->}
 			     ] 
 \matrix (m) [matrix of math nodes, row sep=3.5em, column sep=3.0em, text height=1.5ex, text depth=0.1ex] {%
-  &  0  &  
+  &  W  &  
 \\
-  &  V  &  
+  &  V_G  &  
 \\
-\C  &    &  \C
+V  &    &  V
 \\
 };
-\path[font=\footnotesize] (m-3-1) edge[->] node[above] {$f$} (m-2-2);
-\path[font=\footnotesize] (m-3-1) edge[->] node[below] {$\omega(g)$} (m-3-3);
-\path[font=\footnotesize] (m-3-3) edge[->] node[above] {$f$} (m-2-2);
+\path[font=\footnotesize] (m-3-1) edge[->] node[above] {$\pi$} (m-2-2);
+\path[font=\footnotesize] (m-3-1) edge[->] node[below] {$\rho(g)$} (m-3-3);
+\path[font=\footnotesize] (m-3-3) edge[->] node[above] {$\pi$} (m-2-2);
 %
-\path[font=\footnotesize] (m-3-1) edge[->, out= 80, in= 220] node[left] {$0$} (m-1-2);
-\path[font=\footnotesize] (m-3-3) edge[->, out= 100, in= -40] node[right] {$0$} (m-1-2);
+\path[font=\footnotesize] (m-3-1) edge[->, out= 80, in= 220] node[left] {$f$} (m-1-2);
+\path[font=\footnotesize] (m-3-3) edge[->, out= 100, in= -40] node[right] {$f$} (m-1-2);
 %
 \path[font=\footnotesize, densely dashed] (m-2-2) edge[->] node[right] {$\exists !$} (m-1-2);
 \end{tikzpicture}
 %%%%%%%%%%%%%%%%%%%%%%% 
 \ee
-On the other hand, if~$\omega$ is trivial, every pair $(V,f)$ is a cocone, but the universal cocone is $(\C,1)$. 
+
+%Hence $\text{Sum}_1(\chi^\omega)$ is in particular a cocone of $\chi^\omega$, i.\,e.~a vector space~$V$ together with a linear map $f\colon \chi^\omega(*) = \C \to V$ such that 
+%\be
+%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{tikzpicture}[
+%			     baseline=(current bounding box.base), 
+%			     %>=stealth,
+%			     descr/.style={fill=white,inner sep=3.5pt}, 
+%			     normal line/.style={->}
+%			     ] 
+%\matrix (m) [matrix of math nodes, row sep=3.5em, column sep=3.0em, text height=1.5ex, text depth=0.1ex] {%
+%  &  V  &  
+%\\
+%\chi^\omega(*) = \C  &    &  \C = \chi^\omega(*)
+%\\
+%};
+%\path[font=\footnotesize] (m-2-1) edge[->] node[above] {$f$} (m-1-2);
+%\path[font=\footnotesize] (m-2-1) edge[->] node[below] {$\chi^\omega(g) = \omega(g)$} (m-2-3);
+%\path[font=\footnotesize] (m-2-3) edge[->] node[above] {$f$} (m-1-2);
+%\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%%% 
+%\ee
+%commutes for all $g\in G$. 
+%If $\omega(g) \neq 1$ for some~$g$, then this forces $f=0$, and the colimit is trivial: 
+%\be
+%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{tikzpicture}[
+%			     baseline=(current bounding box.base), 
+%			     %>=stealth,
+%			     descr/.style={fill=white,inner sep=3.5pt}, 
+%			     normal line/.style={->}
+%			     ] 
+%\matrix (m) [matrix of math nodes, row sep=3.5em, column sep=3.0em, text height=1.5ex, text depth=0.1ex] {%
+%  &  0  &  
+%\\
+%  &  V  &  
+%\\
+%\C  &    &  \C
+%\\
+%};
+%\path[font=\footnotesize] (m-3-1) edge[->] node[above] {$f$} (m-2-2);
+%\path[font=\footnotesize] (m-3-1) edge[->] node[below] {$\omega(g)$} (m-3-3);
+%\path[font=\footnotesize] (m-3-3) edge[->] node[above] {$f$} (m-2-2);
+%%
+%\path[font=\footnotesize] (m-3-1) edge[->, out= 80, in= 220] node[left] {$0$} (m-1-2);
+%\path[font=\footnotesize] (m-3-3) edge[->, out= 100, in= -40] node[right] {$0$} (m-1-2);
+%%
+%\path[font=\footnotesize, densely dashed] (m-2-2) edge[->] node[right] {$\exists !$} (m-1-2);
+%\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%%% 
+%\ee
+%On the other hand, if~$\omega$ is trivial, every pair $(V,f)$ is a cocone, but the universal cocone is $(\C,1)$. 
+showing that $(V_G,\pi)$ enjoys the universal property of the universal cocone.
 \end{proof}
 
+\begin{corollary}
+The linear dual $\mathrm{Hom}_{\Vect_\C}(\text{Sum}_1(\chi^\omega),\C)$ of $\text{Sum}_1(\chi^\omega)$ is naturally isomorphic to the vector space of natural transformations $\mathrm{Hom}_{[*/\!\!/ G,\Vect_\C]}(\chi^\omega,\chi^1)$, where $\chi^1\colon  */\!\!/ G \to \Vect_\C$ is the trivial representation of $G$ on the vector space $\C$. In other words, we have
+\[
+\mathrm{Hom}_{\Vect_\C}(\text{Sum}_1(\chi^\omega),\C)\cong \left\{
+\raisebox{40pt}{\xymatrix{
+{*}/\!\!/ G\ar[dd]_{\chi^\omega}\ar[dr]\\
+&{*}\ar[dl]^{\C}\\
+\Vect_\C
+\ar@{=>}(5,-13);(10,-13)
+}}
+\right\}.
+\]
+As a finite dimensional vector space is completely determined by its linear dual, this actually defines $\text{Sum}_1(\chi^\omega)$.
+\end{corollary}
+\begin{proof}
+Again, the statement is true for an aritrary linear representation $(V,\rho)$ of the group $G$. The natural isomorphism
+\[
+\mathrm{Hom}_{\Vect_\C}(V_G,\C)\cong \left\{
+\raisebox{40pt}{\xymatrix{
+{*}/\!\!/ G\ar[dd]_{\chi^\rho}\ar[dr]\\
+&{*}\ar[dl]^{\C}\\
+\Vect_\C
+\ar@{=>}(5,-13);(10,-13)
+}}
+\right\}
+\]
+is then nothing but the universal property of $V_G$. Namely, an element in the right hand side is a morphism $f\colon V=\chi^\rho(*)\to \chi^1(*)=\C$ such that all the diagrams
+\[
+\xymatrix{
+V\ar[d]_{\rho(g)}\ar[r]^f & \C\ar[d]^{\mathrm{id}_\C}\\
+V\ar[r]_f &\C
+}
+\]
+commute, for any $g\in G$. This is the same as requiring that all the diagrams
+\[
+\xymatrix{
+&\C\\
+V\ar[rr]_{\rho(g)}\ar[ru]^{f} &&V\ar[lu]_{f}
+}
+\]
+commute, and so it is precisely the datum of a morphism $V_G\to \C$ by the argumenti in the proof of Lemma \ref{lemma:cocone-is-coinvariants}.
+\end{proof}
 
 
 \subsection{$n=2$}

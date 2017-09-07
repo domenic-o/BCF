@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.27)  7 SEP 2017 14:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.27)  7 SEP 2017 15:32
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1443,120 +1443,125 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 495.
 
-[2] [3]
+[2] [3] <xymatrix 2x3 171> <xymatrix 2x3 171> <xymatrix 2x2 182> <xymatrix 3x2
+145> [4]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 597.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 597.
+(hyperref)                removing `math shift' on input line 701.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 609.
+(hyperref)                removing `math shift' on input line 701.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 609.
+(hyperref)                removing `math shift' on input line 713.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 623.
+(hyperref)                removing `math shift' on input line 713.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 623.
+(hyperref)                removing `math shift' on input line 727.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 627.
+(hyperref)                removing `math shift' on input line 727.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 627.
+(hyperref)                removing `math shift' on input line 731.
 
 
-Underfull \hbox (badness 2435) in paragraph at lines 649--653
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 731.
+
+[5]
+Underfull \hbox (badness 2435) in paragraph at lines 753--757
 []\OT1/cmr/m/n/12 J. Lurie, \OT1/cmr/m/sl/12 On the Clas-si-fi-ca-tion of Topo-
 log-i-cal Field The-o-ries\OT1/cmr/m/n/12 ,
  []
 
 
-Underfull \hbox (badness 3612) in paragraph at lines 649--653
+Underfull \hbox (badness 3612) in paragraph at lines 753--757
 [][]\OT1/cmr/m/n/12 Cur-rent De-vel-op-ments in Math-e-mat-ics \OT1/cmr/bx/n/12
  2008 \OT1/cmr/m/n/12 (2009), 129--280[][],
  []
 
-[4]
-Underfull \hbox (badness 2617) in paragraph at lines 735--738
+[6]
+Underfull \hbox (badness 2617) in paragraph at lines 839--842
 []\OT1/cmr/m/n/12 N. Car-queville, \OT1/cmr/m/sl/12 Lec-ture notes on 2-dimensi
 onal de-fect TQFT\OT1/cmr/m/n/12 ,
  []
 
-[5]
-Underfull \hbox (badness 1810) in paragraph at lines 799--803
+
+Underfull \hbox (badness 1810) in paragraph at lines 903--907
 []\OT1/cmr/m/n/12 J. Fuchs, J. Priel, C. Schweigert, and A. Valentino, \OT1/cmr
 /m/sl/12 On the
  []
 
-[6] [7]pdfTeX warning (ext4): destination with the same identifier (name{cite.G
+[7] [8]pdfTeX warning (ext4): destination with the same identifier (name{cite.G
 regorDiss}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.898 \bibitem[Sc]{GregorDiss}
-                              
+l.1002 \bibitem[Sc]{GregorDiss}
+                               
 
 Package natbib Warning: There were multiply defined citations.
 
-[8]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 922.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 922.
+[9]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1026.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1026.
  (./BCF.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 922.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 922.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1026.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1026.
+
 Package rerunfilecheck Info: File `BCF.out' has not changed.
 (rerunfilecheck)             Checksum: A39B372F963F7EE08F81411C2EB34544;507.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 922.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1026.
  ) 
 Here is how much of TeX's memory you used:
- 34128 strings out of 493089
- 756491 string characters out of 6134841
- 1057964 words of memory out of 5000000
- 36854 multiletter control sequences out of 15000+600000
+ 34154 strings out of 493089
+ 756671 string characters out of 6134841
+ 1058964 words of memory out of 5000000
+ 36877 multiletter control sequences out of 15000+600000
  29461 words of font info for 132 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  64i,16n,96p,3233b,991s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
-/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
-/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr
-/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
-ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loc
-al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local
-/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/te
-xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texli
-ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texliv
-e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texli
-ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
-e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/
-2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2
-015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/20
-15/texmf-dist/fonts/type1/public/doublestroke/dsrom12.pfb></usr/local/texlive/2
-015/texmf-dist/fonts/type1/public/doublestroke/dsrom8.pfb>
-Output written on BCF.pdf (8 pages, 209707 bytes).
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
+usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
+r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
+local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
+cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/lo
+cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
+l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/
+texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/te
+xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texli
+ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/
+2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive/2
+015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/
+2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
+015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/201
+5/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2015
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2015/
+texmf-dist/fonts/type1/public/doublestroke/dsrom12.pfb></usr/local/texlive/2015
+/texmf-dist/fonts/type1/public/doublestroke/dsrom8.pfb></usr/local/texlive/2015
+/texmf-dist/fonts/type1/public/xypic/xyatip10.pfb></usr/local/texlive/2015/texm
+f-dist/fonts/type1/public/xypic/xybtip10.pfb></usr/local/texlive/2015/texmf-dis
+t/fonts/type1/public/xypic/xycmat10.pfb></usr/local/texlive/2015/texmf-dist/fon
+ts/type1/public/xypic/xycmbt10.pfb>
+Output written on BCF.pdf (9 pages, 242590 bytes).
 PDF statistics:
- 350 PDF objects out of 1000 (max. 8388607)
- 317 compressed objects within 4 object streams
- 78 named destinations out of 1000 (max. 500000)
+ 382 PDF objects out of 1000 (max. 8388607)
+ 342 compressed objects within 4 object streams
+ 81 named destinations out of 1000 (max. 500000)
  85 words of extra memory for PDF output out of 10000 (max. 10000000)
 
