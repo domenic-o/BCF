@@ -709,6 +709,55 @@ So we can take $\chi_{g,h}^\omega = \omega(g,h)$.
 compute 2-colimit $\text{Sum}_2(\chi)$ for $\chi$ as above, obtain twisted group algebra $\C^\omega[G]$
 \end{itemize}
 
+\begin{lemma}\label{lemma:cocone-is-coinvariants}
+$\text{Sum}_2(\chi^\omega) \cong \C^\omega[G]$, the  twisted group algebra of $G$.
+\end{lemma}
+
+\begin{proof}
+Let $(A,M)$ be a cocone for $\chi^\omega$, i.e., a pair consisting of a $\C$-algebra $A$ together with a left $A$-module $M$ (representing a linear functor ${}_\C\mathrm{Mod}\to {}_A\mathrm{Mod}$) and homotopy commutative diagrams
+\[
+\xymatrix{
+&A\\
+\C\ar[rr]_{L_g}\ar[ur]^{M}&&\C\ar[lu]_M
+\ar@{=>}^{\lambda_g}(9,-11);(16,-6)}
+\]
+where the $\lambda_g$'s are isomorphisms of left $A$-modules
+\[
+\lambda_g\colon M\to M\otimes_\C L_g
+\]
+such that \dots (here $L_g$ is the line associated to $g\in G$ by the 2-character $\omega$: $L_g\otimes L_h\cong L_{gh}$ etc. ; this has to be written in detail before this proof in doing the first part of the TODO). The isomorphisms 
+\[
+\rho_{g,h}\colon L_g\otimes L_h\cong L_{gh}
+\]
+endow the direct sum
+\[
+\bigoplus_{g\in G} L_g
+\]
+of a $\C$-algebra structure, and the isomorphisms $\lambda_g$ make $M$ a right $(\bigoplus_{g\in G} L_g)$-module. Therefore, we can see $M$ as a linear functor 
+\[
+{}_{(\bigoplus_{g\in G} L_g)}\mathrm{Mod}\to {}_A\mathrm{Mod}
+\]
+i.e., as a morphism from $(\bigoplus_{g\in G} L_g)$ to $A$ in $2\text{-}\mathrm{Vect}_\C$. The algebra $\bigoplus_{g\in G} L_g$ seen as a left $(\bigoplus_{g\in G} L_g)$-module is a morphism from $\C$ to $\bigoplus_{g\in G} L_g$ in $2\text{-}\mathrm{Vect}_\C$ and the natural isomorphism
+\[
+{}_AM_\C\cong {}_AM_{(\bigoplus_{g\in G} L_g)}\otimes {}_{(\bigoplus_{g\in G} L_g)}(\bigoplus_{g\in G} L_g)_\C
+\]
+gives a canonical factorization
+\[
+\xymatrix{
+&A\\
+&\bigoplus_{g\in G} L_g\ar[u]^{M}\\
+\C\ar[rr]_{L_g}\ar[ur]^{\bigoplus_{g\in G} L_g}\ar@/^2pc/[ruu]^{M}&&\C\ar[lu]_{\bigoplus_{g\in G} L_g}\ar@/_2pc/[luu]_{M}
+\ar@{=>}^{\lambda_g}(15,-26);(22,-21)}
+\]
+exhibiting the algebra $\bigoplus_{g\in G} L_g$ together with itself seen as a left module over itself as the universal cocone. 
+
+Finally notice that choosing a linear basis $x_g$ for each line $L_g$, the isomorphisms  $\rho_{g,h}\colon L_g\otimes L_h\cong L_{gh}$ (and so the multiplication in $\bigoplus_{g\in G} L_g$) read
+\[
+x_g\cdot x_h = \omega(g,h)x_{gh},
+\]
+thus identifying the algebra $\bigoplus_{g\in G} L_g$ with the twisted group algebra $\C^\omega[G]$ of $G$.
+\end{proof}
+
 
 \subsection{$n=3$}
 
