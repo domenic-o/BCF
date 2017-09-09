@@ -709,6 +709,44 @@ So we can take $\chi_{g,h}^\omega = \omega(g,h)$.
 compute 2-colimit $\text{Sum}_2(\chi)$ for $\chi$ as above, obtain twisted group algebra $\C^\omega[G]$
 \end{itemize}
 
+The datum of the 2-functor $\chi^\omega \colon \boldB^2 G \to \text{Alg}_\C$ is a collection of lines (1-dimensional complex vector spaces) $L_g$, indexed by elements in the group $G$, together with isomorphisms
+\[
+\rho_{g,h}\colon L_g\otimes L_h\xrightarrow{\sim} L_{gh}
+\]
+subject to the associativity constraint given by the commutativity of the diagrams
+\[
+\xymatrix{
+L_g\otimes L_h\otimes L_k\ar[rr]^{\rho_{g,h}\otimes \mathrm{id}}\ar[d]_{\mathrm{id}\otimes \rho_{h,k}}&& L_{gh}\otimes L_k\ar[d]^{\rho_{gh,k}}\\
+L_g\otimes L_{hk}\ar[rr]_{\rho_{g,hk}} &&L_{ghk}
+}
+\]
+where the tensor products are over $\C$. We also require that $L_1=\C$ and that the isomorphisms $L_1\otimes L_g\xrightarrow{\sim}L_g$ and $L_g\otimes L_1\xrightarrow{\sim}L_g$ are the structure isomorphisms for the unit object $\C$ of the monoidal category $\mathrm{Vect}_\C$.
+The associativity constraints imply, and are in fact equivalent to this, that the vector space
+\[
+A_{\chi^\omega}=\bigoplus_{g\in G} L_g
+\]
+has an associative $\C$-algebra structure.
+\begin{lemma}
+A choice of a basis element $x_g$ for every line $L_g$ defines a $\C^\times$-valued 2-cocycle $\omega$ on the group $G$. A different choice of basis elements leads to a cohomologous cocycle, so that the class $[\omega]\in H^2(G,\C^\times)$ is well defines.
+\end{lemma}
+\begin{proof}
+As $\rho_{g,h}(x_g\otimes x_h)$ is a nonzero element in $L_{gh}$ we have $\rho_{g,h}(x_g\otimes x_h)=\omega(g,h)x_{gh}$ for a unique element $\omega(g,h)$ in $\C^\times$. The associativity constraints are then immediately seen to be equivalent to the cocycle equation
+\[
+\omega(gh,k)\omega(g,h)=\omega(g,hk)\omega(h,k).
+\]
+Finally, if $\{y_g\}_{g\in G}$ is a different basis choice, and $\tilde{\omega}$ is the corresponding 2-cocycle, then we have $y_g=\eta_gx_g$ for some $\eta_g$ in $\C^\times$ and
+\[
+\tilde{\omega(g,h)}y_{gh}=\rho_{g,h}(y_g\otimes y_h)=\eta_g\eta_h\rho_{g,h}(x_g\otimes x_h)=\eta_g\eta_h\omega(g,h)x_{gh}=\eta_g\eta_h\omega(g,h)\eta_{gh}^{-1}y_{gh}.
+\]
+Therefore
+\[
+\tilde{\omega}(g,h)=\eta_g\eta_{gh}^{-1}\eta_h\omega(g,h),
+\]
+i.e. $\omega$ and $\tilde{\omega}$ are cohomologous.
+\end{proof}
+\begin{corollary}
+The algebra $A_{\chi^\omega}$ is isomorphic to the twisted group algebra $\C^\omega[G]$, defined as the $\C$-vector space on the basis $\{x_g\}_{g\in G}$ with the product $x_g\cdot x_h=\omega(g,h)x_{gh}$ and with $x_1=1$.
+\end{corollary}
 \begin{lemma}\label{lemma:cocone-is-coinvariants}
 $\text{Sum}_2(\chi^\omega) \cong \C^\omega[G]$, the  twisted group algebra of $G$.
 \end{lemma}
@@ -719,43 +757,36 @@ Let $(A,M)$ be a cocone for $\chi^\omega$, i.e., a pair consisting of a $\C$-alg
 \xymatrix{
 &A\\
 \C\ar[rr]_{L_g}\ar[ur]^{M}&&\C\ar[lu]_M
-\ar@{=>}^{\lambda_g}(9,-11);(16,-6)}
+\ar@{=>}^{\lambda_g}(18,-11);(9,-6)}
 \]
 where the $\lambda_g$'s are isomorphisms of left $A$-modules
 \[
-\lambda_g\colon M\to M\otimes_\C L_g
+\lambda_g\colon  M\otimes_\C L_g\xrightarrow{\sim} M
 \]
-such that \dots (here $L_g$ is the line associated to $g\in G$ by the 2-character $\omega$: $L_g\otimes L_h\cong L_{gh}$ etc. ; this has to be written in detail before this proof in doing the first part of the TODO). The isomorphisms 
+such that the diagrams
 \[
-\rho_{g,h}\colon L_g\otimes L_h\cong L_{gh}
+\xymatrix{
+M\otimes L_g\otimes L_h\ar[rr]^{\lambda_{g}\otimes \mathrm{id}}\ar[d]_{\mathrm{id}\otimes \rho_{g,h}}&& M\otimes L_h\ar[d]^{\lambda_h}\\
+M\otimes L_{gh}\ar[rr]_{\lambda_{gh}} &&M
+}
 \]
-endow the direct sum
+commute. This implies that the isomorphisms $\lambda_g$ make $M$ a right $A_{\chi^\omega}$-module. Therefore, we can see $M$ as a linear functor 
 \[
-\bigoplus_{g\in G} L_g
+{}_{A_{\chi^\omega}}\mathrm{Mod}\to {}_A\mathrm{Mod}
 \]
-of a $\C$-algebra structure, and the isomorphisms $\lambda_g$ make $M$ a right $(\bigoplus_{g\in G} L_g)$-module. Therefore, we can see $M$ as a linear functor 
+i.e., as a morphism from $A_{\chi^\omega}$ to $A$ in $2\text{-}\mathrm{Vect}_\C$. The algebra $A_{\chi^\omega}$ seen as a left $A_{\chi^\omega}$-module is a morphism from $\C$ to $A_{\chi^\omega}$ in $2\text{-}\mathrm{Vect}_\C$ and the natural isomorphism
 \[
-{}_{(\bigoplus_{g\in G} L_g)}\mathrm{Mod}\to {}_A\mathrm{Mod}
-\]
-i.e., as a morphism from $(\bigoplus_{g\in G} L_g)$ to $A$ in $2\text{-}\mathrm{Vect}_\C$. The algebra $\bigoplus_{g\in G} L_g$ seen as a left $(\bigoplus_{g\in G} L_g)$-module is a morphism from $\C$ to $\bigoplus_{g\in G} L_g$ in $2\text{-}\mathrm{Vect}_\C$ and the natural isomorphism
-\[
-{}_AM_\C\cong {}_AM_{(\bigoplus_{g\in G} L_g)}\otimes {}_{(\bigoplus_{g\in G} L_g)}(\bigoplus_{g\in G} L_g)_\C
+{}_AM_\C\cong {}_AM_{A_{\chi^\omega}}\otimes {}_{A_{\chi^\omega}}{A_{\chi^\omega}}_\C
 \]
 gives a canonical factorization
 \[
 \xymatrix{
 &A\\
-&\bigoplus_{g\in G} L_g\ar[u]^{M}\\
-\C\ar[rr]_{L_g}\ar[ur]^{\bigoplus_{g\in G} L_g}\ar@/^2pc/[ruu]^{M}&&\C\ar[lu]_{\bigoplus_{g\in G} L_g}\ar@/_2pc/[luu]_{M}
+&A_{\chi^\omega}\ar[u]^{M}\\
+\C\ar[rr]_{L_g}\ar[ur]^{A_{\chi^\omega}}\ar@/^2pc/[ruu]^{M}&&\C\ar[lu]_{A_{\chi^\omega}}\ar@/_2pc/[luu]_{M}
 \ar@{=>}^{\lambda_g}(15,-26);(22,-21)}
 \]
-exhibiting the algebra $\bigoplus_{g\in G} L_g$ together with itself seen as a left module over itself as the universal cocone. 
-
-Finally notice that choosing a linear basis $x_g$ for each line $L_g$, the isomorphisms  $\rho_{g,h}\colon L_g\otimes L_h\cong L_{gh}$ (and so the multiplication in $\bigoplus_{g\in G} L_g$) read
-\[
-x_g\cdot x_h = \omega(g,h)x_{gh},
-\]
-thus identifying the algebra $\bigoplus_{g\in G} L_g$ with the twisted group algebra $\C^\omega[G]$ of $G$.
+exhibiting the algebra $A_{\chi^\omega}$ together with itself seen as a left module over itself as the universal cocone. 
 \end{proof}
 
 
