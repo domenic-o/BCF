@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.27)  9 SEP 2017 17:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.27)  16 SEP 2017 10:51
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1069,26 +1069,23 @@ File: pgflibrarypatterns.code.tex 2008/03/03 v3.0.0 (rcs-revision 1.13)
 
 LaTeX Warning: Label `lemma:cocone-is-coinvariants' multiply defined.
 
-
-Package natbib Warning: Citation `GregorDiss' multiply defined.
-
 )
 \openout1 = `BCF.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 391.
-LaTeX Font Info:    ... okay on input line 391.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 391.
-LaTeX Font Info:    ... okay on input line 391.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 391.
-LaTeX Font Info:    ... okay on input line 391.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 391.
-LaTeX Font Info:    ... okay on input line 391.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 391.
-LaTeX Font Info:    ... okay on input line 391.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 391.
-LaTeX Font Info:    ... okay on input line 391.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 391.
-LaTeX Font Info:    ... okay on input line 391.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 396.
+LaTeX Font Info:    ... okay on input line 396.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 396.
+LaTeX Font Info:    ... okay on input line 396.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 396.
+LaTeX Font Info:    ... okay on input line 396.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 396.
+LaTeX Font Info:    ... okay on input line 396.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 396.
+LaTeX Font Info:    ... okay on input line 396.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 396.
+LaTeX Font Info:    ... okay on input line 396.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 396.
+LaTeX Font Info:    ... okay on input line 396.
  (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count180
@@ -1104,7 +1101,7 @@ LaTeX Font Info:    ... okay on input line 391.
 \everyMPtoPDFconversion=\toks62
 )
 \AtBeginShipoutBox=\box46
-Package hyperref Info: Link coloring ON on input line 391.
+Package hyperref Info: Link coloring ON on input line 396.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -1113,46 +1110,46 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count186
 )
-LaTeX Info: Redefining \ref on input line 391.
-LaTeX Info: Redefining \pageref on input line 391.
-LaTeX Info: Redefining \nameref on input line 391.
+LaTeX Info: Redefining \ref on input line 396.
+LaTeX Info: Redefining \pageref on input line 396.
+LaTeX Info: Redefining \nameref on input line 396.
 
 (./BCF.out) (./BCF.out)
 \@outlinefile=\write5
 \openout5 = `BCF.out'.
 
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <6> on input line 391.
-LaTeX Font Info:    Try loading font information for U+msa on input line 391.
+(Font)              <6> on input line 396.
+LaTeX Font Info:    Try loading font information for U+msa on input line 396.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 391.
+LaTeX Font Info:    Try loading font information for U+msb on input line 396.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 391.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 396.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 391.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 396.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+stmry on input line 391.
+LaTeX Font Info:    Try loading font information for U+stmry on input line 396.
 
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
-LaTeX Font Info:    Try loading font information for U+wasy on input line 391.
+LaTeX Font Info:    Try loading font information for U+wasy on input line 396.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 )
-Package xypdf Info: Line width: 0.47998pt on input line 391.
+Package xypdf Info: Line width: 0.47998pt on input line 396.
 
 ABD: EveryShipout initializing macros
 (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
@@ -1198,266 +1195,274 @@ File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 \tf@toc=\write6
 \openout6 = `BCF.toc'.
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 414.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 419.
 
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 414.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 419.
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <7> on input line 434.
+(Font)              <7> on input line 439.
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <5> on input line 434.
+(Font)              <5> on input line 439.
  [1
 
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 469.
+(hyperref)                removing `math shift' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 469.
+(hyperref)                removing `subscript' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 469.
+(hyperref)                removing `\begingroup' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<let>-command' on input line 469.
+(hyperref)                removing `\<let>-command' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@nomath' on input line 469.
+(hyperref)                removing `\@nomath' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\begingroup' on input line 469.
+(hyperref)                removing `\begingroup' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\setbox' on input line 469.
+(hyperref)                removing `\setbox' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 469.
+(hyperref)                removing `\z@' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hbox' on input line 469.
+(hyperref)                removing `\hbox' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\thinmuskip' on input line 469.
+(hyperref)                removing `\thinmuskip' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\medmuskip' on input line 469.
+(hyperref)                removing `\medmuskip' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\m@ne' on input line 469.
+(hyperref)                removing `\m@ne' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\thickmuskip' on input line 469.
+(hyperref)                removing `\thickmuskip' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ne' on input line 469.
+(hyperref)                removing `\@ne' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\setbox' on input line 469.
+(hyperref)                removing `\setbox' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\tw@' on input line 469.
+(hyperref)                removing `\tw@' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hbox' on input line 469.
+(hyperref)                removing `\hbox' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 469.
+(hyperref)                removing `math shift' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mathsurround' on input line 469.
+(hyperref)                removing `\mathsurround' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 469.
+(hyperref)                removing `\z@' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 469.
+(hyperref)                removing `math shift' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 469.
+(hyperref)                removing `math shift' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mathsurround' on input line 469.
+(hyperref)                removing `\mathsurround' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 469.
+(hyperref)                removing `\z@' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 469.
+(hyperref)                removing `math shift' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\<def>-command' on input line 469.
+(hyperref)                removing `\<def>-command' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mathchoice' on input line 469.
+(hyperref)                removing `\mathchoice' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hbox' on input line 469.
+(hyperref)                removing `\hbox' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 469.
+(hyperref)                removing `math shift' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mathsurround' on input line 469.
+(hyperref)                removing `\mathsurround' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 469.
+(hyperref)                removing `\z@' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\displaystyle' on input line 469.
+(hyperref)                removing `\displaystyle' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 469.
+(hyperref)                removing `math shift' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hbox' on input line 469.
+(hyperref)                removing `\hbox' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 469.
+(hyperref)                removing `math shift' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mathsurround' on input line 469.
+(hyperref)                removing `\mathsurround' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 469.
+(hyperref)                removing `\z@' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\textstyle' on input line 469.
+(hyperref)                removing `\textstyle' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 469.
+(hyperref)                removing `math shift' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hbox' on input line 469.
+(hyperref)                removing `\hbox' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 469.
+(hyperref)                removing `math shift' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mathsurround' on input line 469.
+(hyperref)                removing `\mathsurround' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 469.
+(hyperref)                removing `\z@' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\scriptstyle' on input line 469.
+(hyperref)                removing `\scriptstyle' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 469.
+(hyperref)                removing `math shift' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hbox' on input line 469.
+(hyperref)                removing `\hbox' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 469.
+(hyperref)                removing `math shift' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mathsurround' on input line 469.
+(hyperref)                removing `\mathsurround' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 469.
+(hyperref)                removing `\z@' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\scriptscriptstyle' on input line 469.
+(hyperref)                removing `\scriptscriptstyle' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 469.
+(hyperref)                removing `math shift' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\endgroup' on input line 469.
+(hyperref)                removing `\endgroup' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 469.
+(hyperref)                removing `superscript' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 469.
+(hyperref)                removing `superscript' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\times' on input line 469.
+(hyperref)                removing `\times' on input line 474.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 469.
+(hyperref)                removing `math shift' on input line 474.
+
+[2]
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 500.
+
+
+LaTeX Font Warning: Font shape `U/wasy/b/n' in size <7> not available
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 500.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 495.
+(hyperref)                removing `math shift' on input line 500.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 495.
+(hyperref)                removing `math shift' on input line 500.
 
-[2] [3] <xymatrix 2x3 171> <xymatrix 2x3 171> <xymatrix 2x2 182> <xymatrix 3x2
+[3] <xymatrix 2x3 171> <xymatrix 2x3 171> <xymatrix 2x2 182> <xymatrix 3x2
 145> [4]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 701.
+(hyperref)                removing `math shift' on input line 706.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 701.
+(hyperref)                removing `math shift' on input line 706.
 
-<xymatrix 3x2 190> [5]
-Overfull \hbox (8.36678pt too wide) detected at line 740
+[5] [6] <xymatrix 3x2 190> [7]
+Overfull \hbox (8.36678pt too wide) detected at line 965
 [][]\OML/cmm/m/it/12 y[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 ^^Z[]\OT1/cmr/m/n/1
 2 (\OML/cmm/m/it/12 y[] \OMS/cmsy/m/n/12 
  \OML/cmm/m/it/12 y[]\OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 ^^Q[]^^Q[]^^Z[]\OT1/c
@@ -1468,73 +1473,53 @@ mr/m/n/12 (\OML/cmm/m/it/12 x[] \OMS/cmsy/m/n/12
 /m/n/12 )\OML/cmm/m/it/12 ^^Q[]y[]:
  []
 
-<xymatrix 3x2 189> <xymatrix 3x2 190> [6] <xymatrix 3x3 334>
+<xymatrix 3x2 189> [8] <xymatrix 3x2 190> <xymatrix 3x3 334>
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 793.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 793.
+(hyperref)                removing `math shift' on input line 1018.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 807.
+(hyperref)                removing `math shift' on input line 1018.
+
+[9]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1032.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 807.
+(hyperref)                removing `math shift' on input line 1032.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 811.
+(hyperref)                removing `math shift' on input line 1036.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 811.
+(hyperref)                removing `math shift' on input line 1036.
 
-[7]
-Underfull \hbox (badness 2435) in paragraph at lines 833--837
+
+Underfull \hbox (badness 2435) in paragraph at lines 1064--1068
 []\OT1/cmr/m/n/12 J. Lurie, \OT1/cmr/m/sl/12 On the Clas-si-fi-ca-tion of Topo-
 log-i-cal Field The-o-ries\OT1/cmr/m/n/12 ,
  []
 
 
-Underfull \hbox (badness 3612) in paragraph at lines 833--837
+Underfull \hbox (badness 3612) in paragraph at lines 1064--1068
 [][]\OT1/cmr/m/n/12 Cur-rent De-vel-op-ments in Math-e-mat-ics \OT1/cmr/bx/n/12
  2008 \OT1/cmr/m/n/12 (2009), 129--280[][],
  []
 
-[8]
-Underfull \hbox (badness 2617) in paragraph at lines 919--922
-[]\OT1/cmr/m/n/12 N. Car-queville, \OT1/cmr/m/sl/12 Lec-ture notes on 2-dimensi
-onal de-fect TQFT\OT1/cmr/m/n/12 ,
- []
-
-
-Underfull \hbox (badness 1810) in paragraph at lines 983--987
-[]\OT1/cmr/m/n/12 J. Fuchs, J. Priel, C. Schweigert, and A. Valentino, \OT1/cmr
-/m/sl/12 On the
- []
-
-[9] [10]pdfTeX warning (ext4): destination with the same identifier (name{cite.
-GregorDiss}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1082 \bibitem[Sc]{GregorDiss}
-                               
-
-Package natbib Warning: There were multiply defined citations.
-
-[11]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1106.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1106.
+[10]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1096.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1096.
  (./BCF.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1106.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1106.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1096.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1096.
 
 Package rerunfilecheck Info: File `BCF.out' has not changed.
-(rerunfilecheck)             Checksum: A39B372F963F7EE08F81411C2EB34544;507.
+(rerunfilecheck)             Checksum: C06B63E76A041F9EE99552D7771F099B;686.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1542,14 +1527,14 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1106.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1096.
  ) 
 Here is how much of TeX's memory you used:
- 34170 strings out of 493089
- 756780 string characters out of 6134841
- 1058964 words of memory out of 5000000
- 36888 multiletter control sequences out of 15000+600000
- 29461 words of font info for 132 fonts, out of 8000000 for 9000
+ 34057 strings out of 493089
+ 754820 string characters out of 6134841
+ 1061964 words of memory out of 5000000
+ 36795 multiletter control sequences out of 15000+600000
+ 31452 words of font info for 139 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  64i,16n,96p,3233b,991s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
@@ -1568,19 +1553,20 @@ ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/
 2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive/2
 015/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/
 2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
-015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/201
-5/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2015
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2015/
-texmf-dist/fonts/type1/public/doublestroke/dsrom12.pfb></usr/local/texlive/2015
-/texmf-dist/fonts/type1/public/doublestroke/dsrom8.pfb></usr/local/texlive/2015
-/texmf-dist/fonts/type1/public/xypic/xyatip10.pfb></usr/local/texlive/2015/texm
-f-dist/fonts/type1/public/xypic/xybtip10.pfb></usr/local/texlive/2015/texmf-dis
-t/fonts/type1/public/xypic/xycmat10.pfb></usr/local/texlive/2015/texmf-dist/fon
-ts/type1/public/xypic/xycmbt10.pfb>
-Output written on BCF.pdf (11 pages, 256768 bytes).
+015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/201
+5/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2015/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2015/tex
+mf-dist/fonts/type1/public/doublestroke/dsrom12.pfb></usr/local/texlive/2015/te
+xmf-dist/fonts/type1/public/doublestroke/dsrom8.pfb></usr/local/texlive/2015/te
+xmf-dist/fonts/type1/public/xypic/xyatip10.pfb></usr/local/texlive/2015/texmf-d
+ist/fonts/type1/public/xypic/xybtip10.pfb></usr/local/texlive/2015/texmf-dist/f
+onts/type1/public/xypic/xycmat10.pfb></usr/local/texlive/2015/texmf-dist/fonts/
+type1/public/xypic/xycmbt10.pfb>
+Output written on BCF.pdf (10 pages, 270251 bytes).
 PDF statistics:
- 394 PDF objects out of 1000 (max. 8388607)
- 352 compressed objects within 4 object streams
- 86 named destinations out of 1000 (max. 500000)
- 85 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 307 PDF objects out of 1000 (max. 8388607)
+ 266 compressed objects within 3 object streams
+ 64 named destinations out of 1000 (max. 500000)
+ 101 words of extra memory for PDF output out of 10000 (max. 10000000)
 
