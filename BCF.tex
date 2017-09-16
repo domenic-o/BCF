@@ -259,6 +259,11 @@
 \newcommand{\Borddp}{\operatorname{Bord}_{3}^{\mathrm{def}}(\mathds{D}')}
 \newcommand{\Vect}{\operatorname{Vect}}
 \newcommand{\Vectk}{\operatorname{Vect}_\Bbbk}
+\newcommand{\Alg}{\operatorname{Alg}}
+\newcommand{\Algc}{\operatorname{Alg}_{\C}}
+\newcommand{\Cti}{\C^\times}
+\newcommand{\chiom}{\chi^\omega}
+\newcommand{\CGtw}{\C^\omega[G]}
 
 \newcommand{\eps}{\varepsilon}
 \newcommand{\al}{\alpha}
@@ -292,7 +297,7 @@
 
 \newcommand{\opp}             {{\mathrm{op}}} 
 
-\newcommand{\Alg}        {\operatorname{\mathsf{Alg}}}
+%\newcommand{\Alg}        {\operatorname{\mathsf{Alg}}}
 \newcommand{\Frob}        {\operatorname{\mathsf{Frob}}}
 \newcommand{\Lincat}        {\operatorname{\mathsf{Cat}^{ses}}}
 \newcommand{\Deftqft}{\operatorname{TQFT}^{\mathrm{def}}}
@@ -413,7 +418,7 @@ Let
 \item
 $G$ be a finite group, 
 \item
-$[\omega] \in H^n(G,\C^\times)$, 
+$\omega \in Z^n(G,\C^\times)$, 
 \item
 and $\Ccal$ a symmetric monoidal $(\infty,n)$-category for some $n\in \Z_+$.
 \end{itemize}
@@ -492,7 +497,7 @@ check whether natural transformation from trivial $n$-functor to $\omega \circ r
 \section{Bulk theory}
 \label{sec:bulk}
 
-\subsection{$n=1$}
+\subsection[$n=1$]{$\boldsymbol{n=1}$}
 
 Since we take the action of~$G$ on~$\C^\times$ to be trivial, the cocycle 
 \be
@@ -698,18 +703,238 @@ commute, and so it is precisely the datum of a morphism $V_G\to \C$ by the argum
 \end{proof}
 
 
-\subsection{$n=2$}
+\subsection[$n=2$]{$\boldsymbol{n=2}$}
 
-TODO: 
-\begin{itemize}
+\subsubsection{``Without thinking'' (Nils)}
+
+Now let $\omega \in Z^2(G,\C^\times)$. 
+We will construct a 2-functor 
+\be
+\label{eq:TQFTfactored2}
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[
+			     baseline=(current bounding box.base), 
+			     %>=stealth,
+			     descr/.style={fill=white,inner sep=3.5pt}, 
+			     normal line/.style={->}
+			     ] 
+\matrix (m) [matrix of math nodes, row sep=3.5em, column sep=4.0em, text height=1.5ex, text depth=0.1ex] {%
+\Bord_2  &  \textrm{Fam}_2(\text{Alg}_\C)  &  \text{Alg}_\C 
+\\
+};
+\path[font=\footnotesize] (m-1-1) edge[->] node[above] {$I$} (m-1-2);
+\path[font=\footnotesize] (m-1-2) edge[->] node[above] {$\textrm{Sum}_2$} (m-1-3);
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%% 
+\ee
+by computing what it does to $\text{pt}_+ \in \Bord_2$. 
+The first step is to set $I(\text{pt}_+)$ to be the 2-functor 
+\begin{align}
+\chi^\omega \colon \boldB G 
+& \lra \Algc 
+&& \text{with} \quad \chi^\omega_{g,h} := \omega(g,h) \colon L_g \otimes_\C L_h \to L_{gh}
+\label{eq:chiomega2}
+\\
+* & \lmt \C && \nonumber
+\\
+G \ni g & \lmt L_g := {}_\C \C_\C && \nonumber && \nonumber
+\\
+1_g & \lmt  1_\C && \nonumber
+\end{align}
+(Recall from \cite[Sect.\,1.1]{LeinsterBasic2} that the constraint on the coherence 2-morphisms $\chi^\omega_{g,h} = \omega(g,h) \in \End_\C(\C)$ is precisely the 2-cocycle condition on~$\omega$. 
+Also note that all our 2-functors are strictly unital, so in particular~\eqref{eq:chiomega2} completely specifies the 2-functor~$\chi^\omega$.) 
+
+The second step is to compute the 2-colimit $\text{Sum}_2(\chiom)$. 
+There are several versions of 2-limit, bilimit, weighted bilimit etc.~in the literature.  
+We will use the notion of \cite[Def.\,7.4.4]{bor94} and call it 2-limit. 
+To give the details, recall the definitions from \cite[Sect.\,1.2--3]{LeinsterBasic2}, and that the \textsl{opposite} $\B^{\text{op}}$ of a bicategory~$\B$ has reversed horizontal composition, but the same vertical composition as~$\B$. 
+
+\begin{definition}
+\label{def:2limit}
+Let $F \colon \mathcal A \to \B$ be a 2-functor, and let $B\in\B$. 
+\begin{enumerate}
 \item
-The only non-trivial part of the 2-functor $\chi^\omega \colon \boldB^2 G \to \text{Alg}_\C$ is the coherence 2-morphism $\chi_{g,h}^\omega \colon \chi^\omega(g) \otimes  \chi^\omega(h) \to \chi^\omega(gh)$, and the constraints (see e.\,g.~\cite[Sect.\,1.1]{LeinsterBasic2} for the definitions) on the $\chi_{g,h}^\omega$ precisely say that they are the components of a 2-cocycle. 
-So we can take $\chi_{g,h}^\omega = \omega(g,h)$. 
+The \textsl{constant 2-functor} $\Delta_B \colon \mathcal A \to \B$ sends every object in~$\mathcal A$ to~$B$, 1- and 2-morphisms in~$\mathcal A$ to $1_B$ and $1_{1_B}$, respectively, and all constraints $(\Delta_B)_{g,h}$ are trivial. 
 \item 
-compute 2-colimit $\text{Sum}_2(\chi)$ for $\chi$ as above, obtain twisted group algebra $\C^\omega[G]$
-\end{itemize}
+The category $2\text{-Cone}(B,F)$ of \textsl{2-cones on~$F$ with vertex~$B$} is the category whose objects are pseudonatural transformations $\Delta_B \to F$ and whose morphisms are modifications between them. 
+\item 
+A \textsl{2-limit} of~$F$ is a pair $(L,\pi)$ with $B\in \B$ and $\pi \colon \Delta_L \to F$ a pseudonatural transformation such that the functor
+\begin{align*}
+%\pi_* \colon 
+\B(B,L) 
+& \lra 2\text{-Cone}(B,F) 
+\\
+(B \stackrel{f}{\lra} L) 
+& \lmt (\Delta_B \stackrel{f_*}{\lra} \Delta_L \stackrel{\pi}{\lra} F) 
+\end{align*}
+is an equivalence of categories for all $B\in\B$. 
+\item 
+Now let $G \colon \mathcal A \to \B^{\text{op}}$. 
+The category $2\text{-Cocone}(B,G)$ of \textsl{2-cocones on~$G$ with vertex $B \in \B$} is defined to be $2\text{-Cone}(B,G)$, but with~$B$ viewed as an object in $\B^{\text{op}}$. 
+A 2-limit of $G \colon \mathcal A \to \B^{\text{op}}$ is also called a \textsl{2-colimit of~$G$ in~$\B$}. 
+\end{enumerate}
+\end{definition}
 
-The datum of the 2-functor $\chi^\omega \colon \boldB^2 G \to \text{Alg}_\C$ is a collection of lines (1-dimensional complex vector spaces) $L_g$, indexed by elements in the group $G$, together with isomorphisms
+Spelling out the definition, we see that an object $\sigma \colon \Delta_B \to F$ of $2\text{-Cone}(B,F)$ is a family of 1- and 2-morphisms 
+\be
+\label{eq:2cone1}
+\big\{ B \stackrel{\sigma_A}{\lra} F(A) \big\}_{A\in\mathcal A}
+\quad\text{ and }\quad 
+\big\{ F(g) \otimes \sigma_A \stackrel{\sigma_g}{\lra} \sigma_{A'} \big\}_{g\in\mathcal A(A,A')}
+\ee
+such that 
+\be
+\label{eq:2cone2}
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[
+			     baseline=(current bounding box.base), 
+			     %>=stealth,
+			     descr/.style={fill=white,inner sep=3.5pt}, 
+			     normal line/.style={->}
+			     ] 
+\matrix (m) [matrix of math nodes, row sep=3.5em, column sep=3.0em, text height=1.5ex, text depth=0.1ex] {%
+F(g) \otimes F(h) \otimes \sigma_A  &  F(g) \otimes \sigma_{A'}
+\\
+F(gh) \otimes \sigma_A  & \sigma_{A''}
+\\
+};
+\path[font=\footnotesize] (m-1-1) edge[->] node[above] {$1\otimes \sigma_h$} (m-1-2);
+\path[font=\footnotesize] (m-1-1) edge[->] node[left] {$F_{g,h} \otimes 1$} (m-2-1);
+\path[font=\footnotesize] (m-2-1) edge[->] node[below] {$\sigma_{gh}$} (m-2-2);
+\path[font=\footnotesize] (m-1-2) edge[->] node[right] {$\sigma_{g}$} (m-2-2);
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%% 
+\ee
+commutes for all 
+$
+A \stackrel{h}{\lra} A' \stackrel{g}{\lra} A''
+$. 
+Furthermore, a morphism $\Gamma \colon \sigma \to \widetilde\sigma$ in $2\text{-Cone}(B,F)$ is a family 
+\be
+\label{eq:2cone3}
+\big\{ \sigma_A \stackrel{\Gamma_A}{\lra} \widetilde\sigma_A \big\}_{A\in\mathcal A}
+\quad\text{ such that }\quad 
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[
+			     baseline=(current bounding box.base), 
+			     %>=stealth,
+			     descr/.style={fill=white,inner sep=3.5pt}, 
+			     normal line/.style={->}
+			     ] 
+\matrix (m) [matrix of math nodes, row sep=3.5em, column sep=3.0em, text height=1.5ex, text depth=0.1ex] {%
+F(g) \otimes \sigma_A  &  F(g) \otimes \widetilde\sigma_A
+\\
+\sigma_{A'}  & \widetilde\sigma_{A'}
+\\
+};
+\path[font=\footnotesize] (m-1-1) edge[->] node[above] {$1\otimes \Gamma_A$} (m-1-2);
+\path[font=\footnotesize] (m-1-1) edge[->] node[left] {$\sigma_g$} (m-2-1);
+\path[font=\footnotesize] (m-2-1) edge[->] node[below] {$\Gamma_{A'}$} (m-2-2);
+\path[font=\footnotesize] (m-1-2) edge[->] node[right] {$\widetilde\sigma_{g}$} (m-2-2);
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%% 
+\ee
+commutes for all 
+$
+A \stackrel{g}{\lra} A'
+$. 
+
+Note that above ``$\otimes$'' is exclusively used for the horizontal composition in the target~$\B$ (while juxtaposition is used for the horizontal composition in~$\mathcal A$). 
+Hence going to $\B^{\text{op}}$ amounts to reversing all the tensor products above. 
+
+\begin{lemma}
+\label{lem:2cone}
+Let $B\in \Algc$ and $\chiom \colon \boldB G \to \Algc$ as in~\eqref{eq:chiomega2}. 
+Then 
+\begin{align}
+2\text{-Cone}(B,\chiom) & \cong  {}_{\CGtw}\text{Mod}_B \, , \nonumber 
+\\
+2\text{-Cocone}(B,\chiom) & \cong  {}_{B}\text{Mod}_{\CGtw}
+\end{align}
+where $\CGtw$ is the $\omega$-twisted group algebra of~$G$. 
+\end{lemma}
+
+\begin{proof}
+We only prove the the statement about 2-cones in detail, the one about 2-cocones follows analogously by reversing all horizontal compositions in~$\B$. 
+
+By \eqref{eq:2cone1} and \eqref{eq:2cone2}, an object in $2\text{-Cone}(B,\chiom)$ is a 1-morphism $M \in \Algc(B,\C)$ together with linear maps $\sigma_g \colon L_g \otimes_\C M \to M$ such that 
+\be
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[
+			     baseline=(current bounding box.base), 
+			     %>=stealth,
+			     descr/.style={fill=white,inner sep=3.5pt}, 
+			     normal line/.style={->}
+			     ] 
+\matrix (m) [matrix of math nodes, row sep=3.5em, column sep=3.0em, text height=1.5ex, text depth=0.1ex] {%
+L_g \otimes_\C L_h \otimes_\C M  &  L_g \otimes_\C M
+\\
+L_{gh} \otimes_\C M  & M
+\\
+};
+\path[font=\footnotesize] (m-1-1) edge[->] node[above] {$1\otimes \sigma_h$} (m-1-2);
+\path[font=\footnotesize] (m-1-1) edge[->] node[left] {$\omega(g,h) \otimes 1$} (m-2-1);
+\path[font=\footnotesize] (m-2-1) edge[->] node[below] {$\sigma_{gh}$} (m-2-2);
+\path[font=\footnotesize] (m-1-2) edge[->] node[right] {$\sigma_{g}$} (m-2-2);
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%% 
+\ee
+commutes for all $g,h \in G$. 
+But this means that $(M, \sum_{g\in G} \sigma_g$) is a left $\CGtw$-module, while by definition of $\Algc$, the 1-morphism $M \in \Algc(B,\C)$ is a right $B$-module. 
+
+According to \eqref{eq:2cone3}, a morphism $(M, \{ \sigma_g \}) \to (\widetilde M, \{ \widetilde\sigma_g \})$ in $2\text{-Cone}(B,\chiom)$ is a 2-morphism $\Gamma \colon {}_\C M_B \to {}_\C \widetilde M_B$ in $\Algc$ such that 
+\be
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[
+			     baseline=(current bounding box.base), 
+			     %>=stealth,
+			     descr/.style={fill=white,inner sep=3.5pt}, 
+			     normal line/.style={->}
+			     ] 
+\matrix (m) [matrix of math nodes, row sep=3.5em, column sep=3.0em, text height=1.5ex, text depth=0.1ex] {%
+L_g \otimes_\C M  &  L_g \otimes_\C \widetilde M
+\\
+M  & \widetilde M
+\\
+};
+\path[font=\footnotesize] (m-1-1) edge[->] node[above] {$1\otimes \Gamma$} (m-1-2);
+\path[font=\footnotesize] (m-1-1) edge[->] node[left] {$\sigma_g$} (m-2-1);
+\path[font=\footnotesize] (m-2-1) edge[->] node[below] {$\Gamma$} (m-2-2);
+\path[font=\footnotesize] (m-1-2) edge[->] node[right] {$\widetilde\sigma_{g}$} (m-2-2);
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%% 
+\ee 
+commutes. 
+But that means that~$\Gamma$ is both a map of left $\CGtw$-modules and a map of right $B$-modules. 
+\end{proof}
+
+\begin{proposition}
+\begin{enumerate}
+\item
+A 2-limit of $\chiom \colon \boldB G \to \Algc$ is given by $(\CGtw, \CGtw)$. 
+\item
+A 2-colimit of $\chiom \colon \boldB G \to \Algc$ is given by $(\CGtw, \CGtw)$. 
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+According to Definition~\ref{def:2limit} and Lemma~\ref{lem:2cone}, a 2-limit of $\chiom$ is an algebra $L \in \Algc$ together with a module ${}_{\CGtw} M_L$ such that the functor 
+\begin{align*}
+\Algc(B,L) 
+& \lra {}_{\CGtw}\text{Mod}_B
+\\
+N & \lmt M \otimes_L N
+\end{align*}
+is an equivalence for every $B \in \Algc$. 
+This is the case for $L = \CGtw$ as an algebra and $M = \CGtw$ as a bimodule over itself. 
+
+The statement about the 2-colimit follows analogously. 
+\end{proof}
+
+
+\subsubsection{``With thinking'' (Domenico)}
+
+The datum of the 2-functor $\chi^\omega \colon \boldB G \to \text{Alg}_\C$ is a collection of lines (1-dimensional complex vector spaces) $L_g$, indexed by elements in the group $G$, together with isomorphisms
 \[
 \rho_{g,h}\colon L_g\otimes L_h\xrightarrow{\sim} L_{gh}
 \]
@@ -790,12 +1015,12 @@ exhibiting the algebra $A_{\chi^\omega}$ together with itself seen as a left mod
 \end{proof}
 
 
-\subsection{$n=3$}
+\subsection[$n=3$]{$\boldsymbol{n=3}$}
 
 TODO:
 \begin{itemize}
 \item
-The only non-trivial part of the 3-functor $\chi^\omega \colon \boldB^3 G \to \text{TC}_\C$ are the coherence 3-morphisms which assemble into the modification (also) called~$\omega$ in \cite[Def.\,A.4.3]{GregorDiss}, and the constraints on $\omega$ (see \cite[Page~219]{GregorDiss}) seem to be precisely the 3-cocycle condition. 
+The only non-trivial part of the 3-functor $\chi^\omega \colon \boldB G \to \text{TC}_\C$ are the coherence 3-morphisms which assemble into the modification (also) called~$\omega$ in \cite[Def.\,A.4.3]{GregorDiss}, and the constraints on $\omega$ (see \cite[Page~219]{GregorDiss}) seem to be precisely the 3-cocycle condition. 
 \item
 \underline{\textbf{Issue}}: The notion of a 3-colimit (to really compute $\text{Sum}_3$) is scary. 
 At least we should make some hand-wavy arguments\dots
@@ -804,11 +1029,11 @@ At least we should make some hand-wavy arguments\dots
 
 \section{Boundary conditions}
 
-\subsection{$n=2$}
+\subsection[$n=2$]{$\boldsymbol{n=2}$}
 
 TODO
 
-\subsection{$n=3$}
+\subsection[$n=3$]{$\boldsymbol{n=3}$}
 
 TODO
 
@@ -818,6 +1043,12 @@ TODO
 
 
 \begin{thebibliography}{BDSPV}
+
+\bibitem[Bo]{bor94}
+F.~Borceux, 
+\textsl{Handbook of categorical algebra 1}, 
+volume 50 of \textsl{Encyclopedia of Mathematics and its Applications}, 
+Cambridge University Press, Cambridge, 1994.
 
 \bibitem[FHLT]{FHLT}
 D.~Freed, M.~Hopkins, J.~Lurie, and C.~Teleman,
@@ -858,255 +1089,9 @@ J.~Wang, X.-G.~Wen and E.~Witten,
 
 
 
-
-\bibitem[BaeW]{Baezlecturenotes}
-J.~Baez and D.~Wise, 
-Quantum Gravity Seminar at University of California, Riverside, 2005, 
-\url{http://math.ucr.edu/home/baez/qg-winter2005}.
-
-\bibitem[BalK]{bk1004.1533}
-B.~Balsam and A.~Kirillov, Jr., 
-\textsl{Turaev-Viro invariants as an extended TQFT}, 
-\href{http://www.arxiv.org/abs/1004.1533}{[arXiv:1004.1533]}.
-
-\bibitem[BBCW]{BBCW1410.4540}
-M.~Barkeshli, P.~Bonderson, M.~Cheng, and Z.~Wang, 
-\textsl{Symmetry, Defects, and Gauging of Topological Phases}, 
-\href{http://www.arxiv.org/abs/1410.4540}{[arXiv:1410.4540]}.
-
-\bibitem[BCP1]{DanielIlkaNils}
-I.~Brunner, N.~Carqueville, and D.~Plencner, 
-\textsl{Orbifolds and topological defects}, 
-\doi{10.1007/s00220-014-2056-3}{Comm.~Math.~Phys. \textbf{315} (2012) 739--769}, 
-\href{http://arxiv.org/abs/1307.3141}{[\mbox{arXiv:}1307.3141]}. 
-
-\bibitem[BCP2]{BCP2}
-I.~Brunner, N.~Carqueville, and D.~Plencner, 
-\textsl{Discrete torsion defects}, 
-\doi{10.1007/s00220-015-2297-9}{Comm. Math. Phys. \textbf{337} (2015), 429--453}, 
-\href{http://arxiv.org/abs/1404.7497}{[arXiv:1404.7497]}.
-
-\bibitem[BJQ]{BJQ}
-M.~Barkeshli, C.-M.~Jian, and X.-L.~Qi, 
-\textsl{Genons, twist defects, and projective non-Abelian braiding statistics}, 
-\doi{10.1103/PhysRevB.87.045130}{Phys. Rev. B \textbf{87} (2013), 045130}, 
-\href{http://www.arxiv.org/abs/1208.4834}{[arXiv:1208.4834]}.
-
-\bibitem[BMS]{BMS}
-J.~Barrett, C.~Meusburger, and G.~Schaumann, 
-\textsl{Gray categories with duals and their diagrams},
-\href{http://arxiv.org/abs/1211.0529}{[arXiv:1211.0529]}.
-
-\bibitem[BP]{bp9205031}
-C.~Bachas and M.~Petropoulos, 
-\textsl{Topological Models on the Lattice and a Remark on String Theory Cloning}, 
-\doi{10.1007/BF02097063}{Commun.~Math.~Phys.~\textbf{152} (1993),191--202}, 
-\href{http://www.arxiv.org/abs/hep-th/9205031}{[hep-th/9205031]}.
-
-\bibitem[BW1]{bwTV2}
-J.~Barrett and B.~Westbury, 
-\textsl{Spherical Categories}, 
-\doi{10.1006/aima.1998.1800}{Adv. Math. \textbf{143} (1999), 357--375}, 
-\href{http://arxiv.org/abs/hep-th/9310164}{[hep-th/9310164]}.
-
-\bibitem[BW2]{BarWes}
-J.~Barrett and B.~Westbury, 
-\textsl{Invariants of piecewise-linear 3-manifolds}, 
-\doi{10.1090/S0002-9947-96-01660-1}{Trans. Amer. Math. Soc. \textbf{348} (1996), 3997--4022}, 
-\href{http://arxiv.org/abs/hep-th/9311155}{[hep-th/9311155]}.
-
-\bibitem[Ca]{2ddTQFTreview}
-N.~Carqueville, 
-\textsl{Lecture notes on 2-dimensional defect TQFT}, 
-\href{http://arxiv.org/abs/1607.05747}{[arXiv:1607.05747]}.
-
-\bibitem[CGPW]{CGPW}
-S.~X. Cui, C.~Galindo, J.~Yael Plavnik, and Z.~Wang, 
-\textsl{On Gauging Symmetry of Modular Categories}, 
-\doi{10.1007/s00220-016-2633-8}{Communications in Mathematical Physics \textbf{348}:3 (2016), 1043--1064}, 
-\href{http://arxiv.org/abs/1510.03475}{[arXiv:1510.03475]}.
-
-\bibitem[CMS]{CMS}
-N.~Carqueville, C.~Meusburger, and G.~Schaumann, 
-\textsl{3-dimensional defect TQFTs and their tricategories}, 
-\href{http://arxiv.org/abs/1603.01171}{[arXiv:1603.01171]}.
-
-\bibitem[CQV]{cqv2015}
-N.~Carqueville and A.~Quintero~V\'elez, \
-\textsl{Calabi-Yau completion and orbifold equivalence}, 
-\href{http://arxiv.org/abs/1509.00880}{[arXiv:1509.00880]}.
-
-\bibitem[CRCR]{CRCR}
-N.~Carqueville, A.~Ros Camacho, and I.~Runkel, 
-\textsl{Orbifold equivalent potentials}, 
-\doi{10.1016/j.jpaa.2015.07.015}{Journal of Pure and Applied Algebra \textbf{220} (2016), 759--781}, 
-\arxiv{1311.3354}{[arXiv:1311.3354]}.
-
-\bibitem[CR1]{cr1210.6363}
-N.~Carqueville and I.~Runkel, 
-\textsl{Orbifold completion of defect bicategories}, 
-\doi{10.4171/QT/76}{Quantum Topology \textbf{7}:2 (2016) 203--279}, 
-\href{http://arxiv.org/abs/1210.6363}{[arXiv:1210.6363]}.
-
-\bibitem[CR2]{CRlecturenotes}
-N.~Carqueville and I.~Runkel, 
-\textsl{Introductory lectures on topological quantum field theory}, 
-\href{http://arxiv.org/abs/1705.05734}{[arXiv:1705.05734]}.
-
-\bibitem[CRS]{CRS2}
-N.~Carqueville, I.~Runkel, and G.~Schaumann, 
-in preparation.
-
-\bibitem[DKR]{dkr1107.0495}
-A.~Davydov, L.~Kong, and I.~Runkel, 
-\textsl{Field theories with defects and the centre functor}, 
-\href{http://www.ams.org/bookstore?fn=20&arg1=pspumseries&ikey=PSPUM-83}{Mathematical Foundations of Quantum Field Theory and Perturbative String Theory, Proceedings of Symposia in Pure Mathematics, AMS, 2011}, \href{http://arxiv.org/abs/1107.0495}{[arXiv:1107.0495]}. 
-
-\bibitem[ENO]{eno0909.3140}
-P.~Etingof, D.~Nikshych, and V.~Ostrik, 
-\textsl{Fusion categories and homotopy theory}, 
-\doi{10.4171/QT/6}{Quantum Topology \textbf{1} (2010) 209--273},
-\href{http://www.arxiv.org/abs/0909.3140}{[arXiv:0909.3140]}.
-
-\bibitem[FFRS]{ffrs0909.5013}
-J.~Fr\"ohlich, J.~Fuchs, I.~Runkel, and C.~Schweigert,
-\textsl{Defect lines, dualities, and generalised orbifolds}, 
-\doi{10.1142/9789814304634_0056}{Proceedings of the XVI International Congress on Mathematical Physics, Prague, August 3--8, 2009}, \href{http://arxiv.org/abs/0909.5013}{[arXiv:0909.5013]}.
-
-\bibitem[FHK]{FHK}
-M.~Fukuma, S.~Hosono, and H.~Kawai, 
-\textsl{Lattice Topological Field Theory in Two Dimensions}, 
-\doi{10.1007/BF02099416}{Comm. Math. Phys.~\textbf{161} (1994), 157--176},
-\href{http://www.arxiv.org/abs/hep-th/9212154}{[hep-th/9212154]}.
-
-\bibitem[FPSV]{fpsv1404.6646}
-J.~Fuchs, J.~Priel, C.~Schweigert, and A.~Valentino,
-\textsl{On the Brauer groups of symmetries of abelian Dijkgraaf-Witten theories}, 
-\doi{10.1007/s00220-015-2420-y}{Communications in Mathematical Physics \textbf{339}:2 (2015), 385--405}, 
-\href{http://arxiv.org/abs/1404.6646}{[arXiv:1404.6646]}.
-
-\bibitem[FRS]{frs0403157}
-J.~Fuchs, I.~Runkel, and C.~Schweigert,
-\textsl{TFT construction of RCFT correlators. 3. Simple currents}, 
-\doi{10.1016/j.nuclphysb.2004.05.014}{Nucl.\ Phys.\ B \textbf{694} (2004) 277--353}, 
-\href{http://arxiv.org/abs/hep-th/0403157}{[hep-th/0403157]}.
-
-\bibitem[FS1]{fs0106050}
-J.~Fuchs and C.~Schweigert,
-\textsl{Category theory for conformal boundary conditions}, 
-\doi{10.1090/fic/039/03}{Fields Institute Communications \textbf{39} (2003), 25--71}, 
-\href{http://www.arxiv.org/abs/math/0106050}{[math/0106050]}.
-
-\bibitem[FS2]{fs1310.1329}
-J.~Fuchs and C.~Schweigert,
-\textsl{A note on permutation twist defects in topological bilayer phases}, 
-\doi{10.1007/s11005-014-0719-9}{Letters in Mathematical Physics \textbf{104}:11 (2014), 1385--1405}, 
-\href{http://arxiv.org/abs/1310.1329}{[arXiv:1310.1329]}.
-
-\bibitem[FSV]{fsv1203.4568}
-J.~Fuchs, C.~Schweigert, and A.~Valentino,
-\textsl{Bicategories for boundary conditions and for surface defects in 3-d TFT}, 
-\doi{10.1007/s00220-013-1723-0}{Communications in Mathematical Physics \textbf{321}:2 (2013), 543--575}, 
-\href{http://arxiv.org/abs/1203.4568}{[arXiv:1203.4568]}.
-
-\bibitem[Gu]{Gurskibook}
-N.~Gurski, 
-\textsl{\doi{10.1017/CBO9781139542333}{Coherence in Three-Dimensional Category Theory}}, 
-\textsl{Cambridge Tracts in Mathematics} \textbf{201}, Cambridge University Press, 2013.
-
-\bibitem[Hi]{Hirsch}
-M.~W.~Hirsch, 
-\textsl{\doi{10.1007/978-1-4684-9449-5}{Differential topology}}, 
-Springer Graduate Texts in Mathematics \textbf{33}, Springer, 1976. 
-
-\bibitem[KK]{KK1104.5047}
-A.~Kitaev and L.~Kong, 
-\textsl{Models for gapped boundaries and domain walls},
-\doi{10.1007/s00220-012-1500-5}{Commun.\ Math.\ Phys.\ \textbf{313} (2012) 351--373},
-\href{http://arxiv.org/abs/1104.5047}{[arXiv:1104.5047]}.
-
-\bibitem[KR]{KR0909.3643}
-A.~Kapustin and L.~Rozansky, 
-\textsl{Three-dimensional topological field theory and symplectic algebraic geometry II}, 
-\doi{10.4310/CNTP.2010.v4.n3.a1}{Communications of Number Theory and Physics \textbf{4} (2010), 463--549}, 
-\href{http://arxiv.org/abs/0909.3643}{[arXiv:0909.3643]}.
-
-\bibitem[KRS]{KRS}
-A.~Kapustin, L.~Rozansky, and N.~Saulina, 
-\textsl{Three-dimensional topological field theory and symplectic algebraic geometry I}, 
-\doi{10.1016/j.nuclphysb.2009.01.027}{Nuclear Physics B \textbf{816} (2009), 295--355}, 
-\href{http://arxiv.org/abs/0810.5415}{[arXiv:0810.5415]}.
-
-\bibitem[KS]{ks1012.0911}
-A.~Kapustin and N.~Saulina, 
-\textsl{Surface operators in 3d Topological Field Theory and 2d Rational Conformal Field Theory}, 
-Mathematical Foundations of Quantum Field Theory and Perturbative String Theory, 
-Proceedings of Symposia in Pure Mathematics \textbf{83}, 175--198, 
-American Mathematical Society, 2011, 
-\href{http://arxiv.org/abs/1012.0911}{[arXiv:1012.0911]}.
-
-\bibitem[La]{LawrenceIntro}
-R.~J.~Lawrence, 
-\textsl{An Introduction to Topological Field Theory}, 
-\doi{10.1090/psapm/051}{Proc. Symp. Appl. Math., \textbf{51} (1996), 89--128}. 
-
-\bibitem[MW]{blobcomplex}
-S.~Morrison and K.~Walker, 
-\textsl{Blob homology}, 
-\doi{10.2140/gt.2012.16.1481}{Geometry \& Topology \textbf{16} (2012), 1481--1607}, 
-\href{http://arxiv.org/abs/1009.5025}{[arXiv:1009.5025]}.  
-
-\bibitem[Mu]{Munkres} 
-J.~R.~Munkres, 
-\textsl{Elementary Differential Topology}, 
-Annals of Mathematics Studies~\textbf{54}, 
-Princeton University Press, 
-1967.
-
-\bibitem[NS]{NSHFS}
-S.-H.~Ng and P.~Schauenburg, 
-\textsl{Higher Frobenius-Schur indicators for pivotal categories}, 
-\doi{10.1090/conm/441/08500}{Contemporary Mathematics \textbf{441} (2007), 63--90}, 
-\href{http://arxiv.org/abs/math/0503167}{[math.QA/0503167]}.
-
-\bibitem[Pa]{Pachpaper}
-U.~Pachner, 
-\textsl{P.L.~Homeomorphic Manifolds are Equivalent by Elementary Shellings}, 
-\doi{10.1016/S0195-6698(13)80080-7}{European Journal of Combinatorics \textbf{12}:2 (1991), 129--145}. 
-
-\bibitem[Qu]{Quinnlectures}
-F.~Quinn, 
-\textsl{Lectures on axiomatic topological quantum field theory}, 
-IAS/Park City Mathematics Series \textbf{1} (1995), 325--433.
-
-\bibitem[Sc]{GregorDiss}
-G.~Schaumann, 
-\textsl{Duals in tricategories and in the tricategory of bimodule categories}, 
-PhD thesis, 
-Friedrich-Alexander-Universit\"at Erlangen-N\"urnberg (2013), 
-% \url{http://opus4.kobv.de/opus4-fau/frontdoor/index/index/docId/3732}.
-%\newline
-%\href{http://opus4.kobv.de/opus4-fau/frontdoor/index/index/docId/3732}{http://opus4.kobv.de/opus4-fau/frontdoor/index/index/docId/3732}.
-\href{http://nbn-resolving.de/urn/resolver.pl?urn:nbn:de:bvb:29-opus4-37321}{urn:nbn:de:bvb:29-opus4-37321}.
-
-\bibitem[SW]{sw1705.05171}
-C.~Schweigert and L.~Woike,
-\textsl{Orbifold Construction for Topological Field Theories}, 
-\href{http://arxiv.org/abs/1705.05171}{[arXiv:1705.05171]}.
-
-\bibitem[TV]{TurVir}
-V.~Turaev and O.~Viro, 
-\textsl{State sum invariants of 3-manifolds and quantum $6j$-symbols}, 
-\doi{10.1016/0040-9383(92)90015-A}{Topology \textbf{31}:4 (1992), 865--902}.
-
 \end{thebibliography}
 
 
 
 \end{document}
 
-
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: t
-%%% End:
