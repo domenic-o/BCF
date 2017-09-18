@@ -555,7 +555,7 @@ Then the universal cocone of $\chi^\rho$, viewed as a diagram of shape $*/\!\!/ 
 \[
 V_G=V/\langle v-\rho(g)v\rangle_{g\in G, v\in V}
 \]
-and $\pi\colon V\to V_G$ is the projection to the quotient. Namely, let $(W,f)$ be a cocone for $\chi^\rho$, i.e., a pair consisting of a vector space $W$ together with a linear map $f\colon \chi^\omega(*) = V \to W$ such that 
+and $\pi\colon V\to V_G$ is the projection to the quotient. Namely, let $(W,f)$ be a cocone for $\chi^\rho$, i.e., a pair consisting of a vector space $W$ together with a linear map $f\colon \chi^\rho(*) = V \to W$ such that 
 \be
 %%%%%%%%%%%%%%%%%%%%%%%
 \begin{tikzpicture}[
@@ -567,7 +567,7 @@ and $\pi\colon V\to V_G$ is the projection to the quotient. Namely, let $(W,f)$ 
 \matrix (m) [matrix of math nodes, row sep=3.5em, column sep=3.0em, text height=1.5ex, text depth=0.1ex] {%
   &  W  &  
 \\
-\chi^\omega(*) = V &    &  V = \chi^\omega(*)
+\chi^\rho(*) = V &    &  V = \chi^\rho(*)
 \\
 };
 \path[font=\footnotesize] (m-2-1) edge[->] node[above] {$f$} (m-1-2);
@@ -758,7 +758,7 @@ The \textsl{constant 2-functor} $\Delta_B \colon \mathcal A \to \B$ sends every 
 \item 
 The category $2\text{-Cone}(B,F)$ of \textsl{2-cones on~$F$ with vertex~$B$} is the category whose objects are pseudonatural transformations $\Delta_B \to F$ and whose morphisms are modifications between them. 
 \item 
-A \textsl{2-limit} of~$F$ is a pair $(L,\pi)$ with $B\in \B$ and $\pi \colon \Delta_L \to F$ a pseudonatural transformation such that the functor
+A \textsl{2-limit} of~$F$ is a pair $(L,\pi)$ with $L\in \B$ and $\pi \colon \Delta_L \to F$ a pseudonatural transformation such that the functor
 \begin{align*}
 %\pi_* \colon 
 \B(B,L) 
