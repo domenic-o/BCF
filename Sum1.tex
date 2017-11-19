@@ -1,0 +1,554 @@
+\documentclass[12pt]{scrartcl}
+%\usepackage{refcheck} 
+\usepackage{a4}   
+\usepackage{amsmath}    
+\usepackage{paralist}
+\usepackage{amssymb} 
+\usepackage{amsfonts}  
+\usepackage{mathrsfs}  
+\usepackage{dsfont}
+\usepackage{latexsym} 
+\usepackage{xcolor}
+\usepackage{bbm,exscale}
+\definecolor{Myblue}{rgb}{0,0,0.6}  
+\usepackage[colorlinks,citecolor=Myblue,linkcolor=Myblue,urlcolor=Myblue,pdfpagemode=None]{hyperref}
+\usepackage{amsthm}
+\usepackage{accents}
+\usepackage[square,numbers,sort&compress]{natbib} 
+\usepackage[all,cmtip]{xy}
+\usepackage{ifthen} 
+\usepackage{bbding}
+\usepackage{stmaryrd}  
+\usepackage{wasysym}
+\usepackage{verbatim}
+\usepackage{bbding} 
+\usepackage{soul}  %allow linebreak for underlined with \ul
+\usepackage[yyyymmdd,hhmmss]{datetime}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+	\pgfplotsset{width=7cm,compat=1.8}
+	%%External
+%	 \usetikzlibrary{external}\tikzexternalize
+%	\usetikzlibrary{decorations.pathmorphing}
+%	\usetikzlibrary{decorations.pathreplacing}
+	\usetikzlibrary{decorations.markings}
+%	\usetikzlibrary{calc}
+%	\usetikzlibrary{fadings}
+%	\usetikzlibrary{matrix} 
+	\usetikzlibrary{patterns}
+%	\usetikzlibrary{shapes.geometric}
+%	\usetikzlibrary{shadows}
+
+%\pgfplotsset{compat=1.11}            
+            
+
+\tikzset{
+    string/.style={draw=#1, postaction={decorate}, decoration={markings,mark=at position .51 with {\arrow[color=#1]{>}}}},
+    costring/.style={draw=#1, postaction={decorate}, decoration={markings,mark=at position .51 with {\arrow[draw=#1]{<}}}},
+    ostring/.style={draw=#1, postaction={decorate}, decoration={markings,mark=at position .47 with {\arrow[draw=#1]{>}}}},
+    ustring/.style={draw=#1, postaction={decorate}, decoration={markings,mark=at position .56 with {\arrow[draw=#1]{>}}}},
+    oostring/.style={draw=#1, postaction={decorate}, decoration={markings,mark=at position .43 with {\arrow[draw=#1]{>}}}},
+    uustring/.style={draw=#1, postaction={decorate}, decoration={markings,mark=at position .59 with {\arrow[draw=#1]{>}}}},
+    directed/.style={string=blue!50!black}, 
+    odirected/.style={ostring=blue!50!black}, 
+    udirected/.style={ustring=blue!50!black}, 
+    oodirected/.style={oostring=blue!50!black}, 
+    uudirected/.style={uustring=blue!50!black},     
+    redirected/.style={costring= blue!50!black},
+    redirectedgreen/.style={costring= green!50!black},
+    directedgreen/.style={string= green!50!black},
+    redirectedlightgreen/.style={costring= green!65!black},
+    directedlightgreen/.style={string= green!65!black},
+}
+
+\tikzset{-dot-/.style={decoration={
+  markings,
+  mark=at position 0.5 with {\fill circle (1.875pt);}},postaction={decorate}}}
+
+\tikzset{
+	Fdot/.style={circle, draw, fill, inner sep=0pt}, 
+	Odot/.style={circle, draw, inner sep=0.1pt, minimum size=0.1cm}
+	}
+
+\def\nicedashedcolourscheme{\shadedraw[top color=blue!22, bottom color=blue!22, draw=gray, dashed]}
+\def\nicedashedpalecolourscheme{\shadedraw[top color=blue!12, bottom color=blue!12, draw=gray, dashed]}
+\def\nicehalfpalecolourscheme{\shadedraw[top color=blue!22, bottom color=blue!22, draw=white]}
+\def\nicenotpalecolourscheme{\shadedraw[top color=blue!32, bottom color=blue!32, draw=white]}
+\def\nicecolourscheme{\shadedraw[top color=blue!22, bottom color=blue!22, draw=blue!22]}
+\def\nicepalecolourscheme{\shadedraw[top color=blue!12, bottom color=blue!12, draw=white]}
+\def\nicenocolourscheme{\shadedraw[top color=gray!2, bottom color=gray!25, draw=white]}
+\def\nicereallynocolourscheme{\shadedraw[top color=white!2, bottom color=white!25, draw=white]}
+\def\boringcolourscheme{\draw[fill=blue!20, dashed]}
+
+\newcommand\tikzzbox[1]
+%{pic}% 
+{#1}%#1
+
+  \tolerance 1414
+  \hbadness 1414
+  \hfuzz 0.3pt
+  \widowpenalty=10000
+  \vfuzz \hfuzz
+  \raggedbottom
+  
+\makeatletter
+\newcommand{\raisemath}[1]{\mathpalette{\raisem@th{#1}}}
+\newcommand{\raisem@th}[3]{\raisebox{#1}{$#2#3$}}
+\makeatother
+
+\renewcommand{\H}{\mathcal H}
+\newcommand{\Ccal}{\mathcal C}
+\newcommand{\boldB}{\boldsymbol{B}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\orb}{\mathcal{A}}
+\newcommand{\sgn}{\mathrm{sgn}}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+\newcommand{\E}{\text{e}} 
+\newcommand{\I}{\text{i}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\Borb}{\B_{\mathrm{orb}}}
+\newcommand{\Beq}{\B_{\mathrm{eq}}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\D}{\mathds{D}}
+\newcommand{\Ee}{\mathds{E}}
+\newcommand{\K}{\mathds{K}}
+\newcommand{\M}{\mathds{M}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\Q}{\mathds{Q}}
+\newcommand{\R}{\mathds{R}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\IP}{\mathds{P}}
+\def\1{\ifmmode\mathrm{1\!l}\else\mbox{\(\mathrm{1\!l}\)}\fi}
+\newcommand{\one}{\mathbbm{1}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bes}{\begin{equation*}}
+\newcommand{\ees}{\end{equation*}}
+\newcommand{\cc}[1] {\overline{#1}}
+\newcommand{\inv}[0]{{-1}}
+
+\newcommand{\inver}[0]{\times}%{\mathrm{inv}}
+\newcommand{\chirel}[0]{\chi_{\mathrm{sym}}}%{\chi_{\frac{1}{2}}}
+\newcommand{\Dec}[0]{\mathrm{Dec}}
+\newcommand{\interior}[1]{%
+  {\kern0pt#1}^{\mathrm{o}}%
+}
+\newcommand{\Strat}[0]{\mathrm{Strat}}
+\newcommand{\Stratdef}[0]{\mathrm{Strat}^{\mathrm{def}}}
+
+
+\newcommand{\sVir}{\mathsf{sVir}}
+\newcommand{\MF}{\operatorname{MF}_{\operatorname{bi}}}
+\newcommand{\MFW}{\operatorname{MF}_{\operatorname{bi}}(W)}
+\newcommand{\MFR}{\operatorname{MF}^\text{R}_{\operatorname{bi}}}
+\newcommand{\DG}{\operatorname{DG}_{\operatorname{bi}}}
+\newcommand{\DGW}{\operatorname{DG}_{\text{bi}}(W)}
+\newcommand{\DGR}{\operatorname{DG}^\text{R}_{\text{bi}}}
+\newcommand{\id}{\text{id}}
+\newcommand{\KMF}{K_{0}(\operatorname{MF}_{\text{bi}}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\modu}{\operatorname{mod}}
+\def\LG{\mathcal{LG}}
+\def\LGgr{\mathcal{LG}^{\mathrm{gr}}}
+\def\LGgrs{\mathcal{LG}'^{\mathrm{gr}}}
+\def\LGgrso{\mathcal{LG}'^{\mathrm{gr}}_{\mathrm{orb}}}
+\def\LGs{\mathcal{LG}'}
+\def\LGsorb{\mathcal{LG}'_{\mathrm{orb}}}
+\def\LGorb{\mathcal{LG}_{\mathrm{orb}}}
+\def\LGeq{\mathcal{LG}_{\mathrm{eq}}}
+\newcommand{\hmf}{\operatorname{hmf}}
+\newcommand{\HMF}{\operatorname{HMF}}
+\newcommand{\ev}{\operatorname{ev}}
+\newcommand{\eval}{\operatorname{eval}}
+\newcommand{\tev}{\widetilde{\operatorname{ev}}}
+\newcommand{\coev}{\operatorname{coev}}
+\newcommand{\tcoev}{\widetilde{\operatorname{coev}}}
+\def\lra{\longrightarrow}
+% \def\lra{%
+% \;%
+% %%%%%%%%%%%%%%%%%%%%%% 
+% \tikzzbox{\begin{tikzpicture}[scale=1.0,color=black, >=stealth, color=black, baseline=-0.1cm]
+% \draw[-{stealth[length=1.6mm, scale width=1.1]}, line width=0.15mm] (0,0) -- (0.7,0);
+% \end{tikzpicture}}%%popende
+% %%%%%%%%%%%%%%%%%%%%%% 
+% \;%
+% }
+\def\lmt{\longmapsto}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\str}{str}
+\DeclareMathOperator{\Jac}{Jac}
+\def\Re{R^{\operatorname{e}}}
+\DeclareMathOperator{\Res}{Res}
+\newcommand*{\longhookrightarrow}{\ensuremath{\lhook\joinrel\relbar\joinrel\rightarrow}}
+\newcommand*{\twoheadlongrightarrow}{\ensuremath{\relbar\joinrel\twoheadrightarrow}}
+\newcommand{\Ga}[1]{\Gamma_{\hspace{-2pt}#1}}
+\newcommand{\HIA}{\Hom(I,A)}
+\newcommand{\ZA}{Z_A(\Hom(I,A))}
+\newcommand{\gZA}{\!Z_A^\gamma(\Hom(I,A))}
+\newcommand{\gA}{{}_{\gamma_A}A}
+\newcommand{\Aginv}{A_{\gamma_A^{-1}}}
+\newcommand{\picc}{\pi^{(\text{c,c})}_A}
+\newcommand{\pirr}{\pi^{\text{RR}}_A}
+\newcommand{\tpirr}{{\widetilde\pi}^{\text{RR}}} 
+\newcommand{\im}{\operatorname{im}}
+\DeclareMathOperator*{\eq}{=}
+\DeclareMathOperator*{\congscript}{\cong}
+\newcommand{\specflow}{\mathcal U_{-\frac{1}{2},-\frac{1}{2}}}
+\newcommand{\Hil}{\mathcal{H}}
+\newcommand{\Hpcc}{\mathcal{H}'_{\text{(c,c)}}}
+\newcommand{\Hprr}{\mathcal{H}'_{\text{RR}}}
+\newcommand{\Hcc}{\mathcal{H}_{\text{(c,c)}}^A}
+\newcommand{\Hrr}{\mathcal{H}_{\text{RR}}^A}
+\newcommand{\HccnoA}{\mathcal{H}_{\text{(c,c)}}}
+\newcommand{\HrrnoA}{\mathcal{H}_{\text{RR}}}
+\newcommand{\Hrrbo}{\Hom_A(X,{}_{\gamma_A}X)}
+\newcommand{\buboorb}{\beta_X^{\text{orb}}}
+\newcommand{\bobuorb}{\beta^X_{\text{orb}}} 
+\def\Cong{C_g}
+\def\Centg{N_g}
+\def\alphaKK{\alpha^{\{K\}}}
+\def\alphagKg{\alpha_g^{K(g)}}
+\newcommand{\AGC}{A_G^c}
+
+\newcommand{\Bord}{\operatorname{Bord}}
+\newcommand{\Bordor}{\operatorname{Bord}_{n}^{\mathrm{or}}}
+\newcommand{\Borddef}{\operatorname{Bord}^{\mathrm{def}}}
+\newcommand{\Borddefn}[1] {\operatorname{Bord}^{\mathrm{def}}_{#1}}
+\newcommand{\Bordoc}[1] {\operatorname{Bord}^{\mathrm{oc}}_{#1}}
+\newcommand{\Bords}{\operatorname{Bord}_{3}^{\APLstar}}
+\newcommand{\Sphere}{\operatorname{Sphere}^{\mathrm{def}}}
+\newcommand{\Nbh}{\operatorname{\mathcal{N}}}
+\newcommand{\Cube}{\operatorname{Cube}}
+\newcommand{\Cubed}{\operatorname{Cube}_{3}^{\mathrm{def}}(\mathds{D})}
+\newcommand{\Fradj}{\operatorname{\mathcal C_{\mathds D}^{adj}}}
+\newcommand{\Bordstrat}{\operatorname{Bord}^{\mathrm{strat}}}
+\newcommand{\Bordstratn}[1]  {\operatorname{Bord}^{\mathrm{strat}}_{#1}}
+\newcommand{\Borddlong}{\operatorname{Bord}_{3}^{\mathrm{def}}(D_3,D_2,D_1)_{s,t,f}}
+\newcommand{\Bordd[1]}{\operatorname{Bord}_{#1}^{\mathrm{def}}(\mathds{D})}
+\newcommand{\Strator}{\operatorname{Strat}_{n}^{\mathrm{or}}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\tz}{\mathcal T_\zz}
+\newcommand{\dz}{\mathcal D_\zz}
+\newcommand{\tzp}{\mathcal T_{\mathcal Z'}}
+\newcommand{\Data}{\mathds{D}}
+\newcommand{\Obj}{\mathrm{Obj}}
+\newcommand{\zz}{\mathcal{Z}}
+\newcommand{\Fdp}{\operatorname{\mathcal F}_{\textrm{d}}^{\textrm{p}}}
+\newcommand{\zzd}{\mathcal{Z}^{\mathrm{def}}}
+\newcommand{\zztriv}{\mathcal{Z}^{\mathrm{triv}}} 
+\newcommand{\zzAtriv}{\mathcal{Z}_{\mathrm{triv}}^{\Cat{A}}} 
+\newcommand{\euc}{\odot}
+\newcommand{\euctwo}{\odot_{\geq 2}}
+\newcommand{\ieuc}{\iota^\euc}
+\newcommand{\peuc}{\pi^\euc}
+
+\newcommand{\zzTVA}{\mathcal{Z}^{TV}_{\Cat{A}}} 
+\newcommand{\zzRTC}{\mathcal{Z}^{RT}_{\Cat{C}}}
+\newcommand{\tzztriv}{\mathcal{T}_{{\mathcal{Z}^{triv}}}}
+
+\newcommand{\tzGamma}{\mathcal{T}_{{\mathcal{Z}^{\Gamma}}}}
+\newcommand{\unit}{\operatorname{\mathbf{1}}}  
+\newcommand{\bigslant}[2]{{\raisebox{.0em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+\newcommand{\Cubedp}{\operatorname{Cube}_{3}^{\mathrm{def}}(\mathds{D}')}
+\newcommand{\Borddp}{\operatorname{Bord}_{3}^{\mathrm{def}}(\mathds{D}')}
+\newcommand{\Vect}{\operatorname{Vect}}
+\newcommand{\Vectk}{\operatorname{Vect}_\Bbbk}
+\newcommand{\Alg}{\operatorname{Alg}}
+\newcommand{\Algc}{\operatorname{Alg}_{\C}}
+\newcommand{\Cti}{\C^\times}
+\newcommand{\chiom}{\chi^\omega}
+\newcommand{\CGtw}{\C^\omega[G]}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\al}{\alpha}
+\newcommand{\alb}{\overline{\alpha}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\Ss}{\mathcal{S}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\Y}{\mathcal{Y}}
+\newcommand{\sta}{\boxempty}
+\newcommand{\fus}{\otimes}
+\newcommand{\sd}{^{\star}}
+\newcommand{\dagg}{^{\dagger}}
+\newcommand{\hash}{^{\#}}
+\newcommand{\Set}{\mathrm{Set}}
+\newcommand{\Ball}{\mathrm{Ball}}
+\newcommand{\Sph}{\mathsf{Sph}}
+\newcommand{\fork}{\pitchfork }
+\newcommand{\Cat}[1]         {\operatorname{\mathcal{#1}}}
+\newcommand{\Catpre}[1]         {\operatorname{\mathcal{#1}^{\mathrm{pre}}}}
+
+\newcommand{\dX}{{}^\dagger\hspace{-1.8pt}X}
+\newcommand{\dA}{{}^\dagger\hspace{-1.8pt}A}
+\newcommand{\dsX}{{}^\dagger\hspace{-1.8pt}\mathcal{X}}
+\newcommand{\deqX}{{}^\star\hspace{-1.8pt}X} 
+\newcommand{\dseqX}{{}^\star\hspace{-1.8pt}\mathcal{X}} 
+\newcommand{\dY}{{}^\dagger\hspace{-0.3pt}Y}
+\newcommand{\dphi}{{}^\dagger\hspace{-0.9pt}\phi}
+\newcommand{\dPhi}{{}^\dagger\hspace{-0.9pt}\Phi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\newcommand{\opp}             {{\mathrm{op}}} 
+
+%\newcommand{\Alg}        {\operatorname{\mathsf{Alg}}}
+\newcommand{\Frob}        {\operatorname{\mathsf{Frob}}}
+\newcommand{\Lincat}        {\operatorname{\mathsf{Cat}^{ses}}}
+\newcommand{\Deftqft}{\operatorname{TQFT}^{\mathrm{def}}}
+
+\newcommand{\KVvect}   {\operatorname{KV-2Vect}}
+\newcommand{\CYvect}   {\operatorname{CY-2Vect}}
+
+\newcommand{\evx}[1]   {\operatorname{\mathsf{ev}}_{#1}}
+% coevaluation
+\newcommand{\coevx}[1]   {\operatorname{\mathsf{coev}}_{#1}}
+% p evaluation
+\newcommand{\evp}[1]   {\operatorname{\mathsf{ev}}_{#1}^{\prime}}
+% p coevaluation
+\newcommand{\coevp}[1]   {\operatorname{\mathsf{coev}}_{#1}^{\prime}}
+
+\newcommand{\evc}[1]   {\operatorname{\mathsf{c-ev}}_{#1}}
+% coevaluation
+\newcommand{\coevc}[1]   {\operatorname{\mathsf{c-coev}}_{#1}}
+% p evaluation
+\newcommand{\evpc}[1]   {\operatorname{\mathsf{c-ev}}_{#1}^{\prime}}
+% p coevaluation
+\newcommand{\coevpc}[1]   {\operatorname{\mathsf{c-coev}}_{#1}^{\prime}}
+
+\def\la               {{\rm l.a.}}
+\def\ra               {{\rm r.a.}}
+\def\rra              {{\rm r.r.a.}}
+\def\lla               {{\rm l.l.a.}}
+\def\Fun              {{\mathsf{Fun}}}
+\def\Funbilin              {{\mathsf{Fun}^{\mathsf{bilin}}}}
+
+\usepackage{color}
+
+\newcommand{\rrr}[1]{{\color{red}{#1}}}
+\newcommand{\rrR}[1]{{\color{red3}{#1}}}
+\newcommand{\bbb}[1]{{\color{blue}{#1}}}
+\definecolor{DarkViolet} {rgb}{0.580392,0.000000,0.827450}
+\newcommand{\vio}[1]{{\color{DarkViolet}{#1}}}
+\newcommand{\green}[1]{{\color{green}{#1}}}
+
+
+
+\newcommand{\ques} [1] {\marginpar\textbf{qu}\textbf{{#1} ?}} 
+\newcommand{\chn}[1]{\marginpar\textbf{changed}\textbf{{#1}}}
+\newcommand{\note} [1] {\marginpar\textbf{note}\textbf{{#1}}}
+
+\newcommand{\todo} [1] {\marginpar\textbf{todo} {\bbb{#1}  } }
+\newcommand{\plan} [1] {\marginpar\textbf{Plan} { \bbb{#1}  } }
+%comments
+\newcommand{\GS} [1] {\marginpar{\small \vio{modified\\ by GS:} {}}{ \vio{#1} }} 
+\newcommand{\GSC}[1] {\marginpar{\small \vio{comment \\ by GS:} {}}{ ~\\ \it \vio{#1} \\ }} 
+\newcommand{\GSQ}[1] {\marginpar{\small \vio{question\\ by GS:} {}}{ ~\\ \it \vio{#1} \\ }} 
+\newcommand{\IR} [1] {\marginpar{\small \rrr{modified\\ by IR:} {}}{ \rrr{#1} }} 
+\newcommand{\IRC}[1] {\marginpar{\small \rrr{comment \\ by IR:} {}}{ ~\\ \it \rrr{#1} \\ }} 
+\newcommand{\IRQ}[1] {\marginpar{\small \rrr{question\\ by IR:} {}}{ ~\\ \it \rrr{#1} \\ }} 
+\newcommand{\NCMod} [1] {\marginpar{\small \vio{modified\\ by NC:} {}}{ \vio{#1} }} 
+\newcommand{\NCC}[1] {\marginpar{\small \vio{comment \\ by NC:} {}}{ ~\\ \it \vio{#1} \\ }} 
+\newcommand{\NCQ}[1] {\marginpar{\small \vio{question\\ by NC:} {}}{ ~\\ \it \vio{#1} \\ }} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+
+\newcommand\nxt{\noindent\raisebox{.08em}{\rule{.44em}{.44em}}\hspace{.4em}}
+\newcommand\arxiv[2]      {\href{http://arXiv.org/abs/#1}{#2}}
+\newcommand\doi[2]        {\href{http://dx.doi.org/#1}{#2}}
+\newcommand\httpurl[2]    {\href{http://#1}{#2}}
+
+\renewcommand{\labelenumi}{(\roman{enumi})}
+
+\allowdisplaybreaks
+
+\deffootnote[1em]{1em}{1em}{\textsuperscript{\thefootnotemark}}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{theoremdefinition}[definition]{Theorem and Definition}
+\newtheorem{definitionlemma}[definition]{Definition and Lemma}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{remarks}[definition]{Remarks}
+\newtheorem{conjecture}[definition]{Conjecture}
+\newtheorem{example}[definition]{Example}
+\newtheorem{construction}[definition]{Construction}
+
+\numberwithin{equation}{section}
+\numberwithin{definition}{section}
+\numberwithin{figure}{section}
+
+\newcommand\void[1]{}
+
+
+
+\begin{document}
+
+\title{Sum${}_1$}
+
+\author{%
+\!\!\!\!\!\!\!Ilka Brunner \quad
+Nils Carqueville \quad
+Domenico Fiorenza \quad
+}
+
+\date{}
+\maketitle
+
+\abstract{This file contains the details on the $n=1$ case, to be merged into the main file as soon as they become polished enough.}
+
+
+\tableofcontents
+
+
+
+\section{}
+
+Let us denote by $\mathrm{Fam}_0(\mathbb{C})$ the set of equivalence classes of finite groupoids equipped with functors to $\mathbb{C}$ (seen as a trivial category). In other words, an element of $\mathrm{Fam}_0(\mathbb{C})$ is a pair $(X,f)$ consisting of a finite groupoid $X$ together with a map $f\colon \pi_0(X)\to \mathbb{C}$.
+The map 
+\[
+\mathrm{Sum}_0\colon \mathrm{Fam}_0\to \mathbb{C}
+\]
+is defined as
+\[
+\mathrm{Sum}_0(X,f)=\sum_{[x]\in \pi_0(X)}\frac{f(x)}{|\mathrm{Aut}(x)|}.
+\]
+We will also use the more evocative notation
+\[
+\int_X f(x) d\mu(x)
+\]
+to denote $\mathrm{Sum}_0(X,f)$. Notice that $\mathrm{Sum}_0$ is linear in the $f$ variable.
+\begin{remark}
+A function $f\colon X\to \mathbb{C}$ can equivalently be seen as an element in $\mathrm{End}_{[X,\mathrm{Vect}]}(\mathbf{1}_X)$, where $\mathbf{1}_X\colon X\to \mathrm{Vect}$ is the constant functor taking the value $\mathbb{C}$ on $X$. The map $\mathrm{Sum}_0$ can therefore seen as the datum of a map
+\[
+\mathrm{Sum}_0\colon \mathrm{End}_{[X,\mathrm{Vect}]}(\mathbf{1}_X) \to \mathbb{C},
+\]
+for any finite groupoid $X$.
+\end{remark}
+
+\begin{definition}
+The category $\mathrm{Fam}_1(\mathrm{Vect})$ has as its objects finite groupoids equipped with functors to $\mathrm{Vect}$, i.e., pairs $(X,f)$ consisting of a finite groupoid $X$ together with a functor $\rho\colon X\to \mathrm{Vect}$. Morphisms in $\mathrm{Fam}_1(\mathrm{Vect})$ are spans of groupoids over $\mathrm{Vect}$, i.e., commutative diagrams
+\[
+\xymatrix{
+&Z\ar[dl]_{\pi_X}\ar[dr]^{\pi_Y}&\\
+X\ar[dr]_{\rho_X}&&Y\ar[dl]^{\rho_Y}\\
+&\mathrm{Vect}
+\ar@{=>}_{\alpha\phantom{m}}(13,-14);(18,-14)
+}
+\]
+where the natural transformation $\alpha\colon \rho_X\circ \pi_X\to \rho_Y\circ \pi_Y$ is part of the data of the commutative diagram.
+\end{definition}
+\begin{remark}
+The identity mophisms and the composition of morphisms in $\mathrm{Fam}_1(\mathrm{Vect})$ will be defined later.
+\end{remark}
+
+For every object $(X,\rho)$ in $\mathrm{Fam}_1(\mathrm{Vect})$ we can consider the vector space 
+\[
+[\mathbf{1}_X,\rho]=\mathrm{Hom}_{[X,\mathrm{Vect}]}(\mathbf{1}_X,\rho).
+\]
+If $f\colon Y\to X$ is a functor between finite groupoids, and $\rho\colon X\to \mathrm{Vect}$ is a functor, we write $f^*\rho\colon Y\to \mathrm{Vect}$ for the functor $\rho\circ f$. If $\alpha\colon \mathbf{1}_X\to \rho$ is a natural transformation, then $f^*\alpha$ is a natural transformation between $f^*\mathbf{1}_X=\mathbf{1}_Y$ and $f^*\rho$. This defines a linear map
+\[
+f^* \colon [\mathbf{1}_X,\rho] \to [\mathbf{1}_Y, f^*\rho].
+\]
+Similarly, we can consider the vector space
+\[
+[\rho,\mathbf{1}_X]=\mathrm{Hom}_{[X,\mathrm{Vect}]}(\rho, \mathbf{1}_X)
+\]
+together with the linear map
+\[
+f^* \colon [\rho,\mathbf{1}_X] \to [f^*\rho,\mathbf{1}_Y].
+\]
+Passing to the linear duals we get the linear map
+\[
+(f^*)^\vee\colon [f^*\rho,\mathbf{1}_Y]^\vee \to [\rho,\mathbf{1}_X]^\vee.
+\]
+Next, notice that composition of morphisms gives a bilinear map
+\[
+[\mathbf{1}_X,\rho]\otimes [\rho,\mathbf{1}_X]\to [\mathbf{1}_X,\mathbf{1}_X]
+\]
+and so composing this with the linear map $\mathrm{Sum}_0(X,-)\colon [\mathbf{1}_X,\mathbf{1}_X]\to \mathbb{C}$ we get a bilinear pairing between $[\mathbf{1}_X,\rho]$ and $[\rho,\mathbf{1}_X]$. Equivalently, this is a linear map
+\[
+\delta_{(X,\rho)}\colon [\mathbf{1}_X,\rho]\to [\rho,\mathbf{1}_X]^\vee.
+\]
+Our main \emph{duality assumption} will be that $\delta_{(X,\rho)}$ is a linear isomorphism for any $(X,\rho)$. Under this assumption we may define a linear morphism 
+\[
+f_*\colon [\mathbf{1}_Y,f^*\rho]\to  [\mathbf{1}_X,\rho]
+\]
+as the composition
+\[
+[\mathbf{1}_Y,f^*\rho]\xrightarrow{\delta_{(Y,f^*\rho)}}[f^*\rho,\mathbf{1}_Y]^\vee \xrightarrow{(f^*)^\vee} [\rho,\mathbf{1}_X]^\vee \xrightarrow{\delta_{(X,\rho)^{-1}}} [\mathbf{1}_X,\rho].
+\]
+In other words, if $v\in [\mathbf{1}_Y,f^*\rho]$, the element $f_*(v)\in [\mathbf{1}_X,\rho]$ is defined by the equation
+\[
+\int_X (w\circ f_*(v)) d\mu(x) = \int_Y((f^*w)\circ v) d\mu(y)
+\]
+for any $w\in [\rho,\mathbf{1}_X]$. Each such a $w$ can be uniquely written as a sum of elements $w_x$ vanishing outside the isomorphism class of $x$ in $X$. For such a $w_x$ the above equation becomes
+\[
+\frac{w_x\circ f_*(v)}{|\mathrm{Aut}(x)|} = \sum_{f([y])=[x]}\frac{(f^*w_x)\circ v} {|\mathrm{Aut}(y)|}.
+\]
+Similarly, $v$ can be uniquely written as a sum of elements $v_y$ vanishing outside the isomorphism class of $y$ in $Y$. Choosing such a $v_y$ with $f(y)=x$ we get
+\[
+\frac{w_x\circ f_*(v_y)}{|\mathrm{Aut}(x)|} = \frac{w_x\circ v_y} {|\mathrm{Aut}(y)|},
+\]
+where we used the fact that, as $v\in [\mathbf{1}_Y,f^*\rho]$ and $f(y)=x$, the source of $w_x$ coincides with the target of $v_y$ and $(f^*w_x)\circ v_y=w_x\circ v_y$. As this has to be true for any $w_x$, we finally find
+\[
+f_*(v_y)= \frac{|\mathrm{Aut}(x)| } {|\mathrm{Aut}(y)|}v_y,
+\]
+for any $v_y$ concentrated on $y$, with $f(y)=x$. From this we get the general formula
+\[
+(f_*(v))_x=|\mathrm{Aut}(x)|\sum_{f([y])=[x]}\frac{v_y}{|\mathrm{Aut}(y)|}.
+\]
+
+We can now define our wannabe functor
+\[
+\mathrm{Sum}_1\colon \mathrm{Fam}_1(\mathrm{Vect})\to \mathrm{Vect}
+\]
+on objects as 
+\[
+\mathrm{Sum}_1(X,\rho)=[\mathbf{1}_X,\rho]
+\]
+and on a morphism 
+\[
+\xymatrix{
+&Z\ar[dl]_{\pi_X}\ar[dr]^{\pi_Y}&\\
+X\ar[dr]_{\rho_X}&&Y\ar[dl]^{\rho_Y}\\
+&\mathrm{Vect}
+\ar@{=>}_{\alpha\phantom{m}}(13,-14);(18,-14)
+}
+\]
+as the composition
+\[
+[\mathbf{1}_X,\rho_X]\xrightarrow{\pi_X^*} [\mathbf{1}_Z,\pi_X^*\rho_X]\xrightarrow{\alpha\circ-}  [\mathbf{1}_Z,\pi_Y^*\rho_Y] \xrightarrow{\pi_{Y*}} [\mathbf{1}_Y,\rho_Y].
+\]
+\begin{remark}
+Before giving a more explicit expression of the above morphism, let us notice that $[\mathbf{1}_X,\rho]$ is a model for the limit of the functor $\rho\colon X\to \mathrm{Vect}$, in accordance with the prescrition in \cite{FHLT}. Also, notice that the morphism associated to the span $X\leftarrow Z\to Y$ together with the natural transformation $\alpha$ has the form ``pull-compose-push'', and so it is an instance of a Fourier-Mukai-type transform.
+\end{remark}
+Let us now give an explicit description of the functor $\mathrm{Sum}_1$. To begin with, notice that the datum of a a functor $\rho\colon X\to \mathrm{Vect}$ is equivalent to the datum of a linear representation $V_x$ of $\mathrm{Aut}_X(x)$ for every $x$ in a set of representatives for the isomophism classes of objects in $X$. So 
+\[
+[\mathbf{1}_X,\rho]=\bigoplus_{[x]\in \pi_0(X)}(V_x)^{\mathrm{Aut}_X(x)},
+\]
+where $V^G$ denotes the subspace of $G$-invariants for a linear $G$-representation on a vector space $V$. A linear map $[\mathbf{1}_X,\rho_X]\to [\mathbf{1}_Y,\rho_Y]$ can therefore be described by its ``matrix coefficients'' $ (V_x)^{\mathrm{Aut}_X(x)}\to (W_y)^{\mathrm{Aut}_Y(y)}$ with $[x]$ ranging in $\pi_0(X)$ and $[y]$ ranging in $\pi_0(Y)$. The map
+$\pi_X^*\colon [\mathbf{1}_X,\rho_X]\to [\mathbf{1}_Z,\pi_X^*\rho_X]$ maps the invariant vector $v_x$ in $V_x$ to the tuple $(v_x,v_x,\dots,v_x)$ in $\bigoplus_{\pi_X([z])=[x]}V_x$. Into this vector space, look at the direct sum over those $[z]$ with $\pi_Y([z])=[y]$. These are precisely those summands for which $\alpha_z$ is a linear morphism $V_x\to W_y$. The corresponding tuple $(\alpha_{z_1}(v_x),\alpha_{z_2}(v_x),\dots, \alpha_{z_k}(v_x))$ is then the component of $(\alpha\circ\pi_X^*)(v_x)$ in $[\mathbf{1}_Z,\pi_Y^*\rho_Y]$ going into $W_y$ via $\pi_{Y*}$. As shown above, the mophism $\pi_{Y*}$ acts on this component mapping it to
+\[
+|\mathrm{Aut}(y)|\sum_{\substack{\pi_X([z])=[x]\\ \pi_Y([z])=[y]}} \frac{\alpha_z(v_x)}{|\mathrm{Aut}(z)|}
+\]
+In other words, the matrix coefficient
+\[
+(\Phi_\alpha)_x^y\colon (V_x)^{\mathrm{Aut}_X(x)}\to (W_y)^{\mathrm{Aut}_Y(y)}
+\]
+is
+\[
+v_x\mapsto |\mathrm{Aut}(y)|\sum_{\substack{\pi_X([z])=[x]\\ \pi_Y([z])=[y]}} \frac{\alpha_z(v_x)}{|\mathrm{Aut}(z)|}.
+\]
+\end{document}
