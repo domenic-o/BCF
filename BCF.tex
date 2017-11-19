@@ -494,6 +494,150 @@ check whether natural transformation from trivial $n$-functor to $\omega \circ r
 \end{itemize}
 
 
+\subsection{Classical bulk theories}
+
+TODO 
+
+\subsection{Classical boundary conditions}
+
+\subsubsection[$n=2$]{$\boldsymbol{n=2}$}
+
+Let $\mathcal G_1, \mathcal G_2$ be 2-groupoids and let $F_1 \colon \mathcal G_1 \to \boldB^2\C^\times$ and $F_2 \colon \mathcal G_2 \to \boldB^2\C^\times$ be 2-functors, i.\,e.~objects in $\textrm{Fam}_2(\boldB^2 \C^\times)$. 
+A 1-morphism $F_1\to F_2$ in $\textrm{Fam}_2(\boldB^2 \C^\times)$ is a span of 2-groupoids 
+$
+\mathcal G_1 \stackrel{K_1}{\longleftarrow} \widetilde{\mathcal G} \stackrel{K_2}{\lra} \mathcal G_2
+$ 
+together with a pseudonatural transformation $\sigma \colon F_1 \circ K_1 \to F_2 \circ K_2$: 
+\be
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[
+			     baseline=(current bounding box.base), 
+			     %>=stealth,
+			     descr/.style={fill=white,inner sep=3.5pt}, 
+			     normal line/.style={->}
+			     ] 
+\matrix (m) [matrix of math nodes, row sep=3.5em, column sep=3.0em, text height=1.5ex, text depth=0.1ex] {%
+  &  \widetilde{\mathcal G}  &  
+\\
+\mathcal G_1 &  \stackrel{\sigma}{\implies}   &  \mathcal G_2
+\\
+  &  \boldB^2\C^\times  &  
+\\
+};
+\path[font=\footnotesize] (m-1-2) edge[->] node[above] {$K_1$} (m-2-1);
+\path[font=\footnotesize] (m-2-1) edge[->] node[below] {$F_1$} (m-3-2);
+\path[font=\footnotesize] (m-1-2) edge[->] node[above] {$K_2$} (m-2-3);
+\path[font=\footnotesize] (m-2-3) edge[->] node[below] {$F_2$} (m-3-2);
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%% 
+\ee
+
+Let $[1]$ denote the final 2-category with only one object, 1- and 2-morphism, and let $T\colon [1] \to \boldB^2\C^\times$ be the unique, trivial 2-functor. 
+A \textsl{classical boundary condition} for $F\colon \mathcal G \to \boldB^2\C^\times$ is a 1-morphism $T\to F$. 
+Thus it comprises a 2-groupoid $\mathcal H$, a 2-functor $\rho \colon \mathcal H \to \mathcal G$, and a pseudonatural transformation 
+\be
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[
+			     baseline=(current bounding box.base), 
+			     %>=stealth,
+			     descr/.style={fill=white,inner sep=3.5pt}, 
+			     normal line/.style={->}
+			     ] 
+\matrix (m) [matrix of math nodes, row sep=3.5em, column sep=3.0em, text height=1.5ex, text depth=0.1ex] {%
+  &  \mathcal H  &  
+\\
+{[1]} &  \stackrel{\sigma}{\implies}   &  \mathcal G
+\\
+  &  \boldB^2\C^\times  &  
+\\
+};
+\path[font=\footnotesize] (m-1-2) edge[->] node[above] {} (m-2-1);
+\path[font=\footnotesize] (m-2-1) edge[->] node[below] {$T$} (m-3-2);
+\path[font=\footnotesize] (m-1-2) edge[->] node[above] {$\rho$} (m-2-3);
+\path[font=\footnotesize] (m-2-3) edge[->] node[below] {$F$} (m-3-2);
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%% 
+\ee
+Concretely, since $\boldB^2\C^\times$ has only one object and one 1-morphism, $\sigma$ is given by a family of 2-morphisms $\sigma_h \colon (F\circ \rho)(h) = 1_* \to 1_*$, indexed by 1-morphisms~$h$ in~$\mathcal H$, such that
+\be
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[
+			     baseline=(current bounding box.base), 
+			     %>=stealth,
+			     descr/.style={fill=white,inner sep=3.5pt}, 
+			     normal line/.style={->}
+			     ] 
+\matrix (m) [matrix of math nodes, row sep=3.5em, column sep=3.0em, text height=1.5ex, text depth=0.1ex] {%
+F\big(\rho(h)\big) \otimes F\big(\rho(h')\big)  &  F\big(\rho(h)\big)
+\\
+F\big(\rho(hh')\big)  & 1_*
+\\
+};
+\path[font=\footnotesize] (m-1-1) edge[->] node[above] {$1\otimes \sigma_{h'}$} (m-1-2);
+\path[font=\footnotesize] (m-1-1) edge[->] node[left] {$(F\circ\rho)_{h,h'}$} (m-2-1);
+\path[font=\footnotesize] (m-2-1) edge[->] node[below] {$\sigma_{hh'}$} (m-2-2);
+\path[font=\footnotesize] (m-1-2) edge[->] node[right] {$\sigma_{h}$} (m-2-2);
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%% 
+\ee
+commutes for al composable 1-morphisms $h,h'$ in~$\mathcal H$. 
+
+We now choose $\mathcal H = \boldB H$ for some finite group~$H$, $\mathcal G = \boldB G$, and $F = \chiom$ as in \eqref{eq:chiomega2} --- and we are not careful to distinguish the target $\boldB^2\C^\times$ from $\text{Alg}_\C$. 
+Then a 2-functor $\rho \colon \boldB H \to \boldB G$ is just a group homomorphism $\rho \colon H \to G$, and a boundary condition 
+\be
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[
+			     baseline=(current bounding box.base), 
+			     %>=stealth,
+			     descr/.style={fill=white,inner sep=3.5pt}, 
+			     normal line/.style={->}
+			     ] 
+\matrix (m) [matrix of math nodes, row sep=3.5em, column sep=3.0em, text height=1.5ex, text depth=0.1ex] {%
+  &  \boldB H  &  
+\\
+{[1]} &  \stackrel{\sigma}{\implies}   &  \boldB G
+\\
+  &  \boldB^2\C^\times  &  
+\\
+};
+\path[font=\footnotesize] (m-1-2) edge[->] node[above] {} (m-2-1);
+\path[font=\footnotesize] (m-2-1) edge[->] node[below] {$T$} (m-3-2);
+\path[font=\footnotesize] (m-1-2) edge[->] node[above] {$\rho$} (m-2-3);
+\path[font=\footnotesize] (m-2-3) edge[->] node[below] {$\chiom$} (m-3-2);
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%% 
+\ee
+for $\chiom$ is a family $\{ \sigma_h \}_{h\in H} \subset \C^\times$ such that 
+\be
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[
+			     baseline=(current bounding box.base), 
+			     %>=stealth,
+			     descr/.style={fill=white,inner sep=3.5pt}, 
+			     normal line/.style={->}
+			     ] 
+\matrix (m) [matrix of math nodes, row sep=3.5em, column sep=3.0em, text height=1.5ex, text depth=0.1ex] {%
+L_{\rho(h)} \otimes_\C L_{\rho(h')}  &  L_{\rho(h)}
+\\
+L_{\rho(hh')}   & 1_*
+\\
+};
+\path[font=\footnotesize] (m-1-1) edge[->] node[above] {$1\otimes \sigma_{h'}$} (m-1-2);
+\path[font=\footnotesize] (m-1-1) edge[->] node[left] {$\omega(\rho(h),\rho(h'))$} (m-2-1);
+\path[font=\footnotesize] (m-2-1) edge[->] node[below] {$\sigma_{hh'}$} (m-2-2);
+\path[font=\footnotesize] (m-1-2) edge[->] node[right] {$\sigma_{h}$} (m-2-2);
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%% 
+\ee
+commutes, i.\,e.~$\omega(\rho(h),\rho(h')) = \sigma_h \cdot \sigma^{-1}_{hh'} \cdot \sigma_{h'}$ for all $h,h' \in H$. 
+Viewing~$\sigma$ as a map $H\to \C^\times$, $h\mapsto \sigma_h$, this condition precisely means that~$\sigma$ trivialises the pullback of~$\omega$: 
+\be
+\textrm{d} \sigma = \rho^* \omega \, . 
+\ee
+
+
+
+
 \section{Bulk theory}
 \label{sec:bulk}
 
@@ -555,7 +699,7 @@ Then the universal cocone of $\chi^\rho$, viewed as a diagram of shape $*/\!\!/ 
 \[
 V_G=V/\langle v-\rho(g)v\rangle_{g\in G, v\in V}
 \]
-and $\pi\colon V\to V_G$ is the projection to the quotient. Namely, let $(W,f)$ be a cocone for $\chi^\rho$, i.e., a pair consisting of a vector space $W$ together with a linear map $f\colon \chi^\omega(*) = V \to W$ such that 
+and $\pi\colon V\to V_G$ is the projection to the quotient. Namely, let $(W,f)$ be a cocone for $\chi^\rho$, i.e., a pair consisting of a vector space $W$ together with a linear map $f\colon \chi^\rho(*) = V \to W$ such that 
 \be
 %%%%%%%%%%%%%%%%%%%%%%%
 \begin{tikzpicture}[
@@ -567,7 +711,7 @@ and $\pi\colon V\to V_G$ is the projection to the quotient. Namely, let $(W,f)$ 
 \matrix (m) [matrix of math nodes, row sep=3.5em, column sep=3.0em, text height=1.5ex, text depth=0.1ex] {%
   &  W  &  
 \\
-\chi^\omega(*) = V &    &  V = \chi^\omega(*)
+\chi^\rho(*) = V &    &  V = \chi^\rho(*)
 \\
 };
 \path[font=\footnotesize] (m-2-1) edge[->] node[above] {$f$} (m-1-2);
@@ -731,7 +875,7 @@ by computing what it does to $\text{pt}_+ \in \Bord_2$.
 The first step is to set $I(\text{pt}_+)$ to be the 2-functor 
 \begin{align}
 \chi^\omega \colon \boldB G 
-& \lra \Algc 
+& \lra \Algc  
 && \text{with} \quad \chi^\omega_{g,h} := \omega(g,h) \colon L_g \otimes_\C L_h \to L_{gh}
 \label{eq:chiomega2}
 \\
@@ -758,7 +902,7 @@ The \textsl{constant 2-functor} $\Delta_B \colon \mathcal A \to \B$ sends every 
 \item 
 The category $2\text{-Cone}(B,F)$ of \textsl{2-cones on~$F$ with vertex~$B$} is the category whose objects are pseudonatural transformations $\Delta_B \to F$ and whose morphisms are modifications between them. 
 \item 
-A \textsl{2-limit} of~$F$ is a pair $(L,\pi)$ with $B\in \B$ and $\pi \colon \Delta_L \to F$ a pseudonatural transformation such that the functor
+A \textsl{2-limit} of~$F$ is a pair $(L,\pi)$ with $L\in \B$ and $\pi \colon \Delta_L \to F$ a pseudonatural transformation such that the functor
 \begin{align*}
 %\pi_* \colon 
 \B(B,L) 
