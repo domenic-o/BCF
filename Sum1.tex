@@ -475,9 +475,14 @@ Passing to the linear duals we get the linear map
 \]
 Next, notice that composition of morphisms gives a bilinear map
 \[
-[\mathbf{1}_X,\rho]\otimes [\rho,\mathbf{1}_X]\to [\mathbf{1}_X,\mathbf{1}_X]
+[\rho,\mathbf{1}_X]\otimes [\mathbf{1}_X,\rho] \to [\mathbf{1}_X,\mathbf{1}_X]
 \]
-and so composing this with the linear map $\mathrm{Sum}_0(X,-)\colon [\mathbf{1}_X,\mathbf{1}_X]\to \mathbb{C}$ we get a bilinear pairing $\langle\,|\,\rangle_X$ between $[\mathbf{1}_X,\rho]$ and $[\rho,\mathbf{1}_X]$. Equivalently, this is a linear map
+and so composing this with the linear map $\mathrm{Sum}_0(X,-)\colon [\mathbf{1}_X,\mathbf{1}_X]\to \mathbb{C}$ we get a bilinear pairing $\langle\,|\,\rangle_X$ between $[\rho,\mathbf{1}_X]$ and $[\mathbf{1}_X,\rho]$, for any $\rho$. Notice that, by its very definition, the pairing $\langle\,|\,\rangle_X$ satisfies
+\[
+\langle v|\alpha\circ w\rangle_X =\langle  v\circ \alpha|w \rangle_X,
+\]
+for any $v\in [\rho_2,\mathbf{1}_X]$, any $w\in [\mathbf{1}_X,\rho_1]$ and any natural transformation $\alpha\colon \rho_1\to \rho_2$.
+Equivalently, the bilinear pairing $\langle\,|\,\rangle_X$ is a linear map
 \[
 \delta_{(X,\rho)}\colon [\mathbf{1}_X,\rho]\to [\rho,\mathbf{1}_X]^\vee.
 \]
@@ -489,28 +494,18 @@ as the composition
 \[
 [\mathbf{1}_Y,f^*\rho]\xrightarrow{\delta_{(Y,f^*\rho)}}[f^*\rho,\mathbf{1}_Y]^\vee \xrightarrow{(f^*)^\vee} [\rho,\mathbf{1}_X]^\vee \xrightarrow{\delta_{(X,\rho)}^{-1}} [\mathbf{1}_X,\rho].
 \]
-In other words, if $v\in [\mathbf{1}_Y,f^*\rho]$, the element $f_*(v)\in [\mathbf{1}_X,\rho]$ is defined by the equation
+In other words, if $v\in [\mathbf{1}_Y,f^*\rho]$, the element $f_*v\in [\mathbf{1}_X,\rho]$ is defined 
+%by the equation
+%\[
+%\int_X (w\circ f_*(v)) d\mu(x) = \int_Y((f^*w)\circ v) d\mu(y),
+%\]
+%i.e.,
+ by the equation
 \[
-\int_X (w\circ f_*(v)) d\mu(x) = \int_Y((f^*w)\circ v) d\mu(y)
+\langle w| f_*v\rangle_X = \langle f^*w| v\rangle_Y
 \]
-for any $w\in [\rho,\mathbf{1}_X]$. Each such $w$ can be uniquely written as a sum of elements $w_x$ vanishing outside the isomorphism class of $x \in X$, for all such~$x$. For such a $w_x$ the above equation becomes
-\[
-\frac{w_x\circ f_*(v)}{|\mathrm{Aut}(x)|} = \sum_{f([y])=[x]}\frac{(f^*w_x)\circ v} {|\mathrm{Aut}(y)|}.
-\]
-	%Similarly, $v$ can be uniquely written as a sum of elements $v_y$ vanishing outside the isomorphism class of $y$ in $Y$. 
-	Similarly, $v$ can be uniquely written as a sum of elements $v_y$ with nontrivial image only in the isomorphism class of $y \in Y$, i.\,e.\ $v_{y'}(1) = 0 \in \rho(f(y'))$ unless $y' \in [y]$. 
-Choosing such a $v_y$ with $f(y)=x$ we get
-\[
-\frac{w_x\circ f_*(v_y)}{|\mathrm{Aut}(x)|} = \frac{w_x\circ v_y} {|\mathrm{Aut}(y)|},
-\]
-where we used the fact that, as $v\in [\mathbf{1}_Y,f^*\rho]$ and $f(y)=x$, the source of $w_x$ coincides with the target of $v_y$ and $(f^*w_x)\circ v_y=w_x\circ v_y$. As this has to be true for any $w_x$, we finally find
-\[
-f_*(v_y)= \frac{|\mathrm{Aut}(x)| } {|\mathrm{Aut}(y)|}v_y,
-\]
-for any $v_y$ concentrated on $y$, with $f(y)=x$. From this we get the general formula
-\[
-(f_*(v))_x=|\mathrm{Aut}(x)|\sum_{f([y])=[x]}\frac{v_y}{|\mathrm{Aut}(y)|}.
-\]
+for any $w\in [\rho,\mathbf{1}_X]$. 
+
 
 We can now define our wannabe functor
 \[
@@ -538,6 +533,55 @@ as the composition
 Before giving a more explicit expression of the above morphism, let us notice that $[\mathbf{1}_X,\rho]$ is a model for the limit of the functor $\rho\colon X\to \mathrm{Vect}$, in accordance with the prescrition in \cite{FHLT}. Also, notice that the morphism associated to the span $X\leftarrow Z\to Y$ together with the natural transformation $\alpha$ has the form ``pull-compose-push'', and so it is an instance of a Fourier-Mukai-type transform.
 \end{remark}
 
+
+
+\begin{lemma} (The projection formula)
+Let $f\colon Y\to X$ be a functor between finite groupoids, let $\rho_1,\rho_2\colon X\to \mathrm{Vect}$ be functors and let $\alpha\colon \rho_1\to\rho_2$ be a natural transformation. We have an identity of morphisms $[\mathbf{1}_Y,f^*\rho_1]\to [\mathbf{1}_X,\rho_2]$
+\[
+f_*(f^*\alpha\circ -) = \alpha\circ f_*
+\] 
+\end{lemma}
+\begin{proof}
+The identity
+\[
+f_*(f^*\alpha\circ v) = \alpha\circ f_*v
+\]
+for every $v\in [\mathbf{1}_Y,f^*\rho_1]$ is equivalent to the identity
+\[
+\langle w| f_*(f^*\alpha\circ v)\rangle_X = \langle w|\alpha\circ f_*v\rangle_X
+\]
+for every $v\in [\mathbf{1}_Y,f^*\rho_1]$ and every $w\in [\rho_2,\mathbf{1}_X]$. By the properties of the pairings $\langle\,|\,\rangle_X$ and $\langle\,|\,\rangle_X$, and by definition of $f_*$, we have
+\begin{align*}
+\langle w| f_*(f^*\alpha\circ v)\rangle_X&=\langle f^*w| f^*\alpha\circ v\rangle_Y\\
+&=\langle f^*w\circ f^*\alpha| v\rangle_Y\\
+&=\langle f^*(w\circ \alpha)| v\rangle_Y\\
+&=\langle w\circ \alpha| f_*v\rangle_X\\
+&=\langle w| \alpha \circ f_*v\rangle_X
+\end{align*}
+\end{proof}
+
+For possible later use, let us derive an explicit formla for $f_*v$. Recall that  if $v\in [\mathbf{1}_Y,f^*\rho]$, the element $f_*v\in [\mathbf{1}_X,\rho]$ is defined 
+ by the equation $
+\langle w| f_*v\rangle_X = \langle f^*w| v\rangle_Y$
+for any $w\in [\rho,\mathbf{1}_X]$. Each such $w$ can be uniquely written as a sum of elements $w_x$ vanishing outside the isomorphism class of $x \in X$, for all such~$x$. For such a $w_x$ the above equation becomes
+\[
+\frac{w_x\circ f_*(v)}{|\mathrm{Aut}(x)|} = \sum_{f([y])=[x]}\frac{(f^*w_x)\circ v} {|\mathrm{Aut}(y)|}.
+\]
+	%Similarly, $v$ can be uniquely written as a sum of elements $v_y$ vanishing outside the isomorphism class of $y$ in $Y$. 
+	Similarly, $v$ can be uniquely written as a sum of elements $v_y$ with nontrivial image only in the isomorphism class of $y \in Y$, i.\,e.\ $v_{y'}(1) = 0 \in \rho(f(y'))$ unless $y' \in [y]$. 
+Choosing such a $v_y$ with $f(y)=x$ we get
+\[
+\frac{w_x\circ f_*(v_y)}{|\mathrm{Aut}(x)|} = \frac{w_x\circ v_y} {|\mathrm{Aut}(y)|},
+\]
+where we used the fact that, as $v\in [\mathbf{1}_Y,f^*\rho]$ and $f(y)=x$, the source of $w_x$ coincides with the target of $v_y$ and $(f^*w_x)\circ v_y=w_x\circ v_y$. As this has to be true for any $w_x$, we finally find
+\[
+f_*(v_y)= \frac{|\mathrm{Aut}(x)| } {|\mathrm{Aut}(y)|}v_y,
+\]
+for any $v_y$ concentrated on $y$, with $f(y)=x$. From this we get the general formula
+\[
+(f_*(v))_x=|\mathrm{Aut}(x)|\sum_{f([y])=[x]}\frac{v_y}{|\mathrm{Aut}(y)|}.
+\]
+
 Let us now give an explicit description of the functor $\mathrm{Sum}_1$. To begin with, notice that the datum of a functor $\rho\colon X\to \mathrm{Vect}$ is equivalent to the datum of a linear representation $V_x$ of $\mathrm{Aut}_X(x)$ for every $x$ in a set of representatives for the isomophism classes of objects in $X$. So 
 \[
 [\mathbf{1}_X,\rho]=\bigoplus_{[x]\in \pi_0(X)}(V_x)^{\mathrm{Aut}_X(x)},
@@ -560,6 +604,5 @@ The prefactor $|\mathrm{Aut}(y)|$ may appear odd, but it becomes transparent if 
 (\Phi_\alpha)_{xy}=\int_{Z_{x,y}}\alpha_z d\mu(z),
 \]
 where $Z_{x,y}$ is the groupoid given by the (homotopy) fiber of $Z$ over the point $(x,y)$ of $X\times Y$. This exhibits the ``propagator'' $(\Phi_\alpha)_{xy}$ as the ``sum of $\alpha$ over the histories $z$ going from $x$ to $y$'', and so as a discrete version of the Feynman path integral expression for propagators in quantum field theory.
-
 
 \end{document}
