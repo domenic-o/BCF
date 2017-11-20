@@ -415,7 +415,7 @@ Domenico Fiorenza \quad
 
 \section{}
 
-Let us denote by $\mathrm{Fam}_0(\mathbb{C})$ the set of equivalence classes of finite groupoids equipped with functors to $\mathbb{C}$ (seen as a trivial category). In other words, an element of $\mathrm{Fam}_0(\mathbb{C})$ is a pair $(X,f)$ consisting of a finite groupoid $X$ together with a map $f\colon \pi_0(X)\to \mathbb{C}$.
+Let us denote by $\mathrm{Fam}_0(\mathbb{C})$ the set of equivalence classes of finite groupoids equipped with functors to $\mathbb{C}$ (seen as a trivial category). In other words, a representative of an element of $\mathrm{Fam}_0(\mathbb{C})$ is a pair $(X,f)$ consisting of a finite groupoid $X$ together with a map $f\colon \pi_0(X)\to \mathbb{C}$.
 The map 
 \[
 \mathrm{Sum}_0\colon \mathrm{Fam}_0\to \mathbb{C}
@@ -430,7 +430,7 @@ We will also use the more evocative notation
 \]
 to denote $\mathrm{Sum}_0(X,f)$. Notice that $\mathrm{Sum}_0$ is linear in the $f$ variable.
 \begin{remark}
-A function $f\colon X\to \mathbb{C}$ can equivalently be seen as an element in $\mathrm{End}_{[X,\mathrm{Vect}]}(\mathbf{1}_X)$, where $\mathbf{1}_X\colon X\to \mathrm{Vect}$ is the constant functor taking the value $\mathbb{C}$ on $X$. The map $\mathrm{Sum}_0$ can therefore seen as the datum of a map
+A function $f\colon \pi_0(X)\to \mathbb{C}$ can equivalently be seen as an element in $\mathrm{End}_{[X,\mathrm{Vect}]}(\mathbf{1}_X)$, where $\mathbf{1}_X\colon X\to \mathrm{Vect}$ is the constant functor taking the value $\mathbb{C}$ on $X$. The map $\mathrm{Sum}_0$ can therefore be seen as the datum of a map
 \[
 \mathrm{Sum}_0\colon \mathrm{End}_{[X,\mathrm{Vect}]}(\mathbf{1}_X) \to \mathbb{C},
 \]
@@ -438,7 +438,7 @@ for any finite groupoid $X$.
 \end{remark}
 
 \begin{definition}
-The category $\mathrm{Fam}_1(\mathrm{Vect})$ has as its objects finite groupoids equipped with functors to $\mathrm{Vect}$, i.e., pairs $(X,f)$ consisting of a finite groupoid $X$ together with a functor $\rho\colon X\to \mathrm{Vect}$. Morphisms in $\mathrm{Fam}_1(\mathrm{Vect})$ are spans of groupoids over $\mathrm{Vect}$, i.e., commutative diagrams
+The category $\mathrm{Fam}_1(\mathrm{Vect})$ has as its objects finite groupoids equipped with functors to $\mathrm{Vect}$, i.e., pairs $(X,\rho)$ consisting of a finite groupoid $X$ together with a functor $\rho\colon X\to \mathrm{Vect}$. Morphisms in $\mathrm{Fam}_1(\mathrm{Vect})$ are spans of groupoids over $\mathrm{Vect}$, i.e., commutative diagrams
 \[
 \xymatrix{
 &Z\ar[dl]_{\pi_X}\ar[dr]^{\pi_Y}&\\
@@ -465,7 +465,7 @@ Similarly, we can consider the vector space
 \[
 [\rho,\mathbf{1}_X]=\mathrm{Hom}_{[X,\mathrm{Vect}]}(\rho, \mathbf{1}_X)
 \]
-together with the linear map
+together with the linear map (also denoted~$f^*$ by slight abuse of notation) 
 \[
 f^* \colon [\rho,\mathbf{1}_X] \to [f^*\rho,\mathbf{1}_Y].
 \]
@@ -487,17 +487,19 @@ f_*\colon [\mathbf{1}_Y,f^*\rho]\to  [\mathbf{1}_X,\rho]
 \]
 as the composition
 \[
-[\mathbf{1}_Y,f^*\rho]\xrightarrow{\delta_{(Y,f^*\rho)}}[f^*\rho,\mathbf{1}_Y]^\vee \xrightarrow{(f^*)^\vee} [\rho,\mathbf{1}_X]^\vee \xrightarrow{\delta_{(X,\rho)^{-1}}} [\mathbf{1}_X,\rho].
+[\mathbf{1}_Y,f^*\rho]\xrightarrow{\delta_{(Y,f^*\rho)}}[f^*\rho,\mathbf{1}_Y]^\vee \xrightarrow{(f^*)^\vee} [\rho,\mathbf{1}_X]^\vee \xrightarrow{\delta_{(X,\rho)}^{-1}} [\mathbf{1}_X,\rho].
 \]
 In other words, if $v\in [\mathbf{1}_Y,f^*\rho]$, the element $f_*(v)\in [\mathbf{1}_X,\rho]$ is defined by the equation
 \[
 \int_X (w\circ f_*(v)) d\mu(x) = \int_Y((f^*w)\circ v) d\mu(y)
 \]
-for any $w\in [\rho,\mathbf{1}_X]$. Each such a $w$ can be uniquely written as a sum of elements $w_x$ vanishing outside the isomorphism class of $x$ in $X$. For such a $w_x$ the above equation becomes
+for any $w\in [\rho,\mathbf{1}_X]$. Each such $w$ can be uniquely written as a sum of elements $w_x$ vanishing outside the isomorphism class of $x \in X$, for all such~$x$. For such a $w_x$ the above equation becomes
 \[
 \frac{w_x\circ f_*(v)}{|\mathrm{Aut}(x)|} = \sum_{f([y])=[x]}\frac{(f^*w_x)\circ v} {|\mathrm{Aut}(y)|}.
 \]
-Similarly, $v$ can be uniquely written as a sum of elements $v_y$ vanishing outside the isomorphism class of $y$ in $Y$. Choosing such a $v_y$ with $f(y)=x$ we get
+	%Similarly, $v$ can be uniquely written as a sum of elements $v_y$ vanishing outside the isomorphism class of $y$ in $Y$. 
+	Similarly, $v$ can be uniquely written as a sum of elements $v_y$ with nontrivial image only in the isomorphism class of $y \in Y$, i.\,e.\ $v_{y'}(1) = 0 \in \rho(f(y'))$ unless $y' \in [y]$. 
+Choosing such a $v_y$ with $f(y)=x$ we get
 \[
 \frac{w_x\circ f_*(v_y)}{|\mathrm{Aut}(x)|} = \frac{w_x\circ v_y} {|\mathrm{Aut}(y)|},
 \]
@@ -531,17 +533,19 @@ as the composition
 \[
 [\mathbf{1}_X,\rho_X]\xrightarrow{\pi_X^*} [\mathbf{1}_Z,\pi_X^*\rho_X]\xrightarrow{\alpha\circ-}  [\mathbf{1}_Z,\pi_Y^*\rho_Y] \xrightarrow{\pi_{Y*}} [\mathbf{1}_Y,\rho_Y].
 \]
+
 \begin{remark}
 Before giving a more explicit expression of the above morphism, let us notice that $[\mathbf{1}_X,\rho]$ is a model for the limit of the functor $\rho\colon X\to \mathrm{Vect}$, in accordance with the prescrition in \cite{FHLT}. Also, notice that the morphism associated to the span $X\leftarrow Z\to Y$ together with the natural transformation $\alpha$ has the form ``pull-compose-push'', and so it is an instance of a Fourier-Mukai-type transform.
 \end{remark}
-Let us now give an explicit description of the functor $\mathrm{Sum}_1$. To begin with, notice that the datum of a a functor $\rho\colon X\to \mathrm{Vect}$ is equivalent to the datum of a linear representation $V_x$ of $\mathrm{Aut}_X(x)$ for every $x$ in a set of representatives for the isomophism classes of objects in $X$. So 
+
+Let us now give an explicit description of the functor $\mathrm{Sum}_1$. To begin with, notice that the datum of a functor $\rho\colon X\to \mathrm{Vect}$ is equivalent to the datum of a linear representation $V_x$ of $\mathrm{Aut}_X(x)$ for every $x$ in a set of representatives for the isomophism classes of objects in $X$. So 
 \[
 [\mathbf{1}_X,\rho]=\bigoplus_{[x]\in \pi_0(X)}(V_x)^{\mathrm{Aut}_X(x)},
 \]
 where $V^G$ denotes the subspace of $G$-invariants for a linear $G$-representation on a vector space $V$. A linear map $[\mathbf{1}_X,\rho_X]\to [\mathbf{1}_Y,\rho_Y]$ can therefore be described by its ``matrix coefficients'' $ (V_x)^{\mathrm{Aut}_X(x)}\to (W_y)^{\mathrm{Aut}_Y(y)}$ with $[x]$ ranging in $\pi_0(X)$ and $[y]$ ranging in $\pi_0(Y)$. The map
-$\pi_X^*\colon [\mathbf{1}_X,\rho_X]\to [\mathbf{1}_Z,\pi_X^*\rho_X]$ maps the invariant vector $v_x$ in $V_x$ to the tuple $(v_x,v_x,\dots,v_x)$ in $\bigoplus_{\pi_X([z])=[x]}V_x$. Into this vector space, look at the direct sum over those $[z]$ with $\pi_Y([z])=[y]$. These are precisely those summands for which $\alpha_z$ is a linear morphism $V_x\to W_y$. The corresponding tuple $(\alpha_{z_1}(v_x),\alpha_{z_2}(v_x),\dots, \alpha_{z_k}(v_x))$ is then the component of $(\alpha\circ\pi_X^*)(v_x)$ in $[\mathbf{1}_Z,\pi_Y^*\rho_Y]$ going into $W_y$ via $\pi_{Y*}$. As shown above, the mophism $\pi_{Y*}$ acts on this component mapping it to
+$\pi_X^*\colon [\mathbf{1}_X,\rho_X]\to [\mathbf{1}_Z,\pi_X^*\rho_X]$ maps the invariant vector $v_x$ in $V_x$ to the tuple $(v_x,v_x,\dots,v_x)$ in $\bigoplus_{\pi_X([z])=[x]}V_x$. In this vector space, look at the direct sum over those $[z]$ with $\pi_Y([z])=[y]$. These are precisely those summands for which $\alpha_z$ is a linear morphism $V_x\to W_y$. The corresponding tuple $(\alpha_{z_1}(v_x),\alpha_{z_2}(v_x),\dots, \alpha_{z_k}(v_x))$ is then the component of $(\alpha\circ\pi_X^*)(v_x)$ in $[\mathbf{1}_Z,\pi_Y^*\rho_Y]$ going into $W_y$ via $\pi_{Y*}$. As shown above, the mophism $\pi_{Y*}$ acts on this component by mapping it to
 \[
-|\mathrm{Aut}(y)|\sum_{\substack{\pi_X([z])=[x]\\ \pi_Y([z])=[y]}} \frac{\alpha_z(v_x)}{|\mathrm{Aut}(z)|}
+|\mathrm{Aut}(y)|\sum_{\substack{\pi_X([z])=[x]\\ \pi_Y([z])=[y]}} \frac{\alpha_z(v_x)}{|\mathrm{Aut}(z)|} . 
 \]
 In other words, the matrix coefficient
 \[
