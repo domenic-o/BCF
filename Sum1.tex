@@ -477,7 +477,7 @@ Next, notice that composition of morphisms gives a bilinear map
 \[
 [\mathbf{1}_X,\rho]\otimes [\rho,\mathbf{1}_X]\to [\mathbf{1}_X,\mathbf{1}_X]
 \]
-and so composing this with the linear map $\mathrm{Sum}_0(X,-)\colon [\mathbf{1}_X,\mathbf{1}_X]\to \mathbb{C}$ we get a bilinear pairing between $[\mathbf{1}_X,\rho]$ and $[\rho,\mathbf{1}_X]$. Equivalently, this is a linear map
+and so composing this with the linear map $\mathrm{Sum}_0(X,-)\colon [\mathbf{1}_X,\mathbf{1}_X]\to \mathbb{C}$ we get a bilinear pairing $\langle\,|\,\rangle_X$ between $[\mathbf{1}_X,\rho]$ and $[\rho,\mathbf{1}_X]$. Equivalently, this is a linear map
 \[
 \delta_{(X,\rho)}\colon [\mathbf{1}_X,\rho]\to [\rho,\mathbf{1}_X]^\vee.
 \]
@@ -555,4 +555,11 @@ is
 \[
 v_x\mapsto |\mathrm{Aut}(y)|\sum_{\substack{\pi_X([z])=[x]\\ \pi_Y([z])=[y]}} \frac{\alpha_z(v_x)}{|\mathrm{Aut}(z)|}.
 \]
+The prefactor $|\mathrm{Aut}(y)|$ may appear odd, but it becomes transparent if we lower the $y$-index by using the pairing $\langle \, |\,\rangle_Y$. Namely, what we get this way is
+\[
+(\Phi_\alpha)_{xy}=\int_{Z_{x,y}}\alpha_z d\mu(z),
+\]
+where $Z_{x,y}$ is the groupoid given by the (homotopy) fiber of $Z$ over the point $(x,y)$ of $X\times Y$. This exhibits the ``propagator'' $(\Phi_\alpha)_{xy}$ as the ``sum of $\alpha$ over the histories $z$ going from $x$ to $y$'', and so as a discrete version of the Feynman path integral expression for propagators in quantum field theory.
+
+
 \end{document}
