@@ -415,20 +415,41 @@ Domenico Fiorenza \quad
 
 \section{}
 
-Let us denote by $\mathrm{Fam}_0(\mathbb{C})$ the set of equivalence classes of finite groupoids equipped with functors to $\mathbb{C}$ (seen as a trivial category). In other words, a representative of an element of $\mathrm{Fam}_0(\mathbb{C})$ is a pair $(X,f)$ consisting of a finite groupoid $X$ together with a map $f\colon \pi_0(X)\to \mathbb{C}$.
+Let us denote by $\mathrm{Fam}_0(\mathbb{C})$ the set of equivalence classes of finite groupoids equipped with functors to $\mathbb{C}$ (seen as a trivial category). In other words, a representative of an element of $\mathrm{Fam}_0(\mathbb{C})$ is a pair $(X,\rho)$ consisting of a finite groupoid $X$ together with a map $\rho\colon \pi_0(X)\to \mathbb{C}$.
 The map 
 \[
 \mathrm{Sum}_0\colon \mathrm{Fam}_0\to \mathbb{C}
 \]
 is defined as
 \[
-\mathrm{Sum}_0(X,f)=\sum_{[x]\in \pi_0(X)}\frac{f(x)}{|\mathrm{Aut}(x)|}.
+\mathrm{Sum}_0(X,\rho)=\sum_{[x]\in \pi_0(X)}\frac{\rho(x)}{|\mathrm{Aut}(x)|}.
 \]
 We will also use the more evocative notation
 \[
-\int_X f(x) d\mu(x)
+\int_X \rho(x) d\mu(x)
 \]
-to denote $\mathrm{Sum}_0(X,f)$. Notice that $\mathrm{Sum}_0$ is linear in the $f$ variable.
+to denote $\mathrm{Sum}_0(X,\rho)$. Notice that $\mathrm{Sum}_0$ is linear in the $\rho$ variable.
+
+%The \emph{mass} $\mu(X)$ of the finite groupoid $X$ is defined as
+%\[
+%\mu(X)=\mathrm{Sum}_0(X,1),
+%\] 
+%i.e., more explicitly,
+%\[
+%\mu(X)=\sum_{[x]\in \pi_0(X)}\frac{1}{|\mathrm{Aut}(x)|}.
+%\]
+A nice property of the morphism $\mathrm{Sum}_0$ (which we are going to use later) is the following: let $X$ be a finite set with an action of a finite group $G$, and let $X/\!/G$ denotes the action groupoid for this action; finally, let $\rho\colon X/\!/G\to \mathbb{C}$ any functor, i.e., let $\rho\colon X\to \mathbb{C}$ be a function that is constant on the $G$-orbits in $X$. Then we have
+\begin{equation}\label{sum-0-on-action-groupoids}
+\mathrm{Sum}_0(X/\!/G,\rho)=\frac{1}{|G|}\sum_{x\in X} \rho(x).
+\end{equation}
+Namely, the set $\pi_0(X/\!/G)$ is the quotient set $X/G$ and for any $x\in X$ seen as an object in $X/\!/G$ we have $\mathrm{Aut}(x)=\mathrm{Stab}_G(x)$. Therefore
+\begin{align*}
+\mathrm{Sum}_0(X/\!/G,\rho)&=\sum_{[x]\in X/G}\frac{\rho(x)}{|\mathrm{Stab}_G(x)|}\\
+&=\frac{1}{|G|}\sum_{[x]\in X/G}\frac{|G|}{|\mathrm{Stab}_G(x)|}\rho(x)\\
+&=\frac{1}{|G|}\sum_{[x]\in X/G}|[x]|\,\rho(x)\\
+&=\frac{1}{|G|}\sum_{[x]\in X/G}\sum_{x\in [x]}\rho(x)\\
+&=\frac{1}{|G|}\sum_{x\in X/G}\rho(x)
+\end{align*}
 \begin{remark}
 A function $f\colon \pi_0(X)\to \mathbb{C}$ can equivalently be seen as an element in $\mathrm{End}_{[X,\mathrm{Vect}]}(\mathbf{1}_X)$, where $\mathbf{1}_X\colon X\to \mathrm{Vect}$ is the constant functor taking the value $\mathbb{C}$ on $X$. The map $\mathrm{Sum}_0$ can therefore be seen as the datum of a map
 \[
@@ -465,7 +486,7 @@ Similarly, we can consider the vector space
 \[
 [\rho,\mathbf{1}_X]=\mathrm{Hom}_{[X,\mathrm{Vect}]}(\rho, \mathbf{1}_X)
 \]
-together with the linear map (also denoted~$f^*$ by slight abuse of notation) 
+together with the linear map 
 \[
 f^* \colon [\rho,\mathbf{1}_X] \to [f^*\rho,\mathbf{1}_Y].
 \]
@@ -486,7 +507,25 @@ Equivalently, the bilinear pairing $\langle\,|\,\rangle_X$ is a linear map
 \[
 \delta_{(X,\rho)}\colon [\mathbf{1}_X,\rho]\to [\rho,\mathbf{1}_X]^\vee.
 \]
-Our main \emph{duality assumption} will be that $\delta_{(X,\rho)}$ is a linear isomorphism for any $(X,\rho)$. Under this assumption we may define a linear morphism 
+Our main \emph{duality assumption} will be that $\delta_{(X,\rho)}$ is a linear isomorphism for any $(X,\rho)$. 
+\begin{remark}
+The duality assumption holds for every finite groupoid $X$ if and only if it holds for finite connected groupoids. Up to equivalence we are therefore reduced to considering the case $X=\mathbf{B}G$, with $G$ a finite group. In this case $\rho\colon \mathbf{B}G\to \mathrm{Vect}$ is the datum of a linear representation $V$ of $G$, and the vector spaces $[\mathbf{1}_{\mathbf{B}G},\rho]$ and $[\rho,\mathbf{1}_{\mathbf{B}G}]$ are isomorphic to the space $V^G$ of $G$-invariants and the linear dual $(V_G)^\vee$ of the space of $G$-coinvariants, respectively. The map $\delta_{(\mathbf{B}G,\rho)}$ is therefore a map
+\[
+\delta_{(\mathbf{B}G,\rho)}\colon V^G\to (V_G)^{\vee\vee}\cong V_G,
+\]
+from $G$-invariants to $G$-coinvariants. Let $v\mapsto [v]$ be the canonical projection $V\to V_G=V/\langle v-g\cdot v\rangle_{v\in V;g\in G}$. By composing with the inclusion $V^G\hookrightarrow V$ we get the morphism $\iota\colon v\mapsto [v]$ from $V^G\to V_G$. This is an isomorphism. Indeed, the canonical projection $\pi\colon V\to V^G$ given by
+\[
+\pi\colon v\mapsto \frac{1}{|G|}\sum_{g\in G} g\cdot v
+\]
+is zero on the elements of the form $v-g\cdot v$ and so induces a linear map $\tilde{\pi}\colon V_G\to V^G$, which is immediate to see is the inverse of $\iota$.
+For any $w\in (V_G)^\vee$ seen as an element in $[\rho,\mathbf{1}_{\mathbf{B}G}]$ and any $v\in V^G$ seen as an element in $[\mathbf{1}_{\mathbf{B}G},\rho]$ we have $w\circ v =w([v])$ Therefore
+\[
+\langle w| v\rangle_{\mathbf{B}G}=\frac{1}{|G|}w\circ v=w\left(\frac{1}{|G|}\iota(v)\right).
+\]
+This means that $\delta_{(\mathbf{B}G,\rho)}v$ is the evaluation on $\frac{1}{|G|}\iota(v)$. Therefore, under the canonical isomorphism $(V_G)^{\vee\vee}\cong V_G$, we have $\delta_{(\mathbf{B}G,\rho)}=\frac{1}{|G|}\iota$. As $\iota$ is an isomorphism, so is $\delta_{(\mathbf{B}G,\rho)}$.
+\end{remark}
+
+Under the duality assumption we may define a linear morphism 
 \[
 f_*\colon [\mathbf{1}_Y,f^*\rho]\to  [\mathbf{1}_X,\rho]
 \]
@@ -504,7 +543,10 @@ In other words, if $v\in [\mathbf{1}_Y,f^*\rho]$, the element $f_*v\in [\mathbf{
 \[
 \langle w| f_*v\rangle_X = \langle f^*w| v\rangle_Y
 \]
-for any $w\in [\rho,\mathbf{1}_X]$. 
+for any $w\in [\rho,\mathbf{1}_X]$. Similarly, we have a morphism $f_*\colon [f^*\rho,\mathbf{1}_Y]\to [\rho,\mathbf{1}_X]$ defined by
+\[
+\langle f_*w| v\rangle_X = \langle w| f^*v\rangle_Y.
+\]
 
 
 We can now define our wannabe functor
@@ -560,49 +602,117 @@ for every $v\in [\mathbf{1}_Y,f^*\rho_1]$ and every $w\in [\rho_2,\mathbf{1}_X]$
 \end{align*}
 \end{proof}
 
-For possible later use, let us derive an explicit formla for $f_*v$. Recall that  if $v\in [\mathbf{1}_Y,f^*\rho]$, the element $f_*v\in [\mathbf{1}_X,\rho]$ is defined 
- by the equation $
-\langle w| f_*v\rangle_X = \langle f^*w| v\rangle_Y$
-for any $w\in [\rho,\mathbf{1}_X]$. Each such $w$ can be uniquely written as a sum of elements $w_x$ vanishing outside the isomorphism class of $x \in X$, for all such~$x$. For such a $w_x$ the above equation becomes
-\[
-\frac{w_x\circ f_*(v)}{|\mathrm{Aut}(x)|} = \sum_{f([y])=[x]}\frac{(f^*w_x)\circ v} {|\mathrm{Aut}(y)|}.
-\]
-	%Similarly, $v$ can be uniquely written as a sum of elements $v_y$ vanishing outside the isomorphism class of $y$ in $Y$. 
-	Similarly, $v$ can be uniquely written as a sum of elements $v_y$ with nontrivial image only in the isomorphism class of $y \in Y$, i.\,e.\ $v_{y'}(1) = 0 \in \rho(f(y'))$ unless $y' \in [y]$. 
-Choosing such a $v_y$ with $f(y)=x$ we get
-\[
-\frac{w_x\circ f_*(v_y)}{|\mathrm{Aut}(x)|} = \frac{w_x\circ v_y} {|\mathrm{Aut}(y)|},
-\]
-where we used the fact that, as $v\in [\mathbf{1}_Y,f^*\rho]$ and $f(y)=x$, the source of $w_x$ coincides with the target of $v_y$ and $(f^*w_x)\circ v_y=w_x\circ v_y$. As this has to be true for any $w_x$, we finally find
-\[
-f_*(v_y)= \frac{|\mathrm{Aut}(x)| } {|\mathrm{Aut}(y)|}v_y,
-\]
-for any $v_y$ concentrated on $y$, with $f(y)=x$. From this we get the general formula
-\[
-(f_*(v))_x=|\mathrm{Aut}(x)|\sum_{f([y])=[x]}\frac{v_y}{|\mathrm{Aut}(y)|}.
-\]
+For  later use, let us derive an explicit formla for $f_*$ in case $f\colon \mathbf{B}G\to \mathbf{B}H$ is a morphism of finite groups (seen as groupoids with a single object).
 
-Let us now give an explicit description of the functor $\mathrm{Sum}_1$. To begin with, notice that the datum of a functor $\rho\colon X\to \mathrm{Vect}$ is equivalent to the datum of a linear representation $V_x$ of $\mathrm{Aut}_X(x)$ for every $x$ in a set of representatives for the isomophism classes of objects in $X$. So 
+ Recall that  if $v\in [\mathbf{1}_Y,f^*\rho]$, the element $f_*v\in [\mathbf{1}_X,\rho]$ is defined 
+ by the equation $
+\langle w| f_*v\rangle_{\mathbf{B}H} = \langle f^*w| v\rangle_{\mathbf{B}G}$
+for any $w\in [\rho,\mathbf{1}_X]$. As both $\mathbf{B}G$ and $\mathbf{B}H$ have a single object, this equation reduces to
 \[
-[\mathbf{1}_X,\rho]=\bigoplus_{[x]\in \pi_0(X)}(V_x)^{\mathrm{Aut}_X(x)},
-\]
-where $V^G$ denotes the subspace of $G$-invariants for a linear $G$-representation on a vector space $V$. A linear map $[\mathbf{1}_X,\rho_X]\to [\mathbf{1}_Y,\rho_Y]$ can therefore be described by its ``matrix coefficients'' $ (V_x)^{\mathrm{Aut}_X(x)}\to (W_y)^{\mathrm{Aut}_Y(y)}$ with $[x]$ ranging in $\pi_0(X)$ and $[y]$ ranging in $\pi_0(Y)$. The map
-$\pi_X^*\colon [\mathbf{1}_X,\rho_X]\to [\mathbf{1}_Z,\pi_X^*\rho_X]$ maps the invariant vector $v_x$ in $V_x$ to the tuple $(v_x,v_x,\dots,v_x)$ in $\bigoplus_{\pi_X([z])=[x]}V_x$. In this vector space, look at the direct sum over those $[z]$ with $\pi_Y([z])=[y]$. These are precisely those summands for which $\alpha_z$ is a linear morphism $V_x\to W_y$. The corresponding tuple $(\alpha_{z_1}(v_x),\alpha_{z_2}(v_x),\dots, \alpha_{z_k}(v_x))$ is then the component of $(\alpha\circ\pi_X^*)(v_x)$ in $[\mathbf{1}_Z,\pi_Y^*\rho_Y]$ going into $W_y$ via $\pi_{Y*}$. As shown above, the mophism $\pi_{Y*}$ acts on this component by mapping it to
+\frac{w\circ f_*v}{|H|}=\frac{f^*w\circ v}{|G|}
+\] 
+The morphism $\rho\colon \mathbf{B}H\to \mathrm{Vect}$ is the datum of a linear representation of $H$ on a vector space $V$, and $f^*\rho$ is the datum of representation of $G$ obtained by pull-back, i.e., the group $G$ acts on $V$ by $g\cdot \xi := f(g)\cdot \xi$. The element $v\in [\mathbf{1}_Y,f^*\rho]$ is therefore a $G$-invariant vector of $V$, while $w\in [\rho,\mathbf{1}_X]$ is a linear functional on $V$ factoring through the space of $H$-coinvariants. The element $f^*w$ is the same linear functional on $V$, but this time seen as factoring through the space of $H$-coinvariants. Therefore the composition $f^*w\circ v$ is just the evaluation of $w\colon V\to \mathbb{C}$ on the vector $v\in V$, under the canonical isomorphism $\mathrm{End}(\mathbb{C})\cong \mathbb{C}$. Finally, $f_*v\in  [\mathbf{1}_X,\rho]$ is an $H$-invariant vector of $V$, and $w\circ f_*v$ is the evaluation of $w\colon V\to \mathbb{C}$ on the vector $f_*v\in V$. The defining equation for $f_*v$ then becomes
 \[
-|\mathrm{Aut}(y)|\sum_{\substack{\pi_X([z])=[x]\\ \pi_Y([z])=[y]}} \frac{\alpha_z(v_x)}{|\mathrm{Aut}(z)|} . 
-\]
-In other words, the matrix coefficient
+w\left(\frac{f_*v}{|H|}\right)=w\left(\frac{v}{|G|}\right)
+\] 
+for any $w\colon V\to \mathbb{C}$ factoring through the space of $H$-coinvariants.
+From $v/|G|$ we get the $H$-invariant vector 
 \[
-(\Phi_\alpha)_x^y\colon (V_x)^{\mathrm{Aut}_X(x)}\to (W_y)^{\mathrm{Aut}_Y(y)}
+\frac{1}{|H|}\sum_{h\in H}h\cdot \frac{v}{|G|}
 \]
-is
+and, since $w$ factors through the $H$-coinvariants,
 \[
-v_x\mapsto |\mathrm{Aut}(y)|\sum_{\substack{\pi_X([z])=[x]\\ \pi_Y([z])=[y]}} \frac{\alpha_z(v_x)}{|\mathrm{Aut}(z)|}.
+w\left(\frac{v}{|G|}\right)=w\left(\frac{1}{|H|}\sum_{h\in H}h\cdot \frac{v}{|G|}\right)
 \]
-The prefactor $|\mathrm{Aut}(y)|$ may appear odd, but it becomes transparent if we lower the $y$-index by using the pairing $\langle \, |\,\rangle_Y$. Namely, what we get this way is
+The defining equation for $f_*v$ can therefore be rewritten as
 \[
-(\Phi_\alpha)_{xy}=\int_{Z_{x,y}}\alpha_z d\mu(z),
+\langle w| f_*v\rangle_{\mathbf{B}H}=\langle w| \sum_{h\in H}\frac{h\cdot v}{|G|}\rangle_{\mathbf{B}H},
 \]
-where $Z_{x,y}$ is the groupoid given by the (homotopy) fiber of $Z$ over the point $(x,y)$ of $X\times Y$. This exhibits the ``propagator'' $(\Phi_\alpha)_{xy}$ as the ``sum of $\alpha$ over the histories $z$ going from $x$ to $y$'', and so as a discrete version of the Feynman path integral expression for propagators in quantum field theory.
+for any $w\in [\rho,\mathbf{1}_X]$. As the pairing $\langle \,| \,\rangle_{\mathbf{B}H}$ is nondegenerate, this finally gives
+\[
+f_*v=\frac{1}{|G|}\sum_{h\in H} h\cdot v.
+\] 
+\begin{remark}
+This formula simplifies a bit in case the group homomorphism $f\colon G\to H$ is surjective. Indeed, in that case, the $G$-invariant vector $v$ will be automatically $H$-invariant and we find
+\[
+f_*v=\frac{|H|}{|G|} v
+\]
+in this case.
+\end{remark}
+\begin{lemma}
+Consider a homotopy pullback diagram of finite groupoids
+\[
+\xymatrix{
+& X\times_TY\ar[dl]_{p_1}\ar[dr]^{p_2}\\
+X\ar[dr]_{f_1}&& Y\ar[dl]^{f_2}
+\\& T
+\ar@{=>}_{\eta\phantom{m}}(13,-14);(18,-14)
+}
+\]
+and a morphism $\rho\colon T\to \mathrm{Vect}$.
+Then the Beck-Chevalley condition is satisfied, i.e., we have an identity of morphisms $f_2^*f_{1*}=p_{2*}(\eta^*\rho\circ-)p_1^*$ from $[\mathbf{1}_X,f_1^*\rho]$ to $[\mathbf{1}_Y,f_2^*\rho]$.
+\end{lemma}
+\begin{proof}
+By restricting to connected components, and working up to equivalence of finite groupoids, we may assume that the given pullback diagram has the form
+\[
+\xymatrix{
+& G\backslash\!\backslash H/\!/K\ar[dl]_{p_1}\ar[dr]^{p_2}\\
+\mathbf{B}G\ar[dr]_{f_1}&& \mathbf{B}K\ar[dl]^{f_2}
+\\& \mathbf{B}H
+\ar@{=>}_{\eta\phantom{m}}(13,-14);(18,-14)
+}
+\]
+where the natural transformation $\eta$ is defined by $\eta_h=h$; this precisely expresses the fact that a morphism from $h$ to $h'$ in the action groupoid  $G\backslash\!\backslash H/\!/K$ is given by a commutative diagram
+\[
+\xymatrix{
+\ast\ar[r]^{h}\ar[d]_{f_1(g)}&\ast\ar[d]^{f_2(k)}\\
+\ast\ar[r]_{h'}&\ast
+}.
+\]
+The equation $f_2^*f_{1*}=p_{2*}(\eta^*\rho\circ-)p_1^*$ is equivalent to $\langle w| f_2^*f_{1*}v\rangle_{\mathbf{B}K} = \langle w|p_{2*}(\eta^*\rho\circ p_1^*v)\rangle_{\mathbf{B}K}$ for any $v\in [\mathbf{1}_{\mathbf{B}G},f_1^*\rho]$ and any $w\in [f_2^*\rho,\mathbf{1}_{\mathbf{B}K}]$. This is equivalent to the equation
+\[
+\langle f_{2*}w| f_{1*}v\rangle_{\mathbf{B}H} = \langle p_2^*w|\eta^*\rho\circ p_1^*v\rangle_{G\backslash\!\backslash H/\!/K}.
+\]
+The morphism $\rho\colon \mathbf{B}H\to \mathrm{Vect}$ is the datum of a linear representation of the finite group $H$ on a vector space $V$. The element $v$ is a $G$-invariant vector of $V$ (where $G$ acts on $V$ via $f$) and $w$ is a linear functional on $V$ which factors through the $K$-coinvariants (with $K$ acting via $g$). By the above explicit formula for $f_*$ in the case of a group morphism, we have
+\[
+f_{1*}v=\frac{1}{|G|}\sum_{h\in H} h\cdot v;\qquad f_{2*}w=\frac{1}{|K|}\sum_{h\in H} h\cdot w,
+\]
+where on the right we have the $H$-action on linear functionals on $V$, i.e., $(h\cdot w)= w(h^{-1}\cdot -)$. We therefore find
+\begin{align*}
+\langle f_{2*}w| f_{1*}v\rangle_{\mathbf{B}H}&=\frac{1}{|H||G||K|}\sum_{h_1,h_2\in H}w(h_1^{-1}h_2\cdot v)\\
+&=\frac{1}{|H||G||K|}\sum_{h\in H}\sum_{h_1^{-1}h_2=h}w(h_1^{-1}h_2\cdot v)\\
+&=\frac{1}{|H||G||K|}\sum_{h\in H}\sum_{h_1\in H}w(h\cdot v)\\
+&=\frac{1}{|G||K|}\sum_{h\in H}w(h\cdot v)
+\end{align*}
+
+To every object $h$ of $G\backslash\!\backslash H/\!/K$, the functors $p_1^*f_1^*\rho$ and $p_2^*f_2^*\rho$ both assign the vector space $V$, so $p_1^*v$ and $p_2^*w$ consist in a copy of the vector $v$ and of the linear functional $w\colon V\to \mathbb{C}$ for each of the copies of $V$ associated with the elements of $H$. Moreover, since $\eta_h=h$, the natural transformation $\eta^*\rho=\rho\circ\eta$ at the object $h$ is precisely the multiplication by $h$ as a linear map from $V$ to $V$. This means that $\eta^*\rho\circ p_1^*v=(h\cdot v)_{h\in H}$, i.e, $\eta^*\rho\circ p_1^*v$  consists of the choice of the vector $h\cdot v$ in the copy of $V$ associated with the object $h$ of $G\backslash\!\backslash H/\!/K$. We therefore find
+\begin{align*}
+\langle p_2^*w|\eta^*\rho\circ p_1^*v\rangle_{G\backslash\!\backslash H/\!/K}=\frac{1}{|G||K|}\sum_{h\in H}w(h\cdot v),
+\end{align*}
+by formula \ref{sum-0-on-action-groupoids}.
+\end{proof}
+
+%Let us now give an explicit description of the functor $\mathrm{Sum}_1$. To begin with, notice that the datum of a functor $\rho\colon X\to \mathrm{Vect}$ is equivalent to the datum of a linear representation $V_x$ of $\mathrm{Aut}_X(x)$ for every $x$ in a set of representatives for the isomophism classes of objects in $X$. So 
+%\[
+%[\mathbf{1}_X,\rho]=\bigoplus_{[x]\in \pi_0(X)}(V_x)^{\mathrm{Aut}_X(x)},
+%\]
+%where $V^G$ denotes the subspace of $G$-invariants for a linear $G$-representation on a vector space $V$. A linear map $[\mathbf{1}_X,\rho_X]\to [\mathbf{1}_Y,\rho_Y]$ can therefore be described by its ``matrix coefficients'' $ (V_x)^{\mathrm{Aut}_X(x)}\to (W_y)^{\mathrm{Aut}_Y(y)}$ with $[x]$ ranging in $\pi_0(X)$ and $[y]$ ranging in $\pi_0(Y)$. The map
+%$\pi_X^*\colon [\mathbf{1}_X,\rho_X]\to [\mathbf{1}_Z,\pi_X^*\rho_X]$ maps the invariant vector $v_x$ in $V_x$ to the tuple $(v_x,v_x,\dots,v_x)$ in $\bigoplus_{\pi_X([z])=[x]}V_x$. In this vector space, look at the direct sum over those $[z]$ with $\pi_Y([z])=[y]$. These are precisely those summands for which $\alpha_z$ is a linear morphism $V_x\to W_y$. The corresponding tuple $(\alpha_{z_1}(v_x),\alpha_{z_2}(v_x),\dots, \alpha_{z_k}(v_x))$ is then the component of $(\alpha\circ\pi_X^*)(v_x)$ in $[\mathbf{1}_Z,\pi_Y^*\rho_Y]$ going into $W_y$ via $\pi_{Y*}$. As shown above, the mophism $\pi_{Y*}$ acts on this component by mapping it to
+%\[
+%\sum_{\substack{\pi_X([z])=[x]\\ \pi_Y([z])=[y]}} \sum_{h\in \mathrm{Aut}(y)}\frac{h\cdot \alpha_z(v_x)}{|\mathrm{Aut}(z)|} . 
+%\]
+%In other words, the matrix coefficient
+%\[
+%(\Phi_\alpha)_x^y\colon (V_x)^{\mathrm{Aut}_X(x)}\to (W_y)^{\mathrm{Aut}_Y(y)}
+%\]
+%is
+%\[
+%v_x\mapsto 
+%\sum_{\substack{\pi_X([z])=[x]\\ \pi_Y([z])=[y]}} \sum_{h\in \mathrm{Aut}(y)}\frac{h\cdot \alpha_z(v_x)}{|\mathrm{Aut}(z)|} .
+%\]
+%Notice that on the right hand side we have an integral over the groupoid $Z_{x,y}$ given by the (homotopy) fiber of $Z$ over the point $(x,y)$ of $X\times Y$. This exhibits the ``propagator'' $(\Phi_\alpha)_{xy}$ as the ``sum of $\alpha$ over the histories $z$ going from $x$ to $y$'' (averaged over $\mathrm{Aut}(y)$), and so as a discrete version of the Feynman path integral expression for propagators in quantum field theory.
+%
+
+
 
 \end{document}
