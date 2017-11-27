@@ -409,12 +409,6 @@ Domenico Fiorenza \quad
 \abstract{This file contains the details on the $n=1$ case, to be merged into the main file as soon as they become polished enough.}
 
 
-\tableofcontents
-
-
-
-\section{}
-
 Let us denote by $\mathrm{Fam}_0(\mathbb{C})$ the set of equivalence classes of finite groupoids equipped with functors to $\mathbb{C}$ (seen as a trivial category). In other words, a representative of an element of $\mathrm{Fam}_0(\mathbb{C})$ is a pair $(X,\rho)$ consisting of a finite groupoid $X$ together with a map $\rho\colon \pi_0(X)\to \mathbb{C}$.
 The map 
 \[
@@ -448,7 +442,7 @@ Namely, the set $\pi_0(X/\!/G)$ is the quotient set $X/G$ and for any $x\in X$ s
 &=\frac{1}{|G|}\sum_{[x]\in X/G}\frac{|G|}{|\mathrm{Stab}_G(x)|}\rho(x)\\
 &=\frac{1}{|G|}\sum_{[x]\in X/G}|[x]|\,\rho(x)\\
 &=\frac{1}{|G|}\sum_{[x]\in X/G}\sum_{x\in [x]}\rho(x)\\
-&=\frac{1}{|G|}\sum_{x\in X/G}\rho(x)
+&=\frac{1}{|G|}\sum_{x\in X}\rho(x)
 \end{align*}
 \begin{remark}
 A function $f\colon \pi_0(X)\to \mathbb{C}$ can equivalently be seen as an element in $\mathrm{End}_{[X,\mathrm{Vect}]}(\mathbf{1}_X)$, where $\mathbf{1}_X\colon X\to \mathrm{Vect}$ is the constant functor taking the value $\mathbb{C}$ on $X$. The map $\mathrm{Sum}_0$ can therefore be seen as the datum of a map
@@ -632,6 +626,7 @@ for any $w\in [\rho,\mathbf{1}_X]$. As the pairing $\langle \,| \,\rangle_{\math
 \[
 f_*v=\frac{1}{|G|}\sum_{h\in H} h\cdot v.
 \] 
+
 \begin{remark}
 This formula simplifies a bit in case the group homomorphism $f\colon G\to H$ is surjective. Indeed, in that case, the $G$-invariant vector $v$ will be automatically $H$-invariant and we find
 \[
@@ -639,7 +634,9 @@ f_*v=\frac{|H|}{|G|} v
 \]
 in this case.
 \end{remark}
+
 \begin{lemma}
+\label{lem:BeckChevalley}
 Consider a homotopy pullback diagram of finite groupoids
 \[
 \xymatrix{
@@ -652,6 +649,7 @@ X\ar[dr]_{f_1}&& Y\ar[dl]^{f_2}
 and a morphism $\rho\colon T\to \mathrm{Vect}$.
 Then the Beck-Chevalley condition is satisfied, i.e., we have an identity of morphisms $f_2^*f_{1*}=p_{2*}(\eta^*\rho\circ-)p_1^*$ from $[\mathbf{1}_X,f_1^*\rho]$ to $[\mathbf{1}_Y,f_2^*\rho]$.
 \end{lemma}
+
 \begin{proof}
 By restricting to connected components, and working up to equivalence of finite groupoids, we may assume that the given pullback diagram has the form
 \[
@@ -673,7 +671,7 @@ The equation $f_2^*f_{1*}=p_{2*}(\eta^*\rho\circ-)p_1^*$ is equivalent to $\lang
 \[
 \langle f_{2*}w| f_{1*}v\rangle_{\mathbf{B}H} = \langle p_2^*w|\eta^*\rho\circ p_1^*v\rangle_{G\backslash\!\backslash H/\!/K}.
 \]
-The morphism $\rho\colon \mathbf{B}H\to \mathrm{Vect}$ is the datum of a linear representation of the finite group $H$ on a vector space $V$. The element $v$ is a $G$-invariant vector of $V$ (where $G$ acts on $V$ via $f$) and $w$ is a linear functional on $V$ which factors through the $K$-coinvariants (with $K$ acting via $g$). By the above explicit formula for $f_*$ in the case of a group morphism, we have
+The morphism $\rho\colon \mathbf{B}H\to \mathrm{Vect}$ is the datum of a linear representation of the finite group $H$ on a vector space $V$. The element $v$ is a $G$-invariant vector of $V$ (where $G$ acts on $V$ via $f_1$) and $w$ is a linear functional on $V$ which factors through the $K$-coinvariants (with $K$ acting via $f_2$). By the above explicit formula for $f_*$ in the case of a group morphism, we have
 \[
 f_{1*}v=\frac{1}{|G|}\sum_{h\in H} h\cdot v;\qquad f_{2*}w=\frac{1}{|K|}\sum_{h\in H} h\cdot w,
 \]
@@ -689,7 +687,7 @@ To every object $h$ of $G\backslash\!\backslash H/\!/K$, the functors $p_1^*f_1^
 \begin{align*}
 \langle p_2^*w|\eta^*\rho\circ p_1^*v\rangle_{G\backslash\!\backslash H/\!/K}=\frac{1}{|G||K|}\sum_{h\in H}w(h\cdot v),
 \end{align*}
-by formula \ref{sum-0-on-action-groupoids}.
+by the formula \eqref{sum-0-on-action-groupoids}.
 \end{proof}
 
 %Let us now give an explicit description of the functor $\mathrm{Sum}_1$. To begin with, notice that the datum of a functor $\rho\colon X\to \mathrm{Vect}$ is equivalent to the datum of a linear representation $V_x$ of $\mathrm{Aut}_X(x)$ for every $x$ in a set of representatives for the isomophism classes of objects in $X$. So 
@@ -712,6 +710,171 @@ by formula \ref{sum-0-on-action-groupoids}.
 %\]
 %Notice that on the right hand side we have an integral over the groupoid $Z_{x,y}$ given by the (homotopy) fiber of $Z$ over the point $(x,y)$ of $X\times Y$. This exhibits the ``propagator'' $(\Phi_\alpha)_{xy}$ as the ``sum of $\alpha$ over the histories $z$ going from $x$ to $y$'' (averaged over $\mathrm{Aut}(y)$), and so as a discrete version of the Feynman path integral expression for propagators in quantum field theory.
 %
+
+\begin{proposition}
+$\textrm{Sum}_1$ is a functor $\textrm{Fam}_1(\Vect) \to \Vect$. 
+\end{proposition}
+
+\begin{proof}
+We have the verify that $\textrm{Sum}_1$ is compatible with units and composition. 
+Let $\alpha \colon \rho_1 \to \rho_2$ and $\beta \colon \rho_2 \to \rho_3$ be composable morphisms in $\textrm{Fam}_1(\Vect)$: 
+$$
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[
+			     baseline=(current bounding box.base), 
+			     %>=stealth,
+			     descr/.style={fill=white,inner sep=3.5pt}, 
+			     normal line/.style={->}
+			     ] 
+\matrix (m) [matrix of math nodes, row sep=3.0em, column sep=2em, text height=1.5ex, text depth=0.1ex] {%
+{} & Y & {} 
+\\
+X_1 & {} & X_2 
+\\
+{} & \Vect & {} 
+\\
+};
+\path[font=\footnotesize] (m-1-2) edge[->] node[above] {$p_1$} (m-2-1);
+\path[font=\footnotesize] (m-1-2) edge[->] node[above] {$p_2$} (m-2-3);
+\path[font=\footnotesize] (m-2-1) edge[->] node[below] {$\rho_1$} (m-3-2);
+\path[font=\footnotesize] (m-2-3) edge[->] node[below] {$\rho_2$} (m-3-2);
+\fill (0,0) circle (0pt) node {$\stackrel{\alpha}{\implies}$};
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%% 
+\! , \quad 
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[
+			     baseline=(current bounding box.base), 
+			     %>=stealth,
+			     descr/.style={fill=white,inner sep=3.5pt}, 
+			     normal line/.style={->}
+			     ] 
+\matrix (m) [matrix of math nodes, row sep=3.0em, column sep=2em, text height=1.5ex, text depth=0.1ex] {%
+{} & Y' & {} 
+\\
+X_2 & {} & X_3 
+\\
+{} & \Vect & {} 
+\\
+};
+\path[font=\footnotesize] (m-1-2) edge[->] node[above] {$p'_2$} (m-2-1);
+\path[font=\footnotesize] (m-1-2) edge[->] node[above] {$p'_3$} (m-2-3);
+\path[font=\footnotesize] (m-2-1) edge[->] node[below] {$\rho_2$} (m-3-2);
+\path[font=\footnotesize] (m-2-3) edge[->] node[below] {$\rho_3$} (m-3-2);
+\fill (0,0) circle (0pt) node {$\stackrel{\beta}{\implies}$};
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%% 
+\! .
+$$%
+Then by definition of $\textrm{Fam}_1(\Vect)$, their composition $\beta \circ_\eta \alpha$ is the natural transformation $(\beta * 1_{\pi_2}) \cdot (1_{\rho_2} * \eta) \cdot (\alpha * 1_{\pi_1})$: 
+$$
+\beta \circ_\eta \alpha 
+\; \stackrel{\text{def}}{=} \; 
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[
+			     baseline=(current bounding box.base), 
+			     %>=stealth,
+			     descr/.style={fill=white,inner sep=3.5pt}, 
+			     normal line/.style={->}
+			     ] 
+\matrix (m) [matrix of math nodes, row sep=3.0em, column sep=2em, text height=1.5ex, text depth=0.1ex] {%
+{} & {} & Y \times_{X_2} Y' & {} & {}
+\\
+{} & Y & {} & Y' & {}
+\\
+X_1 & {} & X_2 & {} & X_3
+\\
+{} & \Vect & {} & \Vect & {}
+\\
+{} & {} & \Vect & {} & {}
+\\
+};
+\path[font=\footnotesize] (m-1-3) edge[->] node[above] {$\pi_1$} (m-2-2);
+\path[font=\footnotesize] (m-1-3) edge[->] node[above] {$\pi_2$} (m-2-4);
+\path[font=\footnotesize] (m-2-2) edge[->] node[above] {$p_1$} (m-3-1);
+\path[font=\footnotesize] (m-2-2) edge[->] node[above] {$p_2$} (m-3-3);
+\path[font=\footnotesize] (m-2-4) edge[->] node[above] {$p'_2$} (m-3-3);
+\path[font=\footnotesize] (m-2-4) edge[->] node[above] {$p'_3$} (m-3-5);
+\path[font=\footnotesize] (m-3-1) edge[->] node[below] {$\rho_1$} (m-4-2);
+\path[font=\footnotesize] (m-3-3) edge[->] node[below] {$\rho_2$} (m-4-2);
+\path[font=\footnotesize] (m-3-3) edge[->] node[below] {$\rho_2$} (m-4-4);
+\path[font=\footnotesize] (m-3-5) edge[->] node[below] {$\rho_3$} (m-4-4);
+\path[font=\footnotesize] (m-4-2) edge[commutative diagrams/equal] node[below] {} (m-5-3);
+\path[font=\footnotesize] (m-4-4) edge[commutative diagrams/equal] node[below] {} (m-5-3);
+%
+\fill (-2.3,0) circle (0pt) node {$\stackrel{\alpha}{\implies}$};
+\fill (2.3,0) circle (0pt) node {$\stackrel{\beta}{\implies}$};
+\fill (0,2) circle (0pt) node {$\stackrel{\eta}{\implies}$};
+\fill (0,-2) circle (0pt) node {$\stackrel{1_{\rho_2}}{\implies}$};
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%% 
+\! . 
+$$
+Furthermore, by definition of $\textrm{Sum}_1$, its action on the three morphisms is as follows: 
+\begin{align*}
+\textrm{Sum}_1(\alpha) & 
+= {p_2}_* \cdot (\alpha\circ(-)) \cdot p_1^* \, , 
+\\
+\textrm{Sum}_1(\beta) & 
+= {p'_3}_* \cdot (\beta\circ(-)) \cdot {p'_2}^* \, , 
+\\
+\textrm{Sum}_1(\beta \circ_\eta \alpha ) & 
+= ({p'_3} \circ \pi_2)_* \cdot (\beta \circ_\eta \alpha \circ(-)) \cdot (p_1 \circ \pi_1)^* \, . 
+\end{align*}
+
+To show that $\textrm{Sum}_1(\beta \circ_\eta \alpha ) = \textrm{Sum}_1(\beta) \circ \textrm{Sum}_1(\alpha)$, we first observe that the left-hand side is the clock-wise composition of the outmost arrows from the top left to the bottom left vertex in the following diagram: 
+$$
+\!\!\!
+%%%%%%%%%%%%%%%%%%%%%%%
+\begin{tikzpicture}[
+			     baseline=(current bounding box.base), 
+			     %>=stealth,
+			     descr/.style={fill=white,inner sep=3.5pt}, 
+			     normal line/.style={->}
+			     ] 
+\matrix (m) [matrix of math nodes, row sep=4.5em, column sep=1.4em, text height=1.5ex, text depth=0.1ex] {%
+[\mathbf{1}_{X_1},\rho_1]  &  {}[\mathbf{1}_{Y}, p^*_1\rho_1]   &  {}  &   {}[\mathbf{1}_{Y \times_{X_2} Y'}, \pi_1^* p_1^*\rho_1]
+\\
+  & {}[\mathbf{1}_{Y}, p_2^*\rho_2] & {} & 
+\\
+  & {} & {}[\mathbf{1}_{Y \times_{X_2} Y'}, \pi_1^* p_2^* \rho_2] & 
+\\
+  & {} & {}[\mathbf{1}_{Y \times_{X_2} Y'}, \pi_2^* {p'_2}^* \rho_2] & 
+\\
+  & {}[\mathbf{1}_{Y'}, {p'_2}^* \rho_2] & {} & 
+\\
+{}[\mathbf{1}_{X_3},\rho_3]  &  {}[\mathbf{1}_{X_3}, {p'_3}^* \rho_3]   &  {}  &  {}[\mathbf{1}_{Y \times_{X_2} Y'}, \pi_2^* {p'_3}^*\rho_3]
+\\
+};
+\path[font=\footnotesize] (m-1-1) edge[->, out= 35, in= 145] node[sloped, above] {$(p_1\circ \pi_1)^*$} (m-1-4);
+\path[font=\footnotesize] (m-1-1) edge[->] node[above] {$p_1^*$} (m-1-2);
+\path[font=\footnotesize] (m-1-2) edge[->] node[above] {$\pi_1^*$} (m-1-4);
+\path[font=\footnotesize] (m-1-2) edge[->] node[left] {$\alpha\circ(-)$} (m-2-2);
+\path[font=\footnotesize] (m-2-2) edge[->] node[above] {$\pi_1^*$} (m-3-3);
+\path[font=\footnotesize] (m-2-2) edge[->] node[left] {${p'_2}^* \, {p_2}_*$} (m-5-2);
+\path[font=\footnotesize] (m-1-4) edge[->] node[sloped, above] {$\pi_1^*\alpha\circ(-)$} (m-3-3);
+\path[font=\footnotesize] (m-1-4) edge[->] node[right] {$\beta \circ_\eta \alpha$} (m-6-4);
+\path[font=\footnotesize] (m-3-3) edge[->] node[left] {$\eta^*\rho_2 \circ (-)$} (m-4-3);
+\path[font=\footnotesize] (m-4-3) edge[->] node[above] {${\pi_2}_*$} (m-5-2);
+\path[font=\footnotesize] (m-4-3) edge[->] node[sloped, above] {$\pi_2^*\beta\circ(-)$} (m-6-4);
+\path[font=\footnotesize] (m-5-2) edge[->] node[left] {$\beta\circ(-)$} (m-6-2);
+\path[font=\footnotesize] (m-6-4) edge[->] node[below] {${\pi_2}_*$} (m-6-2);
+\path[font=\footnotesize] (m-6-2) edge[->] node[below] {${p'_3}_*$} (m-6-1);
+\path[font=\footnotesize] (m-1-1) edge[->] node[sloped, below] {$[{p'_3}_* \cdot (\beta\circ(-)) \cdot {p'_2}^*] \cdot [{p_2}_* \cdot (\alpha\circ(-)) \cdot p_1^*] \; = \; \text{Sum}_1(\beta) \cdot \text{Sum}_1 (\alpha)$} (m-6-1);
+\path[font=\footnotesize] (m-6-4) edge[->, out= -145, in= -35] node[sloped, below] {$(p'_3\circ \pi_2)_*$} (m-6-1);
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%% 
+$$
+The leftmost vertical arrow is $\textrm{Sum}_1(\beta) \circ \textrm{Sum}_1(\alpha)$, hence we are done if we can show that the diagram commutes. 
+This is indeed the case: 
+the leftmost and rightmost subdiagrams commute by definition, as do the other two subdiagrams involving $\pi_1^*\alpha\circ(-)$ and $\pi_2^*\beta\circ(-)$; 
+that the top and bottom diagrams commute follows from the definition of pullback and pushforward; 
+and the middle subdiagram commutes thanks to the Beck-Chevalley condition of Lemma~\ref{lem:BeckChevalley}. 
+
+Finally, if $\rho_2=\rho_3$, $Y=Y'$ and $\beta$ is the identity on $\rho_2$ in $\textrm{Fam}_1(\Vect)$, then $Y \times_{X_2} Y'$ is canonically equivalent to~$Y$, and we see that $\textrm{Sum}_1$ sends units to units. 
+\end{proof}
+
+
 
 
 
