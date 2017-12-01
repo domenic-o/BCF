@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.27)  19 NOV 2017 18:33
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.16)  21 SEP 2017 18:04
->>>>>>> origin/master
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.16)  1 DEC 2017 11:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1470,17 +1466,26 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 644.
 
 [4] [5] <xymatrix 2x3 171> <xymatrix 2x3 171> <xymatrix 2x2 182> <xymatrix 3x2
-145> [6]
+145> [6] [7] <xymatrix 3x3 242> [8] [9] [10] <xymatrix 3x3 242> [11] <xymatrix
+3x3 238> [12] <xymatrix 3x3 238> <xymatrix 2x2 182> [13] [14] [15] [16]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 850.
+(hyperref)                removing `math shift' on input line 1332.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 850.
+(hyperref)                removing `math shift' on input line 1332.
 
-[7] [8] <xymatrix 3x2 190> [9]
-Overfull \hbox (8.36678pt too wide) detected at line 1109
+[17] [18]
+Overfull \hbox (4.74724pt too wide) in paragraph at lines 1540--1542
+[]\OT1/cmr/m/n/12 A 2-limit of $\OML/cmm/m/it/12 ^^_[] [] [] []G \OMS/cmsy/m/n/
+12 ! [][]$ \OT1/cmr/m/n/12 is given by $(\U/dsrom/m/n/12 C[]\OT1/cmr/m/n/12 [\O
+ML/cmm/m/it/12 G\OT1/cmr/m/n/12 ]\OML/cmm/m/it/12 ; \U/dsrom/m/n/12 C[]\OT1/cmr
+/m/n/12 [\OML/cmm/m/it/12 G\OT1/cmr/m/n/12 ])$. 
+ []
+
+<xymatrix 3x2 190> [19]
+Overfull \hbox (8.36678pt too wide) detected at line 1591
 [][]\OML/cmm/m/it/12 y[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 ^^Z[]\OT1/cmr/m/n/1
 2 (\OML/cmm/m/it/12 y[] \OMS/cmsy/m/n/12 
  \OML/cmm/m/it/12 y[]\OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 ^^Q[]^^Q[]^^Z[]\OT1/c
@@ -1491,53 +1496,53 @@ mr/m/n/12 (\OML/cmm/m/it/12 x[] \OMS/cmsy/m/n/12
 /m/n/12 )\OML/cmm/m/it/12 ^^Q[]y[]:
  []
 
-<xymatrix 3x2 189> [10] <xymatrix 3x2 190> <xymatrix 3x3 334>
+<xymatrix 3x2 189> [20] <xymatrix 3x2 190> <xymatrix 3x3 334>
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1162.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1162.
-
-[11]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1176.
+(hyperref)                removing `math shift' on input line 1644.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1176.
+(hyperref)                removing `math shift' on input line 1644.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1180.
+(hyperref)                removing `math shift' on input line 1658.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1180.
+(hyperref)                removing `math shift' on input line 1658.
+
+[21]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1662.
 
 
-Underfull \hbox (badness 2435) in paragraph at lines 1208--1212
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 1662.
+
+
+Underfull \hbox (badness 2435) in paragraph at lines 1690--1694
 []\OT1/cmr/m/n/12 J. Lurie, \OT1/cmr/m/sl/12 On the Clas-si-fi-ca-tion of Topo-
 log-i-cal Field The-o-ries\OT1/cmr/m/n/12 ,
  []
 
 
-Underfull \hbox (badness 3612) in paragraph at lines 1208--1212
+Underfull \hbox (badness 3612) in paragraph at lines 1690--1694
 [][]\OT1/cmr/m/n/12 Cur-rent De-vel-op-ments in Math-e-mat-ics \OT1/cmr/bx/n/12
  2008 \OT1/cmr/m/n/12 (2009), 129--280[][],
  []
 
-[12]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1240.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1240.
+[22]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1722.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1722.
  (./BCF.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1240.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1240.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1722.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1722.
 
 Package rerunfilecheck Info: File `BCF.out' has not changed.
-(rerunfilecheck)             Checksum: 377C0854E92CD082238D7D8431586091;901.
+(rerunfilecheck)             Checksum: F4A74F46F707D77FBE5964D3DB0B5A52;973.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1545,48 +1550,50 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1240.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1722.
  ) 
 Here is how much of TeX's memory you used:
- 35365 strings out of 492995
- 798445 string characters out of 6132704
- 1157753 words of memory out of 5000000
- 38159 multiletter control sequences out of 15000+600000
- 31452 words of font info for 139 fonts, out of 8000000 for 9000
+ 35607 strings out of 492995
+ 803018 string characters out of 6132704
+ 1166753 words of memory out of 5000000
+ 38378 multiletter control sequences out of 15000+600000
+ 31761 words of font info for 140 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  64i,19n,100p,8829b,966s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
-/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
-usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
-r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
-local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
-cal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/lo
-cal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
-l/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/
-texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/te
-xlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texli
-ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/
-2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/201
-7/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive/2017
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/201
-7/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2017/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2017/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2017/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2017/texmf-di
-st/fonts/type1/public/doublestroke/dsrom12.pfb></usr/local/texlive/2017/texmf-d
-ist/fonts/type1/public/doublestroke/dsrom8.pfb></usr/local/texlive/2017/texmf-d
-ist/fonts/type1/public/xypic/xyatip10.pfb></usr/local/texlive/2017/texmf-dist/f
-onts/type1/public/xypic/xybtip10.pfb></usr/local/texlive/2017/texmf-dist/fonts/
-type1/public/xypic/xycmat10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1
-/public/xypic/xycmbt10.pfb>
-Output written on BCF.pdf (12 pages, 295033 bytes).
+></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><
+/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
+usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
+sr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></us
+r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/
+local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/lo
+cal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/loca
+l/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/loca
+l/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/
+texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/te
+xlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texl
+ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive
+/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/20
+17/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive/2017/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2017/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2017/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2017/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2017/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2017/texmf-dist
+/fonts/type1/public/doublestroke/dsrom12.pfb></usr/local/texlive/2017/texmf-dis
+t/fonts/type1/public/doublestroke/dsrom8.pfb></usr/local/texlive/2017/texmf-dis
+t/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2017/texmf
+-dist/fonts/type1/public/xypic/xyatip10.pfb></usr/local/texlive/2017/texmf-dist
+/fonts/type1/public/xypic/xybtip10.pfb></usr/local/texlive/2017/texmf-dist/font
+s/type1/public/xypic/xycmat10.pfb></usr/local/texlive/2017/texmf-dist/fonts/typ
+e1/public/xypic/xycmbt10.pfb>
+Output written on BCF.pdf (22 pages, 352479 bytes).
 PDF statistics:
- 348 PDF objects out of 1000 (max. 8388607)
- 302 compressed objects within 4 object streams
- 74 named destinations out of 1000 (max. 500000)
- 125 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 422 PDF objects out of 1000 (max. 8388607)
+ 364 compressed objects within 4 object streams
+ 96 named destinations out of 1000 (max. 500000)
+ 133 words of extra memory for PDF output out of 10000 (max. 10000000)
 
